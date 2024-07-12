@@ -13,7 +13,7 @@
   <h1 class="city-heading-l">JavaScript errors</h1>
   <p class="city-body-lead">
     Open your <a class="city-link" href="https://developer.mozilla.org/en-US/docs/Web/API/console#see_also">brower's console</a>
-    to witness the error thrown in browsers where GOV.UK Frontend is not supported.
+    to witness the error thrown in browsers where City Frontend is not supported.
   </p>
   {{ cityCharacterCount({
     label: {
@@ -32,7 +32,7 @@
     // Calling `initAll` would result in errors being logged rather than thrown
     import { CharacterCount } from '/javascripts/city-frontend.min.js'
 
-    // Simulate GOV.UK Frontend not being supported
+    // Simulate City Frontend not being supported
     document.body.classList.remove('city-frontend-supported')
 
     const $element = document.querySelector('[data-module="city-character-count"]')
@@ -42,7 +42,7 @@
       new CharacterCount($element)
       // Use `finally` to ensure we tidy up regardless of the error
     } finally {
-      // Add back the class marking GOV.UK Frontend support for future examples
+      // Add back the class marking City Frontend support for future examples
       document.body.classList.add('city-frontend-supported')
     }
   </script>

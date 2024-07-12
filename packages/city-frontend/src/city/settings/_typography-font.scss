@@ -11,7 +11,7 @@
 /// @type List
 /// @access public
 
-$city-font-family: "GDS Transport", arial, sans-serif !default;
+$city-font-family: "Montserrat", arial, sans-serif !default;
 
 /// Font families to use for print media
 ///
@@ -25,13 +25,13 @@ $city-font-family-print: sans-serif !default;
 
 /// Include the default @font-face declarations
 ///
-/// Defaults to true if "GDS Transport" appears in the $city-font-family
+/// Defaults to true if "Montserrat" appears in the $city-font-family
 /// setting.
 ///
 /// @type Boolean
 /// @access public
 
-$city-include-default-font-face: if(index($city-font-family, "GDS Transport"), true, false) !default;
+$city-include-default-font-face: if(index($city-font-family, "Montserrat"), true, false) !default;
 
 // =========================================================
 // Font weights
