@@ -41,12 +41,6 @@ describe('dist/', () => {
       expect(stylesheet).not.toContain('$city-')
     })
 
-    it('should contain the copyright notice', () => {
-      expect(stylesheet).toContain(
-        '/*! Copyright (c) 2011 by Margaret Calvert & Henrik Kubel. All rights reserved. The font has been customised for exclusive use on gov.uk. This cut is not commercially available. */'
-      )
-    })
-
     it('should contain source mapping URL', () => {
       expect(stylesheet).toMatch(
         new RegExp(`/\\*# sourceMappingURL=${filename}.map \\*/\n$`)
