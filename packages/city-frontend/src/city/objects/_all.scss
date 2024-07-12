@@ -1,0 +1,8 @@
+@import "../settings/warnings";
+@import "index";
+
+@include _warning(
+  "import-using-all",
+  "Importing using 'city/objects/all' is deprecated. Update your import statement to import 'city/objects/index'.",
+  $silence-further-warnings: false
+);

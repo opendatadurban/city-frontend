@@ -1,0 +1,132 @@
+@include city-exports("city/component/details") {
+  .city-details {
+    @include city-font($size: 19);
+    @include city-text-colour;
+    @include city-responsive-margin(6, "bottom");
+
+    display: block;
+  }
+
+  .city-details__summary {
+    // Make the focus outline shrink-wrap the text content of the summary
+    display: inline-block;
+
+    margin-bottom: city-spacing(1);
+  }
+
+  .city-details__summary-text {
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :only-child,
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .city-details__text {
+    padding-top: city-spacing(3);
+    padding-bottom: city-spacing(3);
+    padding-left: city-spacing(4);
+  }
+
+  .city-details__text p {
+    margin-top: 0;
+    margin-bottom: city-spacing(4);
+  }
+
+  .city-details__text > :last-child {
+    margin-bottom: 0;
+  }
+
+  // Hack to target IE8 - IE11 (and REALLY old Firefox)
+  // These browsers don't support the details element, so fall back to looking
+  // like inset text
+  @media screen\0 {
+    .city-details {
+      border-left: $city-border-width-wide solid $city-border-colour;
+    }
+
+    .city-details__summary {
+      margin-top: city-spacing(3);
+    }
+
+    .city-details__summary-text {
+      @include city-typography-weight-bold;
+      @include city-responsive-margin(4, "bottom");
+      padding-left: city-spacing(4);
+    }
+  }
+
+  // We wrap styles for newer browsers in a feature query, which is ignored by
+  // older browsers, which always expand the details element.
+  //
+  // Additionally, -ms-ime-align is only supported by Edge 12 - 18
+  //
+  // This ensures we don't use these styles in browsers which:
+  //   - support ES6 modules but not the <details> element (Edge 16 - 18)
+  //   - do not support ES6 modules or the <details> element (eg, IE8+)
+  @supports not (-ms-ime-align: auto) {
+    .city-details__summary {
+      // Absolutely position the marker against this element
+      position: relative;
+
+      // Allow for absolutely positioned marker and align with disclosed text
+      padding-left: city-spacing(4) + $city-border-width;
+
+      // Style the summary to look like a link...
+      color: $city-link-colour;
+      cursor: pointer;
+
+      &:hover {
+        color: $city-link-hover-colour;
+      }
+
+      &:focus {
+        @include city-focused-text;
+      }
+    }
+    // ...but only underline the text, not the arrow
+    .city-details__summary-text {
+      @include city-link-decoration;
+    }
+
+    .city-details__summary:hover .city-details__summary-text {
+      @include city-link-hover-decoration;
+    }
+
+    // Remove the underline when focussed to avoid duplicate borders
+    .city-details__summary:focus .city-details__summary-text {
+      text-decoration: none;
+    }
+
+    // Remove the default details marker so we can style our own consistently and
+    // ensure it displays in Firefox (see implementation.md for details)
+    .city-details__summary::-webkit-details-marker {
+      display: none;
+    }
+
+    // Append our own open / closed marker using a pseudo-element
+    .city-details__summary::before {
+      content: "";
+      position: absolute;
+
+      top: -1px;
+      bottom: 0;
+      left: 0;
+
+      margin: auto;
+
+      @include city-shape-arrow($direction: right, $base: 14px);
+
+      .city-details[open] > & {
+        @include city-shape-arrow($direction: down, $base: 14px);
+      }
+    }
+
+    .city-details__text {
+      border-left: $city-border-width solid $city-border-colour;
+    }
+  }
+}

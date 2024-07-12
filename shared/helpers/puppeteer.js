@@ -2,9 +2,9 @@ const { readFileSync } = require('fs')
 const { join } = require('path')
 
 const { AxePuppeteer } = require('@axe-core/puppeteer')
-const { paths, urls } = require('@govuk-frontend/config')
-const { renderPreview } = require('@govuk-frontend/lib/components')
-const { componentNameToClassName } = require('@govuk-frontend/lib/names')
+const { paths, urls } = require('@city-frontend/config')
+const { renderPreview } = require('@city-frontend/lib/components')
+const { componentNameToClassName } = require('@city-frontend/lib/names')
 const mime = require('mime-types')
 const slug = require('slug')
 
@@ -47,7 +47,7 @@ async function axe(page, overrides = {}) {
     rules: {
       /**
        * Ignore 'Some page content is not contained by landmarks'
-       * {@link https://github.com/alphagov/govuk-frontend/issues/1604}
+       * {@link https://github.com/alphagov/city-frontend/issues/1604}
        */
       region: { enabled: false },
       ...overrides
@@ -113,7 +113,7 @@ async function render(page, componentName, renderOptions, browserOptions) {
   const exampleName = renderOptions?.fixture?.name ?? 'default'
   const exportName = componentNameToClassName(componentName ?? '')
   const selector = componentName
-    ? `[data-module="govuk-${componentName}"]`
+    ? `[data-module="city-${componentName}"]`
     : `[data-module]`
 
   const route = getComponentURL(componentName, {
@@ -162,7 +162,7 @@ async function render(page, componentName, renderOptions, browserOptions) {
 
     const error = await page.evaluate(
       async (selector, exportName, config) => {
-        const namespace = await import('govuk-frontend')
+        const namespace = await import('city-frontend')
 
         // Skip custom initialisation without export
         if (!exportName || !namespace[exportName]) {
@@ -238,7 +238,7 @@ async function requestHandler(request) {
   // Return static assets
   if (protocol === 'file:' && pathname.startsWith('/assets/')) {
     return request.respond({
-      body: readFileSync(join(paths.package, `dist/govuk/${pathname}`)),
+      body: readFileSync(join(paths.package, `dist/city/${pathname}`)),
       contentType: mime.lookup(pathname) || 'text/plain'
     })
   }
@@ -416,7 +416,7 @@ module.exports = {
  */
 
 /**
- * @typedef {import('@govuk-frontend/lib/components').MacroRenderOptions} MacroRenderOptions
- * @typedef {import('govuk-frontend').Config} Config - Config for all components via `initAll()`
- * @typedef {import('govuk-frontend').ConfigKey} ConfigKey - Component config keys, e.g. `accordion` and `characterCount`
+ * @typedef {import('@city-frontend/lib/components').MacroRenderOptions} MacroRenderOptions
+ * @typedef {import('city-frontend').Config} Config - Config for all components via `initAll()`
+ * @typedef {import('city-frontend').ConfigKey} ConfigKey - Component config keys, e.g. `accordion` and `characterCount`
  */

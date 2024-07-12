@@ -1,0 +1,18 @@
+@import "links";
+@import "typography";
+
+@mixin city-global-styles {
+  a {
+    @extend %city-link;
+  }
+
+  p {
+    @extend %city-body-m;
+  }
+}
+
+@include city-exports("city/core/global-styles") {
+  @if $city-global-styles == true {
+    @include city-global-styles;
+  }
+}

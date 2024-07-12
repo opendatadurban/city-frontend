@@ -32,7 +32,7 @@ jobs:
         uses: ./.github/workflows/actions/build
 
       - name: Build with bundler
-        run: npm run ${{matrix.bundler}} -w @govuk-frontend/bundler-integrations
+        run: npm run ${{matrix.bundler}} -w @city-frontend/bundler-integrations
 
       # Check output for modules that should not be included
       - name: Check absence of unused modules in `single-component.js`

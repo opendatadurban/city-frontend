@@ -10,7 +10,7 @@ assignees: ''
     Please fill in as much of the template below as you’re able to. If you're unsure whether the issue already exists or how to fill in the template, open an issue anyway. Our team will help you to complete the rest.
 
     Your issue might already exist. If so, add a comment to the existing issue instead of creating a new one. You can find existing issues here:
-    - an existing Github issue: https://github.com/alphagov/govuk-frontend/issues
+    - an existing Github issue: https://github.com/alphagov/city-frontend/issues
     - known validation errors or warnings: https://github.com/orgs/alphagov/projects/37
 -->
 
@@ -28,7 +28,7 @@ assignees: ''
 
 ## Environment (where applicable)
 
-<!-- Details of your operating system, browser and the version of GOVUK Frontend you’re using may help us to reproduce your issue. -->
+<!-- Details of your operating system, browser and the version of city Frontend you’re using may help us to reproduce your issue. -->
 
 - Operating system:
 - Browser:

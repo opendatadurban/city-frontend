@@ -1,0 +1,44 @@
+@include city-exports("city/component/label") {
+  .city-label {
+    @include city-font($size: 19);
+    @include city-text-colour;
+
+    display: block;
+
+    margin-bottom: city-spacing(1);
+  }
+
+  // Modifiers that make labels look more like their equivalent headings
+  .city-label--xl,
+  .city-label--l,
+  .city-label--m {
+    @include city-typography-weight-bold;
+    margin-bottom: city-spacing(3);
+  }
+
+  .city-label--xl {
+    @include city-font-size($size: 48);
+  }
+
+  .city-label--l {
+    @include city-font-size($size: 36);
+  }
+
+  .city-label--m {
+    @include city-font-size($size: 24);
+  }
+
+  .city-label--s {
+    @include city-typography-weight-bold;
+  }
+
+  // When the label is nested inside a heading, override the heading so that it
+  // does not have a margin. Effectively we want to be able to treat the heading
+  // as if it is not there.
+  //
+  // This breaks BEM conventions because it exists as a parent of the 'block',
+  // so we can't really consider an element.
+  .city-label-wrapper {
+    margin: 0;
+  }
+}

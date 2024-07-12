@@ -1,0 +1,72 @@
+---
+title: Have you changed your name?
+scenario: |
+  As part of an online service, you are asked if you have changed your name.
+
+  Things to try:
+
+  1. Intentionally avoid answering the question before continuing to the next
+      page.
+---
+
+{# This example is based of the "Radios" example: https://design-system.service.gov.uk/components/radios #}
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+{% from "city/components/radios/macro.njk" import cityRadios %}
+{% from "city/components/button/macro.njk" import cityButton %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ "Error: " if errorSummary | length }}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <form method="post" novalidate>
+    {% if errorSummary | length %}
+      {{ cityErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorSummary
+      }) }}
+    {% endif %}
+
+    {{ cityRadios({
+      classes: "city-radios--inline",
+      idPrefix: "changed-name",
+      name: "changed-name",
+      fieldset: {
+        legend: {
+          text: pageTitle,
+          isPageHeading: true,
+          classes: "city-fieldset__legend--xl"
+        }
+      },
+      hint: {
+        text: "This includes changing your last name or spelling your name differently."
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ],
+      value: values["changed-name"],
+      errorMessage: errors["changed-name"]
+    }) }}
+
+    {{ cityButton({
+      text: "Continue"
+    }) }}
+  </form>
+
+{% endblock %}

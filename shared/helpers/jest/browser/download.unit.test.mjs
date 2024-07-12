@@ -39,7 +39,7 @@ describe('Browser tasks: Puppeteer browser downloader', () => {
   it('downloads with single version outdated', async () => {
     browsers = [
       {
-        path: '/path/to/govuk-frontend/.cache/puppeteer/chrome/mac-old-version',
+        path: '/path/to/city-frontend/.cache/puppeteer/chrome/mac-old-version',
         browser: 'chrome',
         platform: 'mac',
         buildId: 'old-version'
@@ -60,13 +60,13 @@ describe('Browser tasks: Puppeteer browser downloader', () => {
   it('downloads with multiple versions outdated', async () => {
     browsers = [
       {
-        path: '/path/to/govuk-frontend/.cache/puppeteer/chrome/mac-old-version-1',
+        path: '/path/to/city-frontend/.cache/puppeteer/chrome/mac-old-version-1',
         browser: 'chrome',
         platform: 'mac',
         buildId: 'old-version-1'
       },
       {
-        path: '/path/to/govuk-frontend/.cache/puppeteer/chrome/mac-old-version-2',
+        path: '/path/to/city-frontend/.cache/puppeteer/chrome/mac-old-version-2',
         browser: 'chrome',
         platform: 'mac',
         buildId: 'old-version-2'
@@ -87,7 +87,7 @@ describe('Browser tasks: Puppeteer browser downloader', () => {
   it('download skipped when up-to-date', async () => {
     browsers = [
       {
-        path: '/path/to/govuk-frontend/.cache/puppeteer/chrome/mac-new-version',
+        path: '/path/to/city-frontend/.cache/puppeteer/chrome/mac-new-version',
         browser: 'chrome',
         platform: 'mac',
         buildId: 'new-version'

@@ -1,0 +1,14 @@
+// stylelint-disable declaration-no-important
+@include city-exports("city/overrides/text-align") {
+  .city-\!-text-align-left {
+    text-align: left !important;
+  }
+
+  .city-\!-text-align-centre {
+    text-align: center !important;
+  }
+
+  .city-\!-text-align-right {
+    text-align: right !important;
+  }
+}

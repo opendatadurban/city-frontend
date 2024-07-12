@@ -1,0 +1,55 @@
+{% extends "layouts/examples.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/character-count/macro.njk" import cityCharacterCount %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="city-heading-l">JavaScript errors</h1>
+  <p class="city-body-lead">
+    Open your <a class="city-link" href="https://developer.mozilla.org/en-US/docs/Web/API/console#see_also">brower's console</a>
+    to witness the error thrown in browsers where GOV.UK Frontend is not supported.
+  </p>
+  {{ cityCharacterCount({
+    label: {
+      text: "Any other comment"
+    },
+    id: "some-content",
+    name: "some-content"
+  })}}
+{% endblock %}
+
+{% block bodyEnd %}
+  <script type="module" src="/javascripts/city-frontend.min.js"></script>
+
+  <!-- SupportError -->
+  <script type="module">
+    // Calling `initAll` would result in errors being logged rather than thrown
+    import { CharacterCount } from '/javascripts/city-frontend.min.js'
+
+    // Simulate GOV.UK Frontend not being supported
+    document.body.classList.remove('city-frontend-supported')
+
+    const $element = document.querySelector('[data-module="city-character-count"]')
+
+    try {
+      // Instantiate the component directly so errors are thrown
+      new CharacterCount($element)
+      // Use `finally` to ensure we tidy up regardless of the error
+    } finally {
+      // Add back the class marking GOV.UK Frontend support for future examples
+      document.body.classList.add('city-frontend-supported')
+    }
+  </script>
+
+  <!--
+    Add examples of other types of errors in their own `<script>` tag.
+    This separates each error example, as well as isolate their code
+    from the errors thrown by the other `<script>` tags.
+  -->
+{% endblock %}

@@ -1,0 +1,343 @@
+@include city-exports("city/component/header") {
+  $city-header-background: city-colour("black");
+  $city-header-border-color: $city-brand-colour;
+  $city-header-border-width: city-spacing(2);
+  $city-header-text: city-colour("white");
+  $city-header-link-active: #1d8feb;
+  $city-header-nav-item-border-color: #2e3133;
+  $city-header-link-underline-thickness: 3px;
+  $city-header-vertical-spacing-value: 2;
+  // This crown height is only used to calculate top offset of mobile menu button
+  // as the crown svg height is the only thing that controls the height of the header
+  $city-header-crown-height: 30px;
+  $city-header-menu-button-height: 24px;
+  $city-header-menu-button-width: 80px;
+
+  .city-header {
+    @include city-font($size: 16, $line-height: 1);
+
+    border-bottom: city-spacing(2) solid city-colour("white");
+    color: $city-header-text;
+    background: $city-header-background;
+  }
+
+  .city-header__container--full-width {
+    padding: 0 city-spacing(3);
+    border-color: $city-header-border-color;
+
+    .city-header__menu-button {
+      right: city-spacing(3);
+    }
+  }
+
+  .city-header__container {
+    @include city-clearfix;
+    position: relative;
+    margin-bottom: -$city-header-border-width;
+    padding-top: city-spacing($city-header-vertical-spacing-value);
+    border-bottom: $city-header-border-width solid $city-header-border-color;
+  }
+
+  .city-header__logotype {
+    display: inline-block;
+    position: relative;
+    top: -3px;
+
+    // Add a gap after the logo in case it's followed by a product name. This
+    // gets removed later if the logotype is a :last-child.
+    margin-right: city-spacing(1);
+    fill: currentcolor;
+    vertical-align: top;
+
+    // Prevent readability backplate from obscuring underline in Windows High
+    // Contrast Mode
+    @media (forced-colors: active) {
+      forced-color-adjust: none;
+      color: linktext;
+    }
+
+    // Remove the gap after the logo if there's no product name to keep hover
+    // and focus states neat
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .city-header__product-name {
+    $product-name-offset: if($city-new-typography-scale, 7px, 10px);
+    $product-name-offset-tablet: 5px;
+
+    @include city-font-size($size: 24, $line-height: 1);
+    @include city-typography-weight-regular;
+    display: inline-table;
+
+    // Maintain space below logo when wrapped
+    margin-top: $product-name-offset;
+
+    // Firefox places the GOV.UK logo one pixel higher, due to how it rounds
+    // subpixels, so nudge the product name in FF to still be aligned.
+    @-moz-document url-prefix() {
+      margin-top: $product-name-offset - 0.5px;
+    }
+
+    // Align vertically with logo when not wrapped
+    vertical-align: top;
+
+    @include city-media-query($from: tablet) {
+      margin-top: $product-name-offset-tablet;
+      @-moz-document url-prefix() {
+        margin-top: $product-name-offset-tablet - 0.5px;
+      }
+    }
+  }
+
+  .city-header__link {
+    // Avoid using the `city-link-common` mixin because the links in the header
+    // get a special treatment, because:
+    //
+    // - underlines are only visible on hover
+    // - all links get a 3px underline regardless of text size, as there are
+    //   multiple grouped elements close to one another and having slightly
+    //   different underline widths looks unbalanced
+    @include city-link-style-inverse;
+
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: $city-header-link-underline-thickness;
+
+      @if $city-link-underline-offset {
+        text-underline-offset: $city-link-underline-offset;
+      }
+    }
+
+    &:focus {
+      @include city-focused-text;
+    }
+  }
+
+  .city-header__link--homepage {
+    // Font size needs to be set on the link so that the box sizing is correct
+    // in Firefox
+    display: inline-block;
+    margin-right: city-spacing(2);
+    font-size: 30px; // We don't have a mixin that produces 30px font size
+
+    @include city-media-query($from: desktop) {
+      display: inline;
+
+      &:focus {
+        // Replicate the focus box shadow but without the -2px y-offset of the first yellow shadow
+        // This is to stop the logo getting cut off by the box shadow when focused on above a product name
+        box-shadow: 0 0 $city-focus-colour;
+      }
+    }
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      // Negate the added border
+      margin-bottom: $city-header-link-underline-thickness * -1;
+      border-bottom: $city-header-link-underline-thickness solid;
+    }
+
+    // Remove any borders that show when focused and hovered.
+    &:focus {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  .city-header__service-name {
+    display: inline-block;
+    margin-bottom: city-spacing(2);
+    @include city-font-size($size: 24);
+    @include city-typography-weight-bold;
+  }
+
+  .city-header__logo,
+  .city-header__content {
+    box-sizing: border-box;
+  }
+
+  .city-header__logo {
+    @include city-responsive-margin($city-header-vertical-spacing-value, "bottom");
+    // Protect the absolute positioned menu button from overlapping with the
+    // logo with right padding using the button's width
+    padding-right: $city-header-menu-button-width;
+
+    @include city-media-query($from: desktop) {
+      width: 33.33%;
+      padding-right: $city-gutter-half;
+      float: left;
+      vertical-align: top;
+
+      // Reset float when logo is the last child, without a navigation
+      &:last-child {
+        width: auto;
+        padding-right: 0;
+        float: none;
+      }
+    }
+  }
+
+  .city-header__content {
+    @include city-media-query($from: desktop) {
+      width: 66.66%;
+      padding-left: $city-gutter-half;
+      float: left;
+    }
+  }
+
+  .city-header__menu-button {
+    @include city-font($size: 16);
+    position: absolute;
+    // calculate top offset by:
+    // - getting the vertical spacing for the top and the bottom of the header
+    // - adding that to the crown height
+    // - dividing it by 2 so you have the vertical centre of the header
+    // - subtracting half the height of the menu button
+    top: (((city-spacing($city-header-vertical-spacing-value) * 2) + $city-header-crown-height) / 2) -
+      ($city-header-menu-button-height / 2);
+    right: 0;
+    max-width: $city-header-menu-button-width;
+    min-height: $city-header-menu-button-height;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: city-colour("white");
+    background: none;
+    word-break: break-all;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: solid underline $city-header-link-underline-thickness;
+
+      @if $city-link-underline-offset {
+        text-underline-offset: $city-link-underline-offset;
+      }
+    }
+
+    &:focus {
+      @include city-focused-text;
+    }
+
+    &::after {
+      @include city-shape-arrow($direction: down, $base: 10px, $display: inline-block);
+      content: "";
+      margin-left: city-spacing(1);
+    }
+
+    &[aria-expanded="true"]::after {
+      @include city-shape-arrow($direction: up, $base: 10px, $display: inline-block);
+    }
+
+    @include city-media-query($from: tablet) {
+      top: city-spacing(3);
+    }
+
+    .city-frontend-supported & {
+      display: block;
+    }
+
+    &[hidden],
+    .city-frontend-supported &[hidden] {
+      display: none;
+    }
+  }
+
+  .city-header__navigation {
+    @include city-media-query($from: desktop) {
+      margin-bottom: city-spacing(2);
+    }
+  }
+
+  .city-header__navigation-list {
+    // Reset user-agent default list styles
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .city-header__navigation--end {
+    @include city-media-query($from: desktop) {
+      margin: 0;
+      padding: city-spacing(1) 0;
+      text-align: right;
+    }
+  }
+
+  .city-header__navigation-item {
+    padding: city-spacing(2) 0;
+    border-bottom: 1px solid $city-header-nav-item-border-color;
+
+    @include city-media-query($from: desktop) {
+      display: inline-block;
+      margin-right: city-spacing(3);
+      padding: city-spacing(1) 0;
+      border: 0;
+    }
+
+    a {
+      @include city-font-size($size: 16);
+      @include city-typography-weight-bold;
+      white-space: nowrap;
+    }
+  }
+
+  .city-header__navigation-item--active {
+    a {
+      &:link,
+      &:hover,
+      &:visited {
+        color: $city-header-link-active;
+      }
+
+      // When printing, use the normal blue as this contrasts better with the
+      // white printing header
+      @include city-media-query($media-type: print) {
+        color: $city-brand-colour;
+      }
+
+      // When focussed, the text colour needs to be darker to ensure that colour
+      // contrast is still acceptable
+      &:focus {
+        color: $city-focus-text-colour;
+      }
+    }
+  }
+
+  .city-header__navigation-item:last-child {
+    margin-right: 0;
+    border-bottom: 0;
+  }
+
+  @include city-media-query($media-type: print) {
+    .city-header {
+      border-bottom-width: 0;
+      color: city-colour("black");
+      background: transparent;
+    }
+
+    .city-header__link {
+      &:link,
+      &:visited {
+        color: city-colour("black");
+      }
+
+      // Do not append link href to GOV.UK link when printing (e.g. '(/)')
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

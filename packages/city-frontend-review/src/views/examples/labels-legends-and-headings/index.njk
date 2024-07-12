@@ -1,0 +1,2788 @@
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/button/macro.njk" import cityButton %}
+{% from "city/components/date-input/macro.njk" import cityDateInput %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+{% from "city/components/radios/macro.njk" import cityRadios %}
+{% from "city/components/checkboxes/macro.njk" import cityCheckboxes %}
+{% from "city/components/input/macro.njk" import cityInput %}
+
+{% extends "layouts/examples.njk" %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="city-heading-xl">Labels, legends and headings</h1>
+
+  <h2 class="city-heading-l">Text input</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--xl",
+      isPageHeading: true,
+      classes: 'city-label--xl '
+    },
+    "id": "text-input-heading-xl",
+    "name": "text-input-heading-xl"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--l",
+      isPageHeading: true,
+      classes: 'city-label--l '
+    },
+    "id": "text-input-heading-l",
+    "name": "text-input-heading-l"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--m",
+      isPageHeading: true,
+      classes: 'city-label--m '
+    },
+    "id": "text-input-heading-m",
+    "name": "text-input-heading-m"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--s",
+      isPageHeading: true,
+      classes: 'city-label--s '
+    },
+    "id": "text-input-heading-s",
+    "name": "text-input-heading-s"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> No class",
+      isPageHeading: true,
+      classes: ''
+    },
+    "id": "text-input-heading-no-class",
+    "name": "text-input-heading-no-class"
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--xl",
+      classes: 'city-label--xl '
+    },
+    "id": "text-input-xl",
+    "name": "text-input-xl"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--l",
+      classes: 'city-label--l '
+    },
+    "id": "text-input-l",
+    "name": "text-input-l"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--m",
+      classes: 'city-label--m'
+    },
+    "id": "text-input-m",
+    "name": "text-input-m"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--s",
+      classes: 'city-label--s'
+    },
+    "id": "text-input-s",
+    "name": "text-input-s"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> No class",
+      classes: ''
+    },
+    "id": "text-input-no-class",
+    "name": "text-input-no-class"
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Text input (with hint)</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--xl",
+      isPageHeading: true,
+      classes: 'city-label--xl '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-heading-xl",
+    "name": "text-input-hint-heading-xl"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--l",
+      isPageHeading: true,
+      classes: 'city-label--l '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-heading-l",
+    "name": "text-input-hint-heading-l"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--m",
+      isPageHeading: true,
+      classes: 'city-label--m '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-heading-m",
+    "name": "text-input-hint-heading-m"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--s",
+      isPageHeading: true,
+      classes: 'city-label--s '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-heading-s",
+    "name": "text-input-hint-heading-s"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> No class",
+      isPageHeading: true,
+      classes: ''
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-heading-no-class",
+    "name": "text-input-hint-heading-no-class"
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--xl",
+      classes: 'city-label--xl '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-xl",
+    "name": "text-input-hint-xl"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--l",
+      classes: 'city-label--l '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-l",
+    "name": "text-input-hint-l"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--m",
+      classes: 'city-label--m'
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-m",
+    "name": "text-input-hint-m"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--s",
+      classes: 'city-label--s'
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-s",
+    "name": "text-input-hint-s"
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> No class",
+      classes: ''
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-no-class",
+    "name": "text-input-hint-no-class"
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Text input (with hint and error)</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--xl",
+      isPageHeading: true,
+      classes: 'city-label--xl '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-heading-hint-error-xl",
+    "name": "text-input-heading-hint-error-xl",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--l",
+      isPageHeading: true,
+      classes: 'city-label--l '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-heading-hint-error-l",
+    "name": "text-input-heading-hint-error-l",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--m",
+      isPageHeading: true,
+      classes: 'city-label--m '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-heading-hint-error-m",
+    "name": "text-input-heading-hint-error-m",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> city-label--s",
+      isPageHeading: true,
+      classes: 'city-label--s '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-heading-hint-error-s",
+    "name": "text-input-heading-hint-error-s",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<h1> No class",
+      isPageHeading: true,
+      classes: ''
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-heading-hint-error-no-class",
+    "name": "text-input-heading-hint-error-no-class",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--xl",
+      classes: 'city-label--xl '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-error-xl",
+    "name": "text-input-hint-error-xl",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--l",
+      classes: 'city-label--l '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-error-l",
+    "name": "text-input-hint-error-l",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--m",
+      classes: 'city-label--m '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-error-m",
+    "name": "text-input-hint-error-m",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> city-label--s",
+      classes: 'city-label--s '
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-error-s",
+    "name": "text-input-hint-error-s",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ cityInput({
+    "label": {
+      "text": "<label> No class",
+      classes: ''
+    },
+    "hint": {
+      "html": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "text-input-hint-error-no-class",
+    "name": "text-input-hint-error-no-class",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Checkboxes</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Checkboxes (with hint)</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Checkboxes (with hint and error)</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-error-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-error-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-error-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-error-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-heading-hint-error-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-error-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-error-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-error-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-error-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ cityCheckboxes({
+    "name": "checkboxes-hint-error-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    },
+    "hint": {
+      "text": "If you have dual nationality, select all options that are relevant to you."
+    },
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "Citizen of another country"
+      }
+    ]
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Radios</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityRadios({
+    "name": "radios-heading-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityRadios({
+    "name": "radios-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Radios (with hint)</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityRadios({
+    "name": "radios-hint-xl",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-hint-l",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-hint-m",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-hint-s",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-hint-no-class",
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Radios (with hint and error)</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-error-xl",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-error-l",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-error-m",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-error-s",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-heading-hint-error-no-class",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityRadios({
+    "name": "radios-hint-error-xl",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-hint-error-l",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-hint-error-m",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-hint-error-s",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  {{ cityRadios({
+    "name": "radios-hint-error-no-class",
+    "errorMessage": {
+      "text": "Please select an option"
+    },
+    "fieldset": {
+      "classes": "app-fieldset--custom-modifier",
+      "attributes": {
+        "data-attribute": "value",
+        "data-second-attribute": "second-value"
+      },
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Date Input</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityDateInput({
+    id: 'date-heading-xl',
+    name: 'date-heading-xl',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-l',
+    name: 'date-heading-l',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-m',
+    name: 'date-heading-m',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-s',
+    name: 'date-heading-s',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-no-class',
+    name: 'date-heading-no-class',
+    fieldset: {
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    }
+    })
+  }}
+
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityDateInput({
+    id: 'date-xl',
+    name: 'date-xl',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-l',
+    name: 'date-l',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-m',
+    name: 'date-m',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-s',
+    name: 'date-s',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-no-class',
+    name: 'date-no-class',
+    fieldset: {
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    }
+    })
+  }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Date Input (with hint)</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-xl',
+    name: 'date-heading-hint-xl',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-l',
+    name: 'date-heading-hint-l',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-m',
+    name: 'date-heading-hint-m',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-s',
+    name: 'date-heading-hint-s',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-no-class',
+    name: 'date-heading-hint-no-class',
+    fieldset: {
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  <form action="/" method="post">
+
+  {{ cityDateInput({
+    id: 'date-hint-xl',
+    name: 'date-hint-xl',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-hint-l',
+    name: 'date-hint-l',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-hint-m',
+    name: 'date-hint-m',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-hint-s',
+    name: 'date-hint-s',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-hint-no-class',
+    name: 'date-hint-no-class',
+    fieldset: {
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    }
+    })
+  }}
+
+  <hr class="city-section-break city-section-break--xl city-section-break--visible">
+
+  <h2 class="city-heading-l">Date Input (with hint and error)</h2>
+
+  <h3 class="city-heading-s">isPageHeading: true</h3>
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-error-xl',
+    name: 'date-heading-hint-error-xl',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--xl',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-error-l',
+    name: 'date-heading-hint-error-l',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--l',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-error-m',
+    name: 'date-heading-hint-error-m',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--m',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-error-s',
+    name: 'date-heading-hint-error-s',
+    fieldset: {
+      legend: {
+        text: '<h1> city-fieldset__legend--s',
+        isPageHeading: true,
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+
+  {{ cityDateInput({
+    id: 'date-heading-hint-error-no-class',
+    name: 'date-heading-hint-error-no-class',
+    fieldset: {
+      legend: {
+        text: '<h1> No class',
+        isPageHeading: true,
+        classes: ''
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+  <h3 class="city-heading-s">isPageHeading: false</h3>
+
+  {{ cityDateInput({
+    id: 'date-hint-error-xl',
+    name: 'date-hint-error-xl',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--xl',
+        classes: 'city-fieldset__legend--xl'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-hint-error-l',
+    name: 'date-hint-error-l',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--l',
+        classes: 'city-fieldset__legend--l'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-hint-error-m',
+    name: 'date-hint-error-m',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--m',
+        classes: 'city-fieldset__legend--m'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-hint-error-s',
+    name: 'date-hint-error-s',
+    fieldset: {
+      legend: {
+        text: '<legend> city-fieldset__legend--s',
+        classes: 'city-fieldset__legend--s'
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+
+  {{ cityDateInput({
+    id: 'date-hint-error-no-class',
+    name: 'date-hint-error-no-class',
+    fieldset: {
+      legend: {
+        text: '<legend> No class',
+        classes: ''
+      }
+    },
+    hint: {
+      text: 'For example 5 12 1987'
+    },
+    errorMessage: {
+      text: "You must provide your date of birth"
+    }
+    })
+  }}
+{% endblock %}

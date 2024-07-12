@@ -1,0 +1,79 @@
+params:
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within the tag component. If `html` is provided, the `text` option will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within the tag component. If `html` is provided, the `text` option will be ignored.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the tag.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the tag.
+
+examples:
+  - name: default
+    options:
+      text: Alpha
+  - name: grey
+    options:
+      text: Grey
+      classes: city-tag--grey
+  - name: blue
+    options:
+      text: Blue
+      classes: city-tag--blue
+  - name: light blue
+    options:
+      text: Light blue
+      classes: city-tag--light-blue
+  - name: turquoise
+    options:
+      text: Turquoise
+      classes: city-tag--turquoise
+  - name: green
+    options:
+      text: Green
+      classes: city-tag--green
+  - name: purple
+    options:
+      text: Purple
+      classes: city-tag--purple
+  - name: pink
+    options:
+      text: Pink
+      classes: city-tag--pink
+  - name: red
+    options:
+      text: Red
+      classes: city-tag--red
+  - name: orange
+    options:
+      text: Orange
+      classes: city-tag--orange
+  - name: yellow
+    options:
+      text: Yellow
+      classes: city-tag--yellow
+
+  # Hidden examples are not shown in the review app, but are used for tests and HTML fixtures
+  - name: attributes
+    hidden: true
+    options:
+      text: Tag with attributes
+      attributes:
+        data-test: attribute
+        id: my-tag
+  - name: html as text
+    hidden: true
+    options:
+      text: <span>Alpha</span>
+  - name: html
+    hidden: true
+    options:
+      html: <span>Alpha</span>

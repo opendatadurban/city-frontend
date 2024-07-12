@@ -1,0 +1,60 @@
+{% extends "layouts/layout.njk" %}
+{% from "city/components/breadcrumbs/macro.njk" import cityBreadcrumbs %}
+
+{% block pageTitle %}Full page examples - GOV.UK Frontend{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBreadcrumbs({
+    items: [
+      {
+        text: "GOV.UK Frontend",
+        href: "/"
+      },
+      {
+        text: "Full page examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="city-grid-row">
+  <div class="city-grid-column-two-thirds">
+    <h1 class="city-heading-xl">
+      Full page examples
+    </h1>
+
+    <p class="city-body-l">These examples are designed to test the styles, components and patterns from GOV.UK Frontend in a realistic context.</p>
+
+    <p class="city-body">Your responses to any questions asked in the examples will not be recorded.</p>
+
+    <hr class="city-section-break city-section-break--l" />
+
+    {% for example in fullPageExamples %}
+    <section aria-labelledby="heading-{{ example.name }}">
+      <h2 id="heading-{{ example.name }}" class="city-heading-l city-!-margin-bottom-2">{{ example.name | unslugify }}</h2>
+
+      <p class="city-body">
+        <a href="/full-page-examples/{{ example.path }}" class="city-link" rel="noreferrer noopener" target="_blank">
+          Open this example in a new tab<span class="city-visually-hidden">: {{ example.name | unslugify | lower }}</span>
+        </a>
+      </p>
+
+    {% if example.scenario or example.notes %}
+      <div class="app-prose-scope city-!-margin-top-6">
+        {{ example.scenario | markdown if example.scenario }}
+
+      {% if example.notes %}
+        <h3>Notes</h3>
+        {{ example.notes | markdown }}
+      {% endif %}
+      </div>
+    {% endif %}
+
+    </section>
+
+    <hr class="city-section-break city-section-break--visible city-section-break--xl" />
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

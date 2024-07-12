@@ -1,0 +1,36 @@
+@include city-exports("city/overrides/typography") {
+  // Font size and line height
+
+  // Generate typography override classes for each responsive font map in the
+  // typography scale eg .city-\!-font-size-80
+  //
+  // city-!-font-size-14 is deprecated
+  @each $size, $font-map in $city-typography-scale {
+    .city-\!-font-size-#{$size} {
+      $font-map: map-get($city-typography-scale, $size);
+
+      // Add underscore to deprecated typography scale keys
+      @if map-has-key($font-map, "deprecation") {
+        $size: _#{$size};
+      }
+
+      @include city-font-size($size, $important: true);
+    }
+  }
+
+  // Weights
+
+  .city-\!-font-weight-regular {
+    @include city-typography-weight-regular($important: true);
+  }
+
+  .city-\!-font-weight-bold {
+    @include city-typography-weight-bold($important: true);
+  }
+
+  // Tabular numbers
+
+  .city-\!-font-tabular-numbers {
+    @include city-font-tabular-numbers($important: true);
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "name": "city-frontend",
+  "description": "GOV.UK Frontend contains the code you need to start building a user interface for government platforms and services.",
+  "version": "5.4.0",
+  "main": "dist/city/all.bundle.js",
+  "module": "dist/city/all.mjs",
+  "sass": "dist/city/all.scss",
+  "files": [
+    "dist",
+    "city-prototype-kit.config.json",
+    "package.json",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "sass": "./dist/city/all.scss",
+      "import": "./dist/city/all.mjs",
+      "require": "./dist/city/all.bundle.js",
+      "default": "./dist/city/all.bundle.js"
+    },
+    "./*": "./*",
+    "./dist/": "./dist/",
+    "./city-prototype-kit.config.json": "./city-prototype-kit.config.json",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 4.2.0"
+  },
+  "author": {
+    "name": "GOV.UK Design System Team (Government Digital Service)",
+    "email": "design-system-developers@digital.cabinet-office.gov.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opendatadurban/city-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/opendatadurban/city-frontend/issues"
+  },
+  "homepage": "https://frontend.design-system.service.gov.uk/",
+  "keywords": [
+    "city",
+    "frontend",
+    "design system",
+    "template"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "gulp dev --color",
+    "prebuild:package": "npm run clean:package",
+    "prebuild:release": "npm run clean:release",
+    "build": "npm run build:package",
+    "build:package": "gulp build:package --color",
+    "build:release": "gulp build:release --color",
+    "build:stats": "npm run stats --workspace @city-frontend/stats",
+    "build:types": "tsc --build tsconfig.build.json",
+    "clean": "npm run clean:package",
+    "clean:package": "del-cli *.tsbuildinfo dist city-prototype-kit.config.json",
+    "clean:release": "del-cli ../../dist --force",
+    "postbuild:package": "npm run build:stats && city-prototype-kit validate-plugin .",
+    "version": "echo $npm_package_version"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@city-frontend/config": "*",
+    "@city-frontend/helpers": "*",
+    "@city-frontend/lib": "*",
+    "@city-frontend/tasks": "*",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-replace": "^5.0.7",
+    "@rollup/plugin-terser": "^0.4.4",
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.4",
+    "cssnano-preset-default": "^7.0.1",
+    "govuk-prototype-kit": "^13.16.2",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
+    "html-validate": "8.20.1",
+    "nunjucks": "^3.2.4",
+    "outdent": "^0.8.0",
+    "postcss": "^8.4.39",
+    "postcss-scss": "^4.0.9",
+    "puppeteer": "^22.12.1",
+    "rollup": "^4.18.0",
+    "sass-color-helpers": "^2.1.1",
+    "sass-embedded": "^1.77.5",
+    "sassdoc": "^2.7.4",
+    "slash": "^5.1.0"
+  }
+}

@@ -10,7 +10,7 @@ We next need to define a cutoff date for this release. Once the cutoff date pass
 
 ## Raise release issues
 
-Release issues should be created in the team GitHub repositories: [govuk-frontend](https://github.com/alphagov/govuk-frontend), [govuk-design-system](https://github.com/alphagov/govuk-design-system/) and [govuk-frontend-docs](https://github.com/alphagov/govuk-frontend-docs).
+Release issues should be created in the team GitHub repositories: [city-frontend](https://github.com/alphagov/city-frontend), [city-design-system](https://github.com/alphagov/city-design-system/) and [city-frontend-docs](https://github.com/alphagov/city-frontend-docs).
 
 All these issues should be:
 
@@ -20,21 +20,21 @@ All these issues should be:
 
 Those leading on the release should raise new issues to track the following:
 
-- draft comms for the new release (example issue: [#2507](https://github.com/alphagov/govuk-frontend/issues/2507))
-- create release notes for the new release (example issue: [#2508](https://github.com/alphagov/govuk-frontend/issues/2508))
-- release the new version of GOV.UK Frontend to npm (example issue: [#2509](https://github.com/alphagov/govuk-frontend/issues/2509))
-- update the GOV.UK Design System to use the new release of GOV.UK Frontend (example issue: [#2024](https://github.com/alphagov/govuk-design-system/issues/2024)):
-  - bump the version of `govuk-frontend`
+- draft comms for the new release (example issue: [#2507](https://github.com/alphagov/city-frontend/issues/2507))
+- create release notes for the new release (example issue: [#2508](https://github.com/alphagov/city-frontend/issues/2508))
+- release the new version of GOV.UK Frontend to npm (example issue: [#2509](https://github.com/alphagov/city-frontend/issues/2509))
+- update the GOV.UK Design System to use the new release of GOV.UK Frontend (example issue: [#2024](https://github.com/alphagov/city-design-system/issues/2024)):
+  - bump the version of `city-frontend`
   - update the "What's new" section on the home page
   - update the "Recently shipped" section of the roadmap
   - merge any other documentation PRs specific to the release
-- update the GOV.UK Frontend Docs to use the new release of GOV.UK Frontend (example issue: [#184](https://github.com/alphagov/govuk-frontend-docs/issues/184)):
-  - bump the version of `govuk-frontend`
+- update the GOV.UK Frontend Docs to use the new release of GOV.UK Frontend (example issue: [#184](https://github.com/alphagov/city-frontend-docs/issues/184)):
+  - bump the version of `city-frontend`
   - update the "Updating with npm" example for `package.json` with the current number
   - merge any other documentation PRs specific to the release
-- post the comms and do tidy-up tasks (example issue: [#2510](https://github.com/alphagov/govuk-frontend/issues/2510))
+- post the comms and do tidy-up tasks (example issue: [#2510](https://github.com/alphagov/city-frontend/issues/2510))
 
-Once the developers have created these issues, the person leading the release should add them to an epic (example issue: [#2511](https://github.com/alphagov/govuk-frontend/issues/2511)).
+Once the developers have created these issues, the person leading the release should add them to an epic (example issue: [#2511](https://github.com/alphagov/city-frontend/issues/2511)).
 
 ## Draft comms and release notes for the community
 
@@ -43,7 +43,7 @@ A content designer and/or tech writer should do the following:
 - write announcements for slack posts, email and to go on the design system website after we release GOV.UK Frontend (for example, [draft comms for the cookie banner component](https://docs.google.com/document/d/1jVyMB7i94NOeflWaf3kE4Q4APMXGfluK3rOh74IHO08/edit))
 - check who the release’s contributors are and if we have consent to include their name
 
-A technical writer should finalise draft of release notes. Release notes will require a 2i review by another technical writer, make sure the technical writer has time to coordinate this. When ready, open a pull request to update the [CHANGELOG.md](https://github.com/alphagov/govuk-frontend/blob/main/CHANGELOG.md) file with the updated release notes.
+A technical writer should finalise draft of release notes. Release notes will require a 2i review by another technical writer, make sure the technical writer has time to coordinate this. When ready, open a pull request to update the [CHANGELOG.md](https://github.com/alphagov/city-frontend/blob/main/CHANGELOG.md) file with the updated release notes.
 
 If the technical writer is unavailable, ask for help in the [gds-technical-writing Slack channel](https://gds.slack.com/archives/CAD0R2NQG) or confer with a content designer.
 

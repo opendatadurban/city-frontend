@@ -1,0 +1,68 @@
+@import "city/base";
+@import "city/core";
+
+.app-document-list > li {
+  padding-top: city-spacing(4);
+  padding-bottom: city-spacing(2);
+  border-bottom: 1px solid $city-border-colour;
+}
+
+.app-metadata-list > li {
+  display: inline-block;
+  margin-right: city-spacing(2);
+}
+
+.app-filter li {
+  padding-bottom: city-spacing(4);
+  border-bottom: 1px solid $city-border-colour;
+}
+
+.app-open-fieldset {
+  margin-top: city-spacing(4);
+  margin-bottom: city-spacing(4);
+  font-weight: normal;
+}
+
+.app-search-result-list__children {
+  margin-left: city-spacing(4);
+
+  @include mq($from: tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+    list-style: none;
+  }
+}
+
+.app-search-results-summary {
+  position: relative;
+}
+
+.app-search-results-summary .subscribe-link {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+.app-search-result-sort {
+  @include city-font($size: 16);
+}
+
+.app-search-result-sort label {
+  @include city-font($size: 16);
+  display: inline;
+  margin-right: city-spacing(1);
+}
+
+.app-next-page__number {
+  text-decoration-line: underline;
+}
+
+.app-next-page {
+  display: block;
+  padding: city-spacing(4) city-spacing(2);
+}
+
+.app-next-page:hover {
+  background-color: city-colour("light-grey");
+}

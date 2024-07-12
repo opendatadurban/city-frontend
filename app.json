@@ -1,5 +1,5 @@
 {
-  "name": "govuk-frontend",
+  "name": "city-frontend",
   "env": {
     "HEROKU_APP": "REVIEW"
   },

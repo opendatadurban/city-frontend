@@ -1,0 +1,314 @@
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/panel/macro.njk" import cityPanel %}
+{% from "city/components/fieldset/macro.njk" import cityFieldset %}
+{% from "city/components/label/macro.njk" import cityLabel %}
+{% from "city/components/input/macro.njk" import cityInput %}
+{% from "city/components/button/macro.njk" import cityButton %}
+{% from "city/components/select/macro.njk" import citySelect %}
+{% from "city/components/checkboxes/macro.njk" import cityCheckboxes %}
+{% from "city/components/radios/macro.njk" import cityRadios %}
+
+{% extends "layouts/examples.njk" %}
+
+{% block styles %}
+<style>
+  .app-u-w-full {
+    width: 100%;
+  }
+
+  .app-u-w-half {
+    width: 50%;
+    float: left;
+  }
+
+  .app-u-w-third {
+    width: 33.33333333%;
+    float: left;
+  }
+
+  .app-u-w-quarter {
+    width: 25%;
+    float: left;
+  }
+
+  .app-u-w-two-thirds {
+    width: 66.66666667%;
+    float: left;
+  }
+</style>
+{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="city-heading-xl">Form elements alignment</h1>
+  <h2 class="city-heading-m">Input and button</h2>
+
+  <form action="/" method="post">
+    {% call cityFieldset() %}
+      {{ cityLabel({
+        "text": "National Insurance number",
+        "for": "city-input-a"
+      }) }}
+      <div class="app-u-w-half">
+        {{ cityInput({
+          id: "city-input-a",
+          name: "national-insurance-number"
+        }) }}
+      </div>
+      <div class="app-u-w-half">
+        {{ cityButton({
+          "text": "Save and continue"
+        }) }}
+      </div>
+    {%- endcall %}
+  </form>
+
+  <h2 class="city-heading-m">Select and button</h2>
+
+  <form action="/" method="post">
+    {% call cityFieldset() %}
+      {{ cityLabel({
+        "text": "This is the label text",
+        "for": "select-box"
+      }) }}
+      <div class="app-u-w-half">
+        {{ citySelect({
+          "id": "select-box",
+          "name": "select-box",
+          "items": [
+            {
+              "value": 1,
+              "text": "GOV.UK elements option 1"
+            },
+            {
+              "value": 2,
+              "text": "GOV.UK elements option 2"
+            },
+            {
+              "value": 3,
+              "text": "GOV.UK elements option 3"
+            }
+          ]
+        }) }}
+      </div>
+      <div class="app-u-w-half">
+        {{ cityButton({
+          "text": "Save and continue"
+        }) }}
+      </div>
+    {%- endcall %}
+  </form>
+
+  <h2 class="city-heading-m">Input and select</h2>
+
+  <form action="/" method="post">
+    {% call cityFieldset() %}
+      <div class="app-u-w-half">
+          {{ cityInput({
+            id: "input-and-select__text-input",
+            label: {
+              "text": "NIC"
+            }
+          }) }}
+      </div>
+      <div class="app-u-w-half">
+        {{ citySelect({
+          "label": {
+            "text": "Select class"
+          },
+          "id": "select-input-and-select",
+          "name": "select-input-and-select",
+          "items": [
+            {
+              "value": 1,
+              "text": "NIC 1"
+            },
+            {
+              "value": 2,
+              "text": "NIC 2"
+            },
+            {
+              "value": 3,
+              "text": "NIC 3"
+            }
+          ]
+        }) }}
+      </div>
+    {%- endcall %}
+  </form>
+
+  <h2 class="city-heading-m">Input and checkboxes</h2>
+
+  <form action="/" method="post">
+    {% call cityFieldset() %}
+      {{ cityLabel({
+        "text": "NIC",
+        "for": "input-and-checkboxes__text-input"
+      }) }}
+      <div class="app-u-w-half">
+          {{ cityInput({
+            id: "input-and-checkboxes__text-input"
+          }) }}
+      </div>
+      <div class="app-u-w-half">
+        {{ cityCheckboxes({
+          "idPrefix": "checkboxes-year",
+          "name": "checkboxes-year",
+          "items": [
+            {
+              "value": "2017-2018",
+              "text": "2017 / 2018"
+            }
+          ]
+        }) }}
+      </div>
+    {%- endcall %}
+  </form>
+
+  <h2 class="city-heading-m">Input and radios</h2>
+
+  <form action="/" method="post">
+    {% call cityFieldset() %}
+      {{ cityLabel({
+        "text": "NIC",
+        "for": "input-and-radios__text-input"
+      }) }}
+      <div class="app-u-w-half">
+          {{ cityInput({
+            id: "input-and-radios__text-input"
+          }) }}
+      </div>
+      <div class="app-u-w-half">
+        {{ cityRadios({
+          "idPrefix": "radio",
+          "name": "radio-group",
+          "items": [
+            {
+              "value": "na",
+              "text": "Not applicable"
+            }
+          ]
+        }) }}
+      </div>
+    {%- endcall %}
+  </form>
+
+  <h2 class="city-heading-m">Radios, checkboxes and button</h2>
+  <form action="/" method="post">
+    {% call cityFieldset() %}
+      <div class="app-u-w-quarter">
+        {{ cityCheckboxes({
+          "idPrefix": "radio-checkboxes-button__checkboxes",
+          "name": "radio-checkboxes-button__checkboxes",
+          "items": [
+            {
+              "value": "2017-2018",
+              "text": "2017 / 2018"
+            }
+          ]
+        }) }}
+      </div>
+      <div class="app-u-w-quarter">
+        {{ cityRadios({
+          "idPrefix": "radio-checkboxes-button__radios",
+          "name": "radio-group",
+          "items": [
+            {
+              "value": "na",
+              "text": "Not applicable"
+            }
+          ]
+        }) }}
+      </div>
+      <div class="app-u-w-half">
+        {{ cityButton({
+          "text": "Save and continue"
+        }) }}
+      </div>
+    {%- endcall %}
+  </form>
+
+  <h2 class="city-heading-m">Input with city-!-width</h2>
+
+  {% call cityFieldset() %}
+    {{ cityInput({
+      id: "city-!-width-one-quarter",
+      classes: "city-!-width-one-quarter",
+      label: {
+        text: "Input with city-!-width-one-quarter (25% width)"
+      }
+    }) }}
+    {{ cityInput({
+      id: "city-!-width-one-third",
+      classes: "city-!-width-one-third",
+      label: {
+        text: "Input with city-!-width-one-third (33% width)"
+      }
+    }) }}
+    {{ cityInput({
+      id: "city-!-width-one-half",
+      classes: "city-!-width-one-half",
+      label: {
+        text: "Input with city-!-width-one-half (50% width)"
+      }
+    }) }}
+    {{ cityInput({
+      id: "city-!-width-two-thirds",
+      classes: "city-!-width-two-thirds",
+      label: {
+        text: "Input with city-!-width-two-thirds (66% width)"
+      }
+    }) }}
+    {{ cityInput({
+      id: "city-!-width-three-quarters",
+      classes: "city-!-width-three-quarters",
+      label: {
+        text: "Input with city-!-width-width-three-quarters (75% width)"
+      }
+    }) }}
+  {%- endcall %}
+
+  <h2 class="city-heading-m">Display with city-!-display</h2>
+
+  <h3 class="city-heading-s city-!-font-weight-regular">city-!-display-block</h3>
+
+  {{ cityButton({
+    classes: 'city-!-display-block',
+    text:'Save and continue',
+    element: 'input',
+    href: '/'
+  }) }}
+
+  {{ cityButton({
+    classes: 'city-!-display-block',
+    text:'Save and continue',
+    element: 'input',
+    href: '/'
+  }) }}
+
+  <h3 class="city-heading-s city-!-font-weight-regular">city-!-display-inline-block</h3>
+
+    {{ cityPanel({
+      classes: 'city-!-display-inline-block',
+      titleText: 'Application complete',
+      html: 'Your reference number<br><strong>HDJ2123F</strong>'
+    }) }}
+
+
+    {{ cityButton({
+      classes: 'city-!-display-inline-block',
+      text:'Save and continue',
+      element: 'input',
+      href: '/' })
+    }}
+
+  <h3 class="city-heading-s city-!-font-weight-regular">city-!-display-inline</h3>
+
+  <a class="city-!-display-inline city-link" href="#">Apples</a>
+  <a class="city-!-display-inline city-link" href="#">Oranges</a>
+{% endblock %}

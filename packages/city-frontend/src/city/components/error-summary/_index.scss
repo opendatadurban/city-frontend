@@ -1,0 +1,54 @@
+@import "../../core/lists";
+
+@include city-exports("city/component/error-summary") {
+  .city-error-summary {
+    @include city-font($size: 19);
+    @include city-text-colour;
+    @include city-responsive-padding(4);
+    @include city-responsive-margin(8, "bottom");
+
+    border: $city-border-width solid $city-error-colour;
+
+    &:focus {
+      outline: $city-focus-width solid $city-focus-colour;
+    }
+  }
+
+  .city-error-summary__title {
+    @include city-font-size($size: 24);
+    @include city-typography-weight-bold;
+
+    margin-top: 0;
+    @include city-responsive-margin(4, "bottom");
+  }
+
+  .city-error-summary__body {
+    p {
+      margin-bottom: 0;
+    }
+
+    > * + * {
+      @include city-responsive-margin(4, "top");
+    }
+
+    > :last-child {
+      @include city-responsive-margin(1, "bottom");
+    }
+  }
+
+  // Cross-component class - adjusts styling of list component
+  .city-error-summary__list {
+    margin-bottom: 0;
+  }
+
+  // Remove the bottom margin from the last list item
+  .city-error-summary__list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .city-error-summary__list a {
+    @include city-typography-weight-bold;
+    @include city-link-common;
+    @include city-link-style-error;
+  }
+}

@@ -1,0 +1,49 @@
+@import "../base";
+
+@include city-exports("city/objects/template") {
+  // Applied to the <html> element
+  .city-template {
+    // Set the overall page background colour to the same colour as used by the
+    // footer to give the illusion of a long footer.
+    background-color: $city-canvas-background-colour;
+
+    // Prevent automatic text sizing, as we already cater for small devices and
+    // would like the browser to stay on 100% text zoom by default.
+    text-size-adjust: 100%;
+
+    // Add scroll padding to the top of city-template but remove it if the
+    // exit this page component is present.
+    //
+    // This is a solution to exit this page potentially failing WCAG SC 2.4.12:
+    // Focus Not Obscured (https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html)
+    // due to it's sticky positioning.
+    //
+    // This will apply scroll-padding-top in any browsers that don't support :has
+    // (https://caniuse.com/css-has). This is part of the reason we do this in
+    // a "wrong way round" way as we hypothesise that the risks of having
+    // scroll-padding unnecessarily is better than risking not having scroll-padding
+    // and needing it to account for exit this page.
+    @supports (position: sticky) {
+      scroll-padding-top: city-spacing(9);
+
+      &:not(:has(.city-exit-this-page)) {
+        scroll-padding-top: 0;
+      }
+    }
+
+    // Force the scrollbar to always display in IE, to prevent horizontal page
+    // jumps as content height changes (e.g. autocomplete results open).
+    @include city-media-query($media-type: screen) {
+      overflow-y: scroll;
+    }
+  }
+
+  // Applied to the <body> element
+  .city-template__body {
+    // The default margins set by user-agents are not required since we have our
+    // own containers.
+    margin: 0;
+    // Set the overall body of the page back to the typical background colour.
+    background-color: $city-body-background-colour;
+  }
+}

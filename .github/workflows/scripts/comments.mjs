@@ -1,8 +1,8 @@
 import { readFile } from 'node:fs/promises'
 import { basename, join, parse } from 'path'
 
-import { getFileSizes } from '@govuk-frontend/lib/files'
-import { getStats, modulePaths } from '@govuk-frontend/stats'
+import { getFileSizes } from '@city-frontend/lib/files'
+import { getStats, modulePaths } from '@city-frontend/stats'
 import { outdent } from 'outdent'
 
 /**
@@ -102,7 +102,7 @@ export async function commentStats(
   const reviewAppURL = getReviewAppUrl(issueNumber)
 
   const distPath = join(path, 'dist')
-  const packagePath = join(path, 'packages/govuk-frontend/dist/govuk')
+  const packagePath = join(path, 'packages/city-frontend/dist/city')
 
   // File sizes
   const fileSizeTitle = '### File sizes'
@@ -230,7 +230,7 @@ function renderTable(headers, rows) {
   /**
    * @example
    * ```md
-   * | packages/govuk-frontend/dist/example.mjs | 100 KiB |
+   * | packages/city-frontend/dist/example.mjs | 100 KiB |
    * ```
    */
   const rowStrings = rows.map((row) => `| ${row.join(' | ')} |`)
@@ -307,7 +307,7 @@ export async function getComment({ github, context }, issueNumber, markerText) {
  * @returns {URL} - The Review App preview URL
  */
 function getReviewAppUrl(prNumber, path = '/') {
-  return new URL(path, `https://govuk-frontend-pr-${prNumber}.herokuapp.com`)
+  return new URL(path, `https://city-frontend-pr-${prNumber}.herokuapp.com`)
 }
 
 /**

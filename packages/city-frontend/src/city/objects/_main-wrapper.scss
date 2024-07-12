@@ -1,0 +1,53 @@
+@import "../base";
+
+////
+/// @group objects/layout
+////
+
+// Example usage with Breadcrumbs, phase banners, back links:
+// <div class="city-width-container">
+//   <!-- Breadcrumbs, phase banners, back links are placed in here. -->
+//   <div class="city-main-wrapper">
+//       <!-- Wrapper for the main content of your page which applies padding
+//            to the top / bottom -->
+//   </div>
+// </div>
+//
+// Example usage without Breadcrumbs, phase banners, back links:
+// <div class="city-width-container">
+//   <div class="city-main-wrapper city-main-wrapper--l">
+//       <!-- Wrapper for the main content of your page which applies padding
+//            to the top / bottom -->
+//   </div>
+// </div>
+
+@include city-exports("city/objects/main-wrapper") {
+  .city-main-wrapper {
+    // In IE11 the `main` element can be used, but is not recognized  –
+    // meaning it's not defined in IE's default style sheet,
+    // so it uses CSS initial value, which is inline.
+    display: block;
+    padding-top: city-spacing(4);
+    padding-bottom: city-spacing(4);
+
+    @include city-media-query($from: tablet) {
+      // This spacing is manually adjusted to replicate the margin of
+      // city-heading-xl (50px) minus the spacing of back link and
+      // breadcrumbs (10px)
+      padding-top: city-spacing(7);
+      padding-bottom: city-spacing(7);
+    }
+  }
+
+  // Using the `.city-main-wrapper--auto-spacing` modifier should apply the
+  // correct spacing depending on whether there are any elements
+  // (such the back link, breadcrumbs or phase banner components) before the
+  // `.city-main-wrapper` in the `city-width-container`.
+  //
+  // If you need to control the spacing manually, use the
+  // `city-main-wrapper--l` modifier instead.
+  .city-main-wrapper--auto-spacing:first-child,
+  .city-main-wrapper--l {
+    @include city-responsive-padding(8, "top");
+  }
+}

@@ -1,0 +1,792 @@
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/footer/macro.njk" import cityFooter %}
+
+{% extends "layouts/full-width-landmarks.njk" %}
+
+{% block pageTitle %}{{ exampleName | unslugify }} - GOV.UK Frontend{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-width-container">
+    <h1 class="city-heading-l">Example: Footer alignment</h1>
+
+    <h2 class="city-heading-m">Three equal columns</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "One-third",
+        "width": "one-third",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "One-third",
+        "width": "one-third",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "One-third",
+        "width": "one-third",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">Two-thirds (two columns) / one-third layout</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "Two-thirds (two columns)",
+        "width": "two-thirds",
+        "columns": 2,
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          },
+          {
+            "href": "#4",
+            "text": "Navigation item 4"
+          },
+          {
+            "href": "#5",
+            "text": "Navigation item 5"
+          },
+          {
+            "href": "#6",
+            "text": "Navigation item 6"
+          }
+        ]
+      },
+      {
+        "title": "One-third",
+        "width": "one-third",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">Two-thirds (one column) / one-third layout</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "Two-thirds (one column)",
+        "width": "two-thirds",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "One-third",
+        "width": "one-third",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">One-third / two-thirds (two columns) layout</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "One-third",
+        "width": "one-third",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "Two-thirds (two columns)",
+        "width": "two-thirds",
+        "columns": 2,
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          },
+          {
+            "href": "#4",
+            "text": "Navigation item 4"
+          },
+          {
+            "href": "#5",
+            "text": "Navigation item 5"
+          },
+          {
+            "href": "#6",
+            "text": "Navigation item 6"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">One-third / two-thirds (one column) layout</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "One-third",
+        "width": "one-third",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "Two-thirds (one column)",
+        "width": "two-thirds",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">Quarters</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "One quarter",
+        "width": "one-quarter",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "One quarter",
+        "width": "one-quarter",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "One quarter",
+        "width": "one-quarter",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "One quarter",
+        "width": "one-quarter",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">One-half (one column)</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "One half",
+        "width": "one-half",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      },
+      {
+        "title": "One half",
+        "width": "one-half",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">One-half (two columns)</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-quarter">
+        <h3 class="city-heading-m">One quarter</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "One half",
+        "width": "one-half",
+        "columns": 2,
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          },
+          {
+            "href": "#4",
+            "text": "Navigation item 4"
+          },
+          {
+            "href": "#5",
+            "text": "Navigation item 5"
+          },
+          {
+            "href": "#6",
+            "text": "Navigation item 6"
+          }
+        ]
+      },
+      {
+        "title": "One half",
+        "width": "one-half",
+        "columns": 2,
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          },
+          {
+            "href": "#4",
+            "text": "Navigation item 4"
+          },
+          {
+            "href": "#5",
+            "text": "Navigation item 5"
+          },
+          {
+            "href": "#6",
+            "text": "Navigation item 6"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">Full width</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "Full width",
+        "columns": 3,
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          },
+          {
+            "href": "#4",
+            "text": "Navigation item 4"
+          },
+          {
+            "href": "#5",
+            "text": "Navigation item 5"
+          },
+          {
+            "href": "#6",
+            "text": "Navigation item 6"
+          }
+        ]
+      }
+    ]
+  }) }}
+
+  <div class="city-width-container">
+    <h2 class="city-heading-m city-!-margin-top-6">Multi-row layout</h2>
+    <div class="city-grid-row">
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+      <div class="city-grid-column-one-third">
+        <h3 class="city-heading-m">One third</h3>
+        <p class="city-body">
+          This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{ cityFooter({
+    "navigation": [
+      {
+        "title": "Two-thirds (one column)",
+        "width": "two-thirds",
+        "columns": 2,
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          }
+        ]
+      },
+      {
+        "title": "Two-thirds (two-columns)",
+        "width": "two-thirds",
+        "columns": 2,
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          },
+          {
+            "href": "#2",
+            "text": "Navigation item 2"
+          },
+          {
+            "href": "#3",
+            "text": "Navigation item 3"
+          },
+          {
+            "href": "#4",
+            "text": "Navigation item 4"
+          }
+        ]
+      },
+      {
+        "title": "One-third",
+        "width": "one-third",
+        "items": [
+          {
+            "href": "#1",
+            "text": "Navigation item 1"
+          }
+        ]
+      }
+    ]
+  }) }}
+{% endblock %}

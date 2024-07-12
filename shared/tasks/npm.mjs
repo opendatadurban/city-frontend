@@ -1,4 +1,4 @@
-import { paths } from '@govuk-frontend/config'
+import { paths } from '@city-frontend/config'
 import runScript from '@npmcli/run-script'
 import PluginError from 'plugin-error'
 

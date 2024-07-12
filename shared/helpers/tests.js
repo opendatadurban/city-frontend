@@ -1,10 +1,10 @@
 const { join } = require('path')
 
-const { paths } = require('@govuk-frontend/config')
+const { paths } = require('@city-frontend/config')
 const { compileAsync, compileStringAsync } = require('sass-embedded')
 
 const sassPaths = [
-  join(paths.package, 'src/govuk'),
+  join(paths.package, 'src/city'),
   join(paths.root, 'node_modules')
 ]
 

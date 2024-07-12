@@ -1,0 +1,6 @@
+{% from "../../macros/attributes.njk" import cityAttributes -%}
+
+<strong class="city-tag {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- cityAttributes(params.attributes) }}>
+  {{ params.html | safe | trim | indent(2) if params.html else params.text }}
+</strong>

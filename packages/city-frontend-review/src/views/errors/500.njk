@@ -1,0 +1,40 @@
+{% extends "layouts/layout.njk" %}
+
+{% from "city/components/breadcrumbs/macro.njk" import cityBreadcrumbs %}
+
+{% block pageTitle %}Sorry, there is a problem with the service - GOV.UK Frontend{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBreadcrumbs({
+    items: [
+      {
+        text: "GOV.UK Frontend",
+        href: "/"
+      },
+      {
+        text: "Server error"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-three-quarters city-grid-column-two-thirds-from-desktop">
+      <h1 class="city-heading-l">Sorry, there is a problem with the service</h1>
+
+      <p class="city-body">Try again later.</p>
+
+      <p class="city-body">
+        <a class="city-link" href="https://design-system.service.gov.uk/get-in-touch/" rel="noreferrer noopener" target="_blank">Contact the Design System team (opens in new tab)</a> if you believe you are seeing this message in error.
+      </p>
+    </div>
+  </div>
+
+  <div class="city-grid-row">
+    <div class="city-grid-column-full">
+      <pre class="app-code"><code tabindex="0" class="app-code__container">
+        {{- error | inspect | safe -}}
+      </code></pre>
+  </div>
+{% endblock %}

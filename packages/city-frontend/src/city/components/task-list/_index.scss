@@ -1,0 +1,77 @@
+@import "../tag/index";
+
+@include city-exports("city/component/task-list") {
+  $city-task-list-hover-colour: city-colour("light-grey");
+
+  .city-task-list {
+    @include city-font($size: 19);
+    margin-top: 0;
+    @include city-responsive-margin(6, "bottom");
+    padding: 0;
+    list-style-type: none;
+  }
+
+  // This uses table layout so that the task name and status always appear
+  // side-by-side, with the width of each 'column' being flexible depending upon
+  // the length of the task names and statuses.
+  //
+  // The position is set to 'relative' so than an absolutely-positioned
+  // transparent element box can be added within the link so that the whole row
+  // can be clickable.
+  .city-task-list__item {
+    display: table;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+    padding-top: city-spacing(2);
+    padding-bottom: city-spacing(2);
+    border-bottom: 1px solid $city-border-colour;
+  }
+
+  .city-task-list__item:first-child {
+    border-top: 1px solid $city-border-colour;
+  }
+
+  // This class is added to the <li> elements where the task name is a link. The
+  // background hover colour is added to help indicate that the whole row is
+  // clickable, rather than just the visible link text.
+  .city-task-list__item--with-link:hover {
+    background: $city-task-list-hover-colour;
+  }
+
+  .city-task-list__name-and-hint {
+    display: table-cell;
+    vertical-align: top;
+    @include city-text-colour;
+  }
+
+  .city-task-list__status {
+    display: table-cell;
+    padding-left: city-spacing(2);
+    text-align: right;
+    vertical-align: top;
+    @include city-text-colour;
+  }
+
+  .city-task-list__status--cannot-start-yet {
+    color: $city-secondary-text-colour;
+  }
+
+  // This adds an empty transparent box covering the whole row, including the
+  // task status and any hint text. Because this is generated within the link
+  // element, this allows the whole area to be clickable.
+  .city-task-list__link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .city-task-list__hint {
+    margin-top: city-spacing(1);
+    color: $city-secondary-text-colour;
+  }
+}

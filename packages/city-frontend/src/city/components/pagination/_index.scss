@@ -1,0 +1,239 @@
+@include city-exports("city/component/pagination") {
+  // Flexbox enhancement for small screen visual design
+  // Falls back to a float: left layout on non-flex browsers
+  .city-pagination {
+    @include city-responsive-margin(6, "bottom");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include city-media-query($from: tablet) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  .city-pagination__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .city-pagination__item,
+  .city-pagination__next,
+  .city-pagination__prev {
+    @include city-font(19);
+    box-sizing: border-box;
+    position: relative;
+    min-width: 45px;
+    min-height: 45px;
+    padding: city-spacing(2) city-spacing(3);
+    float: left; // Float is ignored if flex is active for prev/next links
+
+    &:hover {
+      background-color: city-colour("light-grey");
+    }
+  }
+
+  .city-pagination__item {
+    // Hide items on small screens except the prev/next items,
+    // non-link items and the first and last items
+    display: none;
+
+    // Center align pagination links in their parent list item so that they
+    // visually sit in the middle of their touch area
+    text-align: center;
+
+    @include city-media-query($from: tablet) {
+      display: block;
+    }
+  }
+
+  .city-pagination__prev,
+  .city-pagination__next {
+    @include city-typography-weight-bold;
+
+    // Use flex to avoid extra space being introduced when whitespace exists
+    // between the arrow svg and the link text
+    .city-pagination__link {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .city-pagination__prev {
+    padding-left: 0;
+  }
+
+  .city-pagination__next {
+    padding-right: 0;
+  }
+
+  // Only show first, last and non-link items on mobile
+  .city-pagination__item--current,
+  .city-pagination__item--ellipses,
+  .city-pagination__item:first-child,
+  .city-pagination__item:last-child {
+    display: block;
+  }
+
+  .city-pagination__item--current {
+    @include city-typography-weight-bold;
+    outline: 1px solid transparent;
+    background-color: $city-link-colour;
+
+    &:hover {
+      background-color: $city-link-colour;
+    }
+
+    .city-pagination__link {
+      @include city-link-style-inverse;
+    }
+  }
+
+  .city-pagination__item--ellipses {
+    @include city-typography-weight-bold;
+    color: $city-secondary-text-colour;
+
+    // Remove hover state for ellipsis items as they don't contain links
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .city-pagination__link {
+    display: block;
+    min-width: city-spacing(3);
+
+    // Increase the touch area for the link to the parent element.
+    @media screen {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    // Add link hover decoration to prev/next text if no label present on
+    // prev/next only mode,  so that we have a hover state in all cases
+    &:hover,
+    &:active {
+      .city-pagination__link-title--decorated {
+        @include city-link-decoration;
+      }
+
+      .city-pagination__link-label,
+      .city-pagination__link-title--decorated {
+        @include city-link-hover-decoration;
+      }
+    }
+
+    &:focus {
+      .city-pagination__icon {
+        color: $city-focus-text-colour;
+      }
+
+      .city-pagination__link-label {
+        text-decoration: none;
+      }
+
+      .city-pagination__link-title--decorated {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .city-pagination__link-label {
+    @include city-typography-weight-regular;
+    @include city-link-decoration;
+    display: inline-block;
+    padding-left: city-spacing(6);
+  }
+
+  .city-pagination__icon {
+    // Set size using rems to make the icon scale with text
+    width: city-px-to-rem(15px);
+    height: city-px-to-rem(13px);
+    color: $city-secondary-text-colour;
+    fill: currentcolor;
+    forced-color-adjust: auto;
+  }
+
+  .city-pagination__icon--prev {
+    margin-right: city-spacing(3);
+  }
+
+  .city-pagination__icon--next {
+    margin-left: city-spacing(3);
+  }
+
+  // Block mode - position previous and next links above and below numbers
+  .city-pagination--block {
+    display: block;
+
+    .city-pagination__item {
+      padding: city-spacing(3);
+      float: none;
+    }
+
+    .city-pagination__next,
+    .city-pagination__prev {
+      padding-left: 0;
+      float: none;
+    }
+
+    .city-pagination__next {
+      padding-right: city-spacing(3);
+
+      .city-pagination__icon {
+        margin-left: 0;
+      }
+    }
+
+    // Only apply a border between prev and next if both are present
+    .city-pagination__prev + .city-pagination__next {
+      border-top: 1px solid $city-border-colour;
+    }
+
+    // Reset both these elements to their inline default, both to ensure that
+    // the focus state for block mode "shrink wraps" text as expected
+    .city-pagination__link,
+    .city-pagination__link-title {
+      display: inline;
+    }
+
+    // Set the after pseudo element to a block which makes the title visually
+    // display as block level whilst programmatically being inline. We do this
+    // to get around an NVDA quirk where adjacent block level elements are
+    // always read out separately
+    .city-pagination__link-title::after {
+      content: "";
+      display: block;
+    }
+
+    .city-pagination__link {
+      text-align: left;
+
+      &:focus {
+        // Apply focus styling to the label within the link as if it were being
+        // focused to get around a display issue with a focusable inline element
+        // containing a mixture of inline and inline-block level elements
+        .city-pagination__link-label {
+          @include city-focused-text;
+        }
+      }
+
+      &:not(:focus) {
+        text-decoration: none;
+      }
+    }
+
+    .city-pagination__icon {
+      margin-right: city-spacing(2);
+    }
+  }
+}

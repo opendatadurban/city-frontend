@@ -1,0 +1,90 @@
+---
+title: Sign in to a service
+name: Sign in to a service
+scenario: |
+  As part of an online service, you have to sign in before accessing it.
+
+  Things to try:
+
+  1. Intentionally avoid answering the questions before continuing to the next page.
+---
+
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+{% from "city/components/input/macro.njk" import cityInput %}
+{% from "city/components/password-input/macro.njk" import cityPasswordInput %}
+{% from "city/components/checkboxes/macro.njk" import cityCheckboxes %}
+{% from "city/components/button/macro.njk" import cityButton %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ "Error: " if errorSummary | length }}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+      {% if errorSummary | length %}
+        {{ cityErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorSummary
+        }) }}
+      {% endif %}
+
+      <h1 class="city-heading-xl">{{ pageTitle }}</h1>
+
+      <p class="city-body">You'll first need to <a class="city-link" href="#">create an account</a> if you haven't already. You can also <a class="city-link" href="#">reset your password</a> if you can't remember it.</p>
+
+      <form method="post" novalidate>
+
+        {{ cityInput({
+          label: {
+            text: "Email address",
+            classes: "city-label--m"
+          },
+          type: "email",
+          id: "email",
+          name: "email",
+          value: values["email"],
+          errorMessage: errors["email"],
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+
+        {{ cityPasswordInput({
+          label: {
+            text: "Password",
+            classes: "city-label--m"
+          },
+          id: "password",
+          name: "password",
+          value: values["password"],
+          errorMessage: errors["password"],
+          autocomplete: "current-password"
+        }) }}
+
+        {{ cityCheckboxes({
+          name: "remember-me",
+          classes: "city-checkboxes--small",
+          items: [
+            {
+              value: "true",
+              text: "Keep me signed in on this device"
+            }
+          ]
+        }) }}
+
+        {{ cityButton({
+          text: "Sign in"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

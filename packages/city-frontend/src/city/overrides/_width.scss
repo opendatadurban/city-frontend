@@ -1,0 +1,46 @@
+// stylelint-disable declaration-no-important
+@include city-exports("city/overrides/width") {
+  .city-\!-width-full {
+    width: 100% !important;
+  }
+
+  .city-\!-width-three-quarters {
+    width: 100% !important;
+
+    @include city-media-query($from: tablet) {
+      width: 75% !important;
+    }
+  }
+
+  .city-\!-width-two-thirds {
+    width: 100% !important;
+
+    @include city-media-query($from: tablet) {
+      width: 66.66% !important;
+    }
+  }
+
+  .city-\!-width-one-half {
+    width: 100% !important;
+
+    @include city-media-query($from: tablet) {
+      width: 50% !important;
+    }
+  }
+
+  .city-\!-width-one-third {
+    width: 100% !important;
+
+    @include city-media-query($from: tablet) {
+      width: 33.33% !important;
+    }
+  }
+
+  .city-\!-width-one-quarter {
+    width: 100% !important;
+
+    @include city-media-query($from: tablet) {
+      width: 25% !important;
+    }
+  }
+}

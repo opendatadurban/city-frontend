@@ -1,0 +1,9 @@
+@include city-exports("city/utilities/visually-hidden") {
+  .city-visually-hidden {
+    @include city-visually-hidden;
+  }
+
+  .city-visually-hidden-focusable {
+    @include city-visually-hidden-focusable;
+  }
+}

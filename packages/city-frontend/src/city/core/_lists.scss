@@ -1,0 +1,65 @@
+@include city-exports("city/core/lists") {
+  %city-list {
+    @include city-font($size: 19);
+    @include city-text-colour;
+    margin-top: 0;
+    @include city-responsive-margin(4, "bottom");
+    padding-left: 0;
+    list-style-type: none;
+
+    // Add a top margin for nested lists
+    %city-list {
+      margin-top: city-spacing(2);
+    }
+  }
+
+  %city-list > li {
+    // Lists without numbers or bullets should always have extra space between
+    // list items. Lists with numbers or bullets only have this extra space on
+    // tablet and above
+    margin-bottom: city-spacing(1);
+  }
+
+  .city-list {
+    @extend %city-list;
+  }
+
+  %city-list--bullet {
+    padding-left: city-spacing(4);
+    list-style-type: disc;
+  }
+
+  %city-list--number {
+    padding-left: city-spacing(4);
+    list-style-type: decimal;
+  }
+
+  %city-list--bullet > li,
+  %city-list--number > li {
+    margin-bottom: 0;
+
+    @include city-media-query($from: tablet) {
+      margin-bottom: city-spacing(1);
+    }
+  }
+
+  %city-list--spaced > li {
+    margin-bottom: city-spacing(2);
+
+    @include city-media-query($from: tablet) {
+      margin-bottom: city-spacing(3);
+    }
+  }
+
+  .city-list--bullet {
+    @extend %city-list--bullet;
+  }
+
+  .city-list--number {
+    @extend %city-list--number;
+  }
+
+  .city-list--spaced {
+    @extend %city-list--spaced;
+  }
+}

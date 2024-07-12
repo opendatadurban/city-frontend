@@ -1,0 +1,110 @@
+---
+title: How do you want to sign in?
+scenario: |
+  As part of an online service, you are asked to select how you want to sign in.
+
+  Things to try:
+
+  1. Intentionally avoid answering the question before continuing to the next page.
+
+notes: Based on https://www.gov.uk/log-in-file-self-assessment-tax-return/sign-in/prove-identity
+---
+
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/breadcrumbs/macro.njk" import cityBreadcrumbs %}
+{% from "city/components/radios/macro.njk" import cityRadios %}
+{% from "city/components/button/macro.njk" import cityButton %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ "Error: " if errorSummary | length }}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+
+      <form method="post" novalidate>
+        {% if errorSummary | length %}
+          {{ cityErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorSummary
+          }) }}
+        {% endif %}
+
+        {{ cityRadios({
+          idPrefix: "sign-in",
+          name: "sign-in",
+          fieldset: {
+            legend: {
+              text: "How do you want to sign in?",
+              isPageHeading: true,
+              classes: "city-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "You'll need an account to prove your identity and complete your Self Assessment."
+          },
+          items: [
+            {
+              value: "government-gateway",
+              text: "Sign in with Government Gateway",
+              label: {
+                classes: "city-label--s"
+              },
+              hint: {
+                text: "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
+              }
+            },
+            {
+              value: "city-verify",
+              text: "Sign in with GOV.UK Verify",
+              label: {
+                classes: "city-label--s"
+              },
+              hint: {
+                text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
+              }
+            },
+            {
+              value: "sign-in-with-a-digital-identity-from-another-european-country",
+              text: "Sign in with a digital identity from another European country",
+              label: {
+                classes: "city-label--s"
+              },
+              hint: {
+                text: "If you are part of Germany’s Online-Ausweis you can use it here. Identity schemes from other countries will become available later."
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "register-for-self-assessment",
+              text: "Register for Self Assessment",
+              label: {
+                classes: "city-label--s"
+              },
+              hint: {
+                text: "You must register before you can file your first tax return."
+              }
+            }
+          ],
+          value: values["sign-in"],
+          errorMessage: errors["sign-in"]
+        }) }}
+
+      {{ cityButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

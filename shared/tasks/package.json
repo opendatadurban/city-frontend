@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "@govuk-frontend/tasks",
-  "description": "GOV.UK Frontend shared tasks",
+  "name": "@city-frontend/tasks",
+  "description": "City Frontend shared tasks",
   "main": "index.mjs",
   "engines": {
     "node": "^20.9.0",
@@ -9,9 +9,9 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@govuk-frontend/config": "*",
-    "@govuk-frontend/helpers": "*",
-    "@govuk-frontend/lib": "*",
+    "@city-frontend/config": "*",
+    "@city-frontend/helpers": "*",
+    "@city-frontend/lib": "*",
     "@npmcli/run-script": "^8.1.0",
     "@percy/puppeteer": "^2.0.2",
     "gulp": "^5.0.0",

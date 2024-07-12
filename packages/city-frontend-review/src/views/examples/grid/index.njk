@@ -1,0 +1,132 @@
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+
+{% extends "layouts/examples.njk" %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="city-heading-l">Example: Grid layout</h1>
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+      <h2 class="city-heading-m">Two thirds</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+    <div class="city-grid-column-one-third">
+      <h2 class="city-heading-m">One third</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+  </div>
+  <div class="city-grid-row">
+    <div class="city-grid-column-one-third">
+      <h2 class="city-heading-m">One third</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+    <div class="city-grid-column-one-third">
+      <h2 class="city-heading-m">One third</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+    <div class="city-grid-column-one-third">
+      <h2 class="city-heading-m">One third</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+  </div>
+  <div class="city-grid-row">
+    <div class="city-grid-column-one-half">
+      <h2 class="city-heading-m">One half</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+    <div class="city-grid-column-one-half">
+      <h2 class="city-heading-m">One half</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+  </div>
+  <div class="city-grid-row">
+    <div class="city-grid-column-one-quarter">
+      <h2 class="city-heading-m">One quarter</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+    <div class="city-grid-column-one-quarter">
+      <h2 class="city-heading-m">One quarter</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+    <div class="city-grid-column-one-quarter">
+      <h2 class="city-heading-m">One quarter</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+    <div class="city-grid-column-one-quarter">
+      <h2 class="city-heading-m">One quarter</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+  </div>
+  <div class="city-grid-row">
+    <div class="city-grid-column-three-quarters">
+      <h2 class="city-heading-m">Three-quarters</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+    <div class="city-grid-column-one-quarter">
+      <h2 class="city-heading-m">One quarter</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+  </div>
+  <div class="city-grid-row">
+    <div class="city-grid-column-one-half city-grid-column-three-quarters-from-desktop">
+      <h2 class="city-heading-m">One half (three quarters from desktop)</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+
+    <div class="city-grid-column-one-half city-grid-column-one-quarter-from-desktop">
+      <h2 class="city-heading-m">One half (one quarter from desktop)</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+  </div>
+  <div class="city-grid-row">
+    <div class="city-grid-column-three-quarters city-grid-column-two-thirds-from-desktop">
+      <h2 class="city-heading-m">Three quarters (two thirds from desktop)</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+  </div>
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds-from-desktop">
+      <h2 class="city-heading-m">Two thirds from desktop</h2>
+      <p class="city-body">
+        This guide shows how to make your service look consistent with the rest of GOV.UK. It includes example code and guidance for layout, typography, colour, images, icons, forms, buttons and data.
+      </p>
+    </div>
+  </div>
+{% endblock %}

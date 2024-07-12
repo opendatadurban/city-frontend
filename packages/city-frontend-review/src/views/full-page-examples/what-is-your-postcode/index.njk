@@ -1,0 +1,57 @@
+---
+title: What is your home postcode?
+scenario: |
+  As part of an online service, you are asked to provide your postcode.
+
+  Prompts:
+
+  1. Do not answer the question
+---
+
+{# This example is based of the  "What is your home postcode?" example: https://design-system.service.gov.uk/patterns/question-pages/postcode/index.html #}
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/button/macro.njk" import cityButton %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+{% from "city/components/input/macro.njk" import cityInput %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ "Error: " if errorSummary | length }}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <form method="post" novalidate>
+    {% if errorSummary | length %}
+      {{ cityErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorSummary
+      }) }}
+    {% endif %}
+
+    {{ cityInput({
+      label: {
+        text: pageTitle,
+        classes: "city-label--xl",
+        isPageHeading: true
+      },
+      classes: "city-input--width-10",
+      id: "address-postcode",
+      name: "address-postcode",
+      autocomplete: "postal-code",
+      value: values["address-postcode"],
+      errorMessage: errors["address-postcode"]
+    }) }}
+
+    {{ cityButton({
+      text: "Continue"
+    }) }}
+  </form>
+
+{% endblock %}

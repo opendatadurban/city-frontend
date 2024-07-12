@@ -1,9 +1,9 @@
 import { readFile } from 'fs/promises'
 import { join, parse } from 'path'
 
-import { paths } from '@govuk-frontend/config'
-import { getListing } from '@govuk-frontend/lib/files'
-import { packageTypeToPath } from '@govuk-frontend/lib/names'
+import { paths } from '@city-frontend/config'
+import { getListing } from '@city-frontend/lib/files'
+import { packageTypeToPath } from '@city-frontend/lib/names'
 import PluginError from 'plugin-error'
 import postcss from 'postcss'
 // eslint-disable-next-line import/default
@@ -89,8 +89,8 @@ export async function compileStylesheet([
 
       // Resolve @imports via
       loadPaths: [
-        // Remove `govuk/` suffix using `modulePath`
-        packageTypeToPath('govuk-frontend', {
+        // Remove `city/` suffix using `modulePath`
+        packageTypeToPath('city-frontend', {
           modulePath: '../',
           moduleRoot: basePath
         }),

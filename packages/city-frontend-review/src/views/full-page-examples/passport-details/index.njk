@@ -1,0 +1,112 @@
+---
+title: Passport details
+scenario: |
+  As part of an online service, you are asked to provide your passport details.
+
+  Things to try:
+
+  1. Intentionally avoid answering the questions before continuing to the next page.
+  2. Intentionally only fill in the day (and not month or year) of the expiry date.
+---
+
+{# This example is based of the "Passport details" pattern: https://design-system.service.gov.uk/patterns/question-pages/ #}
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+{% from "city/components/input/macro.njk" import cityInput %}
+{% from "city/components/date-input/macro.njk" import cityDateInput %}
+{% from "city/components/button/macro.njk" import cityButton %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ "Error: " if errorSummary | length }}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+      {% if errorSummary | length %}
+        {{ cityErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorSummary
+        }) }}
+      {% endif %}
+
+      <h1 class="city-heading-xl">{{ pageTitle }}</h1>
+
+      <form method="post" novalidate>
+
+        {{ cityInput({
+          label: {
+            text: "Passport number",
+            classes: "city-label--m"
+          },
+          hint: {
+            text: "For example, 502135326"
+          },
+          classes: "city-input--width-10 city-input--extra-letter-spacing",
+          id: "passport-number",
+          name: "passport-number",
+          value: values["passport-number"],
+          errorMessage: errors["passport-number"]
+        }) }}
+
+        {% set dateInputDayClass = "city-input--width-2" %}
+        {% set dateInputMonthClass = "city-input--width-2" %}
+        {% set dateInputYearClass = "city-input--width-4" %}
+
+        {% if errors["expiry-day"] %}
+          {% set dateInputDayClass = dateInputDayClass + " city-input--error" %}
+        {% endif %}
+        {% if errors["expiry-month"] %}
+          {% set dateInputMonthClass = dateInputMonthClass + " city-input--error" %}
+        {% endif %}
+        {% if errors["expiry-year"] %}
+          {% set dateInputYearClass = dateInputYearClass + " city-input--error" %}
+        {% endif %}
+
+        {{ cityDateInput({
+          id: "expiry",
+          namePrefix: "expiry",
+          fieldset: {
+            legend: {
+              text: "Expiry date",
+              classes: "city-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 31 3 1980"
+          },
+          items: [
+            {
+              classes: dateInputDayClass,
+              name: "day",
+              value: values["expiry-day"]
+            },
+            {
+              classes: dateInputMonthClass,
+              name: "month",
+              value: values["expiry-month"]
+            },
+            {
+              classes: dateInputYearClass,
+              name: "year",
+              value: values["expiry-year"]
+            }
+          ],
+          errorMessage: errors["expiry"]
+        }) }}
+
+        {{ cityButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

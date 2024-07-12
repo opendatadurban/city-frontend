@@ -2,7 +2,7 @@
 
 GitHub Actions lints Sass and JavaScript, runs unit and functional tests with Node.js, and generates snapshots for [visual regression testing](#visual-regression-testing-with-percy).
 
-See the [GitHub Actions **Tests** workflow](https://github.com/alphagov/govuk-frontend/actions/workflows/tests.yml) for more information.
+See the [GitHub Actions **Tests** workflow](https://github.com/alphagov/city-frontend/actions/workflows/tests.yml) for more information.
 
 ## Testing terminology
 
@@ -35,13 +35,13 @@ See [Tasks](../contributing/tasks.md) for details of what `npm test` does.
 You can run a subset of the test suite that only tests components by running:
 
 ```shell
-npx jest packages/govuk-frontend/src/govuk/components/button
+npx jest packages/city-frontend/src/city/components/button
 ```
 
 Note: There's a watch mode that keeps a testing session open waiting for changes that can be used with:
 
 ```shell
-npx jest --watch packages/govuk-frontend/src/govuk/components/button
+npx jest --watch packages/city-frontend/src/city/components/button
 ```
 
 ### Running all linting checks locally
@@ -105,19 +105,19 @@ Tests should be written using ES modules (`*.mjs`) by default, but use CommonJS 
 
 We write functional tests for every component to check the output of our Nunjucks code. These are found in `template.test.js` files in each component directory. These Nunjucks tests render the component examples defined in the component yaml files, and assert that the HTML tags, attributes and classes are as expected. For example: checking that when you pass in an `id` to the component using the Nunjucks macro, it outputs the component with an `id` attribute equal to that value.
 
-If a component uses JavaScript, we also write functional tests in a `[component name].test.js` file, for example [checkboxes.test.js](/packages/govuk-frontend/src/govuk/components/checkboxes/checkboxes.test.js). These component tests check that interactions, such as a mouse click, have the expected result.
+If a component uses JavaScript, we also write functional tests in a `[component name].test.js` file, for example [checkboxes.test.js](/packages/city-frontend/src/city/components/checkboxes/checkboxes.test.js). These component tests check that interactions, such as a mouse click, have the expected result.
 
 If you want to inspect a test that's running in the browser, configure Jest Puppeteer in non-headless mode with the environment variable `HEADLESS=false` and then use [Jest Puppeteer's debug mode](https://github.com/argos-ci/jest-puppeteer/blob/main/README.md#debug-mode) to pause the test execution.
 
 ```shell
-HEADLESS=false npx jest --watch src/govuk/components/tag/accessibility.test.mjs
+HEADLESS=false npx jest --watch src/city/components/tag/accessibility.test.mjs
 ```
 
 You should also test component Javascript logic with unit tests, in a `[component name].unit.test.mjs` file. These tests are better suited for testing behind-the-scenes logic, or in cases where the final output of some logic is not a change to the component markup.
 
 ### Global tests
 
-We write functional tests for checking our JavaScript exports and our global sass variables - see [all.test.mjs](/packages/govuk-frontend/src/govuk/all.test.mjs) and [components/globals.test.js](/packages/govuk-frontend/src/govuk/components/globals.test.js) for examples of global tests we run.
+We write functional tests for checking our JavaScript exports and our global sass variables - see [all.test.mjs](/packages/city-frontend/src/city/all.test.mjs) and [components/globals.test.js](/packages/city-frontend/src/city/components/globals.test.js) for examples of global tests we run.
 
 ### Conventions
 
@@ -134,7 +134,7 @@ For components, the snapshots are stored in `[component-name directory]/_snapsho
 If a snapshot test fails, review the difference in the console. If the change is the correct change to make, run:
 
 ```shell
-npm test -- -u packages/govuk-frontend/src/govuk/components/button
+npm test -- -u packages/city-frontend/src/city/components/button
 ```
 
 This will update the snapshot file. Commit this file separately with a commit message that explains you're updating the snapshot file and an explanation of what caused the change.
@@ -145,7 +145,7 @@ We generate 2 screenshots for each default example of every component. One examp
 
 The screenshots are public, so you can check them without logging in. A BrowserStack account is needed to approve or reject any changes (if you don't have access, ask your tech lead for help). If you're the reviewer of the pull request code, it's your responsibility to approve or request changes for any visual changes Percy highlights.
 
-When you run the tests locally (for example, using `npm run test:screenshots --workspace @govuk-frontend/review`), Percy commands are ignored and Percy does not generate any screenshots. You will see the following message in your command line output: `[percy] Percy is not running, disabling snapshots`.
+When you run the tests locally (for example, using `npm run test:screenshots --workspace @city-frontend/review`), Percy commands are ignored and Percy does not generate any screenshots. You will see the following message in your command line output: `[percy] Percy is not running, disabling snapshots`.
 
 ### PRs from forks
 

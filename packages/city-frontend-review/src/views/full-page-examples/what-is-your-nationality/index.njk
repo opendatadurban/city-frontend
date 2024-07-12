@@ -1,0 +1,138 @@
+---
+title: What is your nationality?
+scenario: |
+  As part of an online service, you are asked to provide your nationality.
+
+  Things to try:
+
+  1. Select 'British' or 'Irish'
+  2. Select 'Citizen of a different country' and provide a country name
+  3. Select 'Citizen of a different country' and submit the form without
+      providing a country name
+  4. Do not select any of the options, and use ‘Help with nationality’ to
+      provide a reason why you cannot provide your nationality.
+  5. Intentionally submit the form without selecting any of the options
+---
+
+{# This example is based of the  "What is your nationality?" example: https://www.registertovote.service.gov.uk/register-to-vote/nationality #}
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/checkboxes/macro.njk" import cityCheckboxes %}
+{% from "city/components/input/macro.njk" import cityInput %}
+{% from "city/components/details/macro.njk" import cityDetails %}
+{% from "city/components/textarea/macro.njk" import cityTextarea %}
+{% from "city/components/button/macro.njk" import cityButton %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ "Error: " if errorSummary | length }}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+
+      <form method="post" novalidate>
+        {% if errorSummary | length %}
+          {{ cityErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorSummary
+          }) }}
+        {% endif %}
+
+        {% set otherCountryHtml %}
+
+          {{ cityInput({
+            id: "country-name",
+            name: "country-name",
+            type: "text",
+            classes: "city-input--width-20",
+            label: {
+              text: "Country name"
+            },
+            value: values["country-name"],
+            errorMessage: errors["country-name"]
+          }) }}
+
+        {% endset %}
+
+        {{ cityCheckboxes({
+          idPrefix: "confirm-nationality",
+          name: "confirm-nationality",
+          fieldset: {
+            legend: {
+              text: "What is your nationality?",
+              isPageHeading: true,
+              classes: "city-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select all options that are relevant to you."
+          },
+          items: [
+            {
+              value: "british-nationality",
+              text: "British",
+              hint: {
+                text: "including English, Scottish, Welsh and Northern Irish"
+              }
+            },
+            {
+              value: "irish-nationality",
+              text: "Irish",
+              hint: {
+                text: "including from Northern Ireland"
+              }
+            },
+            {
+              name: "other-nationality",
+              value: "yes",
+              text: "Citizen of a different country",
+              conditional: {
+                html: otherCountryHtml
+              },
+              checked: values["other-nationality"] === "yes"
+            }
+          ],
+          values: values["confirm-nationality"],
+          errorMessage: errors["confirm-nationality"]
+        }) }}
+
+        {% set helpWithNationalityHtml %}
+
+          <p class="city-body">
+            We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+          </p>
+
+          {{ cityTextarea({
+            name: "details-cannot-provide-nationality",
+            id: "details-cannot-provide-nationality",
+            classes: "city-!-margin-bottom-0",
+            label: {
+              text: "Can you provide more detail on why you cannot confirm your nationality?"
+            },
+            value: values["details-cannot-provide-nationality"],
+            errorMessage: errors["details-cannot-provide-nationality"]
+          }) }}
+
+        {% endset %}
+
+        {{ cityDetails({
+          summaryText: "Help with nationality",
+          html: helpWithNationalityHtml,
+          open: values["details-cannot-provide-nationality"] | length
+        }) }}
+
+        {{ cityButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

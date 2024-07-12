@@ -1,0 +1,40 @@
+@include city-exports("city/core/links") {
+  %city-link {
+    @include city-link-common;
+    @include city-link-style-default;
+    @include city-link-print-friendly;
+  }
+
+  .city-link {
+    @extend %city-link;
+  }
+
+  // Variant classes should always be used in conjunction with the .city-link
+  // class, so we do not need the common link styles as they will be inherited.
+
+  .city-link--muted {
+    @include city-link-style-muted;
+  }
+
+  .city-link--text-colour {
+    @include city-link-style-text;
+  }
+
+  .city-link--inverse {
+    @include city-link-style-inverse;
+  }
+
+  .city-link--no-underline {
+    @include city-link-style-no-underline;
+  }
+
+  .city-link--no-visited-state {
+    @include city-link-style-no-visited-state;
+  }
+
+  // Links that only contain images
+
+  .city-link-image {
+    @include city-link-image;
+  }
+}

@@ -12,9 +12,9 @@ If you're an external contributor make sure to [fork this project first](https:/
 ## 2. Clone repository
 
 ```shell
-git clone git@github.com:alphagov/govuk-frontend.git # or clone your own fork
+git clone git@github.com:alphagov/city-frontend.git # or clone your own fork
 
-cd govuk-frontend
+cd city-frontend
 ```
 
 ## 3. Using nvm (optional)
@@ -46,4 +46,4 @@ npm start
 
 You can deploy your project straight to a Heroku instance.
 
-An existing Heroku instance can be found at: [http://govuk-frontend-review.herokuapp.com/](http://govuk-frontend-review.herokuapp.com/)
+An existing Heroku instance can be found at: [http://city-frontend-review.herokuapp.com/](http://city-frontend-review.herokuapp.com/)

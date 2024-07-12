@@ -1,0 +1,17 @@
+{% from "../../macros/attributes.njk" import cityAttributes %}
+{% from "../tag/macro.njk" import cityTag -%}
+
+<div class="city-phase-banner
+  {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- cityAttributes(params.attributes) }}>
+  <p class="city-phase-banner__content">
+    {{ cityTag({
+      text: params.tag.text,
+      html: params.tag.html,
+      classes: "city-phase-banner__content__tag" + (" " + params.tag.classes if params.tag.classes)
+    }) | trim | indent(4) }}
+    <span class="city-phase-banner__text">
+      {{ params.html | safe | trim | indent(6) if params.html else params.text }}
+    </span>
+  </p>
+</div>

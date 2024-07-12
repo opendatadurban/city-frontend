@@ -16,14 +16,14 @@ mkdir -p .cache/diff/dist
 
 # Diff the minified JS file
 git diff \
-  $base:dist/govuk-frontend-$(git show $base:dist/VERSION.txt).min.js \
-  dist/govuk-frontend-$(cat dist/VERSION.txt).min.js \
+  $base:dist/city-frontend-$(git show $base:dist/VERSION.txt).min.js \
+  dist/city-frontend-$(cat dist/VERSION.txt).min.js \
   > $output_folder/.cache/diff/dist/js.diff
 
 # Diff the minified CSS file
 git diff \
-  $base:dist/govuk-frontend-$(git show $base:dist/VERSION.txt).min.css \
-  dist/govuk-frontend-$(cat dist/VERSION.txt).min.css \
+  $base:dist/city-frontend-$(git show $base:dist/VERSION.txt).min.css \
+  dist/city-frontend-$(cat dist/VERSION.txt).min.css \
   > $output_folder/.cache/diff/dist/css.diff
 
 # Diff the rest of the files, excluding the sourcemaps and the minified files

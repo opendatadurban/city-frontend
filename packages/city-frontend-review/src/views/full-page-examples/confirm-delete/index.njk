@@ -1,0 +1,48 @@
+---
+title: Are you sure you want to delete Josh Lyman’s account?
+---
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/warning-text/macro.njk" import cityWarningText %}
+{% from "city/components/button/macro.njk" import cityButton %}
+
+{% set homepage_url = "/" %}
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+
+      <h1 class="city-heading-xl">
+        {{ pageTitle }}
+      </h1>
+
+      <p class="city-body">Josh Lyman last logged in <strong>3 days ago</strong>.</p>
+
+      <p class="city-body">By deleting their administrator account they will no longer have access to this system. All cases that <strong>Josh Lyman</strong> is assigned to will remain open but their name will be removed from the case history.</p>
+
+      {{ cityWarningText({
+        text: "This action is final and cannot be undone.",
+        iconFallbackText: "Warning",
+        classes: "city-!-margin-bottom-8"
+      }) }}
+
+      <form method="post" novalidate>
+        <div class="city-button-group">
+          {{ cityButton({
+            text: "Delete account",
+            classes: "city-button--warning"
+          }) }}
+
+          {{ cityButton({
+            text: "Cancel",
+            classes: "city-button--secondary"
+          }) }}
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+// stylelint-disable declaration-no-important
+@include city-exports("city/overrides/display") {
+  .city-\!-display-inline {
+    display: inline !important;
+  }
+
+  .city-\!-display-inline-block {
+    display: inline-block !important;
+  }
+
+  .city-\!-display-block {
+    display: block !important;
+  }
+
+  .city-\!-display-none {
+    display: none !important;
+  }
+
+  @include city-media-query($media-type: print) {
+    .city-\!-display-none-print {
+      display: none !important;
+    }
+  }
+}

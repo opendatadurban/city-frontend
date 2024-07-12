@@ -12,11 +12,11 @@ const env = nunjucksEnv()
 
 // Paths to entry styles and scripts
 const [stylesPath, scriptsPath, assetPath] = [
-  'govuk-frontend.min.css',
-  'govuk-frontend.min.js',
+  'city-frontend.min.css',
+  'city-frontend.min.js',
   'assets'
 ].map((modulePath) =>
-  pathToFileURL(packageTypeToPath('govuk-frontend', { modulePath }))
+  pathToFileURL(packageTypeToPath('city-frontend', { modulePath }))
 )
 
 /**
@@ -29,10 +29,10 @@ const [stylesPath, scriptsPath, assetPath] = [
  */
 function nunjucksEnv(searchPaths = [], nunjucksOptions = {}, packageOptions) {
   const packagePath = dirname(
-    packageTypeToPath('govuk-frontend', packageOptions)
+    packageTypeToPath('city-frontend', packageOptions)
   )
 
-  // Add to Nunjucks search paths (without 'govuk' suffix)
+  // Add to Nunjucks search paths (without 'city' suffix)
   searchPaths.push(join(packagePath, '../'))
 
   // Nunjucks environment
@@ -53,7 +53,7 @@ function nunjucksEnv(searchPaths = [], nunjucksOptions = {}, packageOptions) {
 const getComponentFixtures = async (componentName, packageOptions) => {
   return require(
     join(
-      dirname(packageTypeToPath('govuk-frontend', packageOptions)),
+      dirname(packageTypeToPath('city-frontend', packageOptions)),
       `components/${componentName}/fixtures.json`
     )
   )
@@ -84,7 +84,7 @@ const getComponentsFixtures = async (packageOptions) => {
 const getComponentFiles = (componentName = '*', packageOptions) =>
   getListing(
     join(
-      dirname(packageTypeToPath('govuk-frontend', packageOptions)),
+      dirname(packageTypeToPath('city-frontend', packageOptions)),
       `components/${componentName}/**/*`
     )
   )
@@ -98,7 +98,7 @@ const getComponentFiles = (componentName = '*', packageOptions) =>
 async function getComponentNames(packageOptions) {
   return getDirectories(
     join(
-      dirname(packageTypeToPath('govuk-frontend', packageOptions)),
+      dirname(packageTypeToPath('city-frontend', packageOptions)),
       'components/'
     )
   )
@@ -153,7 +153,7 @@ async function getExamples(componentName, packageOptions) {
  */
 function render(componentName, options) {
   const macroName = componentNameToMacroName(componentName)
-  const macroPath = `govuk/components/${componentName}/macro.njk`
+  const macroPath = `city/components/${componentName}/macro.njk`
 
   // On Heroku / CI we know we're running against an up-to-date build so we can
   // use the generated HTML from the component JSON (where it exists) to make
@@ -190,7 +190,7 @@ function renderMacro(macroName, macroPath, options) {
 /**
  * Render component preview on boilerplate page
  *
- * Uses {@link renderTemplate} with the default `govuk/template.njk` to
+ * Uses {@link renderTemplate} with the default `city/template.njk` to
  * render components via {@link render} into the `main` content block
  *
  * @param {string} [componentName] - Component name
@@ -198,14 +198,14 @@ function renderMacro(macroName, macroPath, options) {
  * @returns {string} HTML rendered from the Nunjucks template
  */
 function renderPreview(componentName, options) {
-  return renderTemplate('govuk/template.njk', {
+  return renderTemplate('city/template.njk', {
     blocks: {
       pageTitle: 'Test boilerplate - GOV.UK',
       head: outdent`
         <link rel="stylesheet" href="${stylesPath}">
 
         <script type="importmap">
-          { "imports": { "govuk-frontend": "${scriptsPath}" } }
+          { "imports": { "city-frontend": "${scriptsPath}" } }
         </script>
       `,
 
@@ -216,7 +216,7 @@ function renderPreview(componentName, options) {
       footer: '',
 
       main: outdent`
-        <div id="content" class="govuk-width-container">
+        <div id="content" class="city-width-container">
           ${componentName ? render(componentName, options) : ''}
         </div>
 
@@ -233,7 +233,7 @@ function renderPreview(componentName, options) {
     },
     context: {
       assetPath,
-      mainClasses: 'govuk-main-wrapper--auto-spacing'
+      mainClasses: 'city-main-wrapper--auto-spacing'
     }
   })
 }

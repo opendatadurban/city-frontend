@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "@govuk-frontend/webpack-boilerplate",
-  "description": "Boilerplate example for govuk-frontend using webpack",
+  "name": "@city-frontend/webpack-boilerplate",
+  "description": "Boilerplate example for city-frontend using webpack",
   "scripts": {
     "dev": "webpack serve --progress --mode development",
     "prebuild": "npm run clean",
@@ -9,7 +9,7 @@
     "clean": "del-cli dist"
   },
   "dependencies": {
-    "govuk-frontend": "*"
+    "city-frontend": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",

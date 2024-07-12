@@ -1,0 +1,49 @@
+@include city-exports("city/core/section-break") {
+  %city-section-break {
+    margin: 0;
+    border: 0;
+  }
+
+  .city-section-break {
+    @extend %city-section-break;
+  }
+
+  // Sizes
+
+  %city-section-break--xl {
+    @include city-responsive-margin(8, "top");
+    @include city-responsive-margin(8, "bottom");
+  }
+
+  .city-section-break--xl {
+    @extend %city-section-break--xl;
+  }
+
+  %city-section-break--l {
+    @include city-responsive-margin(6, "top");
+    @include city-responsive-margin(6, "bottom");
+  }
+
+  .city-section-break--l {
+    @extend %city-section-break--l;
+  }
+
+  %city-section-break--m {
+    @include city-responsive-margin(4, "top");
+    @include city-responsive-margin(4, "bottom");
+  }
+
+  .city-section-break--m {
+    @extend %city-section-break--m;
+  }
+
+  // Visible variant
+
+  %city-section-break--visible {
+    border-bottom: 1px solid $city-border-colour;
+  }
+
+  .city-section-break--visible {
+    @extend %city-section-break--visible;
+  }
+}

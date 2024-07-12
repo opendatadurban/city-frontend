@@ -56,7 +56,7 @@ It's now possible to individually initialise the component with configuration op
 
 ```html
 <script type="module">
-  import { Accordion } from '{path-to-javascript}/govuk-frontend.min.js'
+  import { Accordion } from '{path-to-javascript}/city-frontend.min.js'
 
   const $element = document.getElementById('accordion')
 
@@ -70,7 +70,7 @@ It's now possible to individually initialise the component with configuration op
 
 Often, teams will not be individually initialising components. Instead, GOV.UK Frontend ships with an `initAll` function, which searches the page for instances of components and automatically initialises them.
 
-In `packages/govuk-frontend/src/govuk/init.mjs`, update the component's `new` class to pass through a nested configuration object. The nested object should use the component's name converted to camelCase (for example, the 'Character Count' component becomes `characterCount`).
+In `packages/city-frontend/src/city/init.mjs`, update the component's `new` class to pass through a nested configuration object. The nested object should use the component's name converted to camelCase (for example, the 'Character Count' component becomes `characterCount`).
 
 ```js
 new Accordion($accordion, config.accordion)
@@ -80,7 +80,7 @@ It's now possible to pass configuration options for your component, as well as m
 
 ```html
 <script type="module">
-  import { initAll } from '{path-to-javascript}/govuk-frontend.min.js'
+  import { initAll } from '{path-to-javascript}/city-frontend.min.js'
 
   initAll({
     accordion: {
@@ -126,8 +126,8 @@ Now, in our HTML, we could pass configuration options by using the kebab-case ve
 
 ```html
 <div
-  class="govuk-accordion"
-  data-module="govuk-accordion"
+  class="city-accordion"
+  data-module="city-accordion"
   data-remember-expanded="false">
   ...
 </div>
@@ -188,8 +188,8 @@ Using the previous bit of HTML, update it to make the `data-*` attribute changea
 
 ```nunjucks
 <div
-  class="govuk-accordion"
-  data-module="govuk-accordion"
+  class="city-accordion"
+  data-module="city-accordion"
   {%- if params.rememberExpanded %} data-remember-expanded="{{ params.rememberExpanded | escape }}"{% endif %}>
   ...
 </div>
@@ -200,9 +200,9 @@ The above code checks for the existence of the `rememberExpanded` parameter. If 
 We can now call the Accordion's Nunjucks macro with our new `rememberExpanded` parameter:
 
 ```nunjucks
-{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "city/components/accordion/macro.njk" import cityAccordion %}
 
-{{ govukAccordion({
+{{ cityAccordion({
   id: "accordion",
   rememberExpanded: false,
   items: [...]
@@ -231,7 +231,7 @@ Unlike the `data-*` attribute in HTML and our use of `dataset` in JavaScript, th
 
 A common case is specifying whether a parameter accepts HTML or only plain text. For example, if a configuration option's value is inserted into the page using `innerText`, you might want to name the Nunjucks parameter something like `sectionLabelText` to indicate that HTML will not be parsed if provided.
 
-There is more guidance on naming Nunjucks parameters in [the Nunjucks API documentation](https://github.com/alphagov/govuk-frontend/blob/main/docs/contributing/coding-standards/nunjucks-api.md#naming-options).
+There is more guidance on naming Nunjucks parameters in [the Nunjucks API documentation](https://github.com/alphagov/city-frontend/blob/main/docs/contributing/coding-standards/nunjucks-api.md#naming-options).
 
 ## Namespacing configuration options
 

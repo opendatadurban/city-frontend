@@ -1,0 +1,26 @@
+////
+/// @group tools/assets
+////
+
+/// Image URL
+///
+/// If a custom image-url handler is defined ($city-image-url-function) then
+/// it will be called, otherwise a url will be returned with the filename
+/// appended to the image path.
+///
+/// @param {String} Filename for the image to load
+/// @return {String} URL for the filename, wrapped in `url()`
+/// @access public
+
+@function city-image-url($filename) {
+  // prettier-ignore
+  $use-custom-function: variable-exists("city-image-url-function")
+    and $city-image-url-function
+    and function-exists($city-image-url-function);
+
+  @if $use-custom-function {
+    @return call(get-function($city-image-url-function), $filename);
+  } @else {
+    @return url($city-images-path + $filename);
+  }
+}

@@ -1,4 +1,4 @@
-const components = require('@govuk-frontend/lib/components')
+const components = require('@city-frontend/lib/components')
 const cheerio = require('cheerio')
 
 /**
@@ -29,7 +29,7 @@ module.exports = {
 }
 
 /**
- * @typedef {import('@govuk-frontend/lib/components').MacroOptions} MacroOptions
- * @typedef {import('@govuk-frontend/lib/components').MacroRenderOptions} MacroRenderOptions
- * @typedef {import('@govuk-frontend/lib/components').TemplateRenderOptions} TemplateRenderOptions
+ * @typedef {import('@city-frontend/lib/components').MacroOptions} MacroOptions
+ * @typedef {import('@city-frontend/lib/components').MacroRenderOptions} MacroRenderOptions
+ * @typedef {import('@city-frontend/lib/components').TemplateRenderOptions} TemplateRenderOptions
  */

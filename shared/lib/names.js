@@ -1,6 +1,6 @@
 const { dirname, join } = require('path')
 
-const { paths } = require('@govuk-frontend/config')
+const { paths } = require('@city-frontend/config')
 
 /**
  * Convert a kebab-cased string to a PascalCased one
@@ -33,13 +33,13 @@ function kebabCaseToCamelCase(value) {
  * Convert component name to macro name
  *
  * Component names are kebab-cased (button, date-input), whilst macro names have
- * a `govuk` prefix and are camel cased (govukButton, govukDateInput).
+ * a `city` prefix and are camel cased (cityButton, cityDateInput).
  *
  * @param {string} componentName - A kebab-cased component name
  * @returns {string} The name of its corresponding Nunjucks macro
  */
 function componentNameToMacroName(componentName) {
-  return kebabCaseToCamelCase(`govuk-${componentName}`)
+  return kebabCaseToCamelCase(`city-${componentName}`)
 }
 
 /**
@@ -71,15 +71,15 @@ function componentNameToConfigName(componentName) {
  * @example
  * Resolving components relative to a default package entry
  *
- * - GOV.UK Frontend v4 './govuk/components/accordion/accordion.mjs'
- * - GOV.UK Frontend v5 './dist/govuk/components/accordion/accordion.mjs'
+ * - GOV.UK Frontend v4 './city/components/accordion/accordion.mjs'
+ * - GOV.UK Frontend v5 './dist/city/components/accordion/accordion.mjs'
  *
  * ```mjs
- * const templatePath = packageResolveToPath('govuk-frontend', {
+ * const templatePath = packageResolveToPath('city-frontend', {
  *   modulePath: `components/accordion/accordion.mjs`
  * })
  * ```
- * @param {string} packageEntry - Installed npm package entry, for example `govuk-frontend/src/govuk/all.mjs`
+ * @param {string} packageEntry - Installed npm package entry, for example `city-frontend/src/city/all.mjs`
  * @param {Pick<PackageOptions, "modulePath" | "moduleRoot">} [options] - Package resolution options
  * @returns {string} Path to installed npm package entry
  */
@@ -103,7 +103,7 @@ function packageResolveToPath(packageEntry, options = {}) {
  * Wraps {@link packageResolveToPath} to allow the appended `modulePath` to
  * include unresolvable paths, globs or files that are not yet built
  *
- * {@link https://github.com/alphagov/govuk-frontend/issues/3755}
+ * {@link https://github.com/alphagov/city-frontend/issues/3755}
  *
  * @param {string} packageName - Installed npm package name
  * @param {PackageOptions} [options] - Package resolution options

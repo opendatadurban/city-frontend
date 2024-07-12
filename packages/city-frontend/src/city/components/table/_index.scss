@@ -1,0 +1,73 @@
+@include city-exports("city/component/table") {
+  .city-table {
+    @include city-font($size: 19);
+    @include city-text-colour;
+    width: 100%;
+    @include city-responsive-margin(6, "bottom");
+
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  @if $city-new-typography-scale {
+    // Modifier for tables with a lot of data. Tables with lots of data benefit
+    // from a smaller font size on small screens.
+    .city-table--small-text-until-tablet {
+      @include city-media-query($until: tablet) {
+        @include city-font-size($size: 16);
+      }
+    }
+  }
+
+  .city-table__header {
+    @include city-typography-weight-bold;
+  }
+
+  .city-table__header,
+  .city-table__cell {
+    padding: city-spacing(2) city-spacing(4) city-spacing(2) 0;
+    border-bottom: 1px solid $city-border-colour;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .city-table__cell--numeric {
+    @include city-font-tabular-numbers;
+  }
+
+  .city-table__header--numeric,
+  .city-table__cell--numeric {
+    text-align: right;
+  }
+
+  .city-table__header:last-child,
+  .city-table__cell:last-child {
+    padding-right: 0;
+  }
+
+  .city-table__caption {
+    @include city-typography-weight-bold;
+
+    display: table-caption;
+    text-align: left;
+  }
+
+  // Modifiers that make captions look more like their equivalent headings
+  .city-table__caption--xl,
+  .city-table__caption--l,
+  .city-table__caption--m {
+    margin-bottom: city-spacing(3);
+  }
+
+  .city-table__caption--xl {
+    @include city-font-size($size: 48);
+  }
+
+  .city-table__caption--l {
+    @include city-font-size($size: 36);
+  }
+
+  .city-table__caption--m {
+    @include city-font-size($size: 24);
+  }
+}

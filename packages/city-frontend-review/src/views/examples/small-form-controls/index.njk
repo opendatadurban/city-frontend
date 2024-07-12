@@ -1,0 +1,137 @@
+{% extends "layouts/examples.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/checkboxes/macro.njk" import cityCheckboxes %}
+{% from "city/components/radios/macro.njk" import cityRadios %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<h1 class="city-heading-xl">Small form controls</h1>
+
+<div class="city-grid-row">
+  <div class="city-grid-column-one-third">
+    {{ cityCheckboxes({
+      fieldset: {
+        legend: {
+          text: "Display",
+          classes: "city-fieldset__legend--s"
+        }
+      },
+      idPrefix: "display",
+      name: "sort",
+      classes: "city-checkboxes--small",
+      items: [
+        {
+          value: "consultations",
+          text: "Consultations"
+        },
+        {
+          value: "guidance",
+          text: "Guidance"
+        },
+        {
+          value: "notices",
+          text: "Notices"
+        },
+        {
+          value: "reports",
+          text: "Reports"
+        }
+      ]
+    }) }}
+
+    {{ cityRadios({
+      fieldset: {
+        legend: {
+          text: "Include",
+          classes: "city-fieldset__legend--s"
+        }
+      },
+      idPrefix: "include",
+      name: "include",
+      classes: "city-radios--small",
+      items: [
+        {
+          value: "everything",
+          text: "Everything"
+        },
+        {
+          value: "something",
+          text: "Something"
+        },
+        {
+          value: "nothing",
+          text: "Nothing"
+        }
+      ]
+    }) }}
+  </div>
+  <div class="city-grid-column-two-thirds">
+      {{ cityRadios({
+        fieldset: {
+          legend: {
+            text: "Sort by",
+            classes: "city-fieldset__legend--s"
+          }
+        },
+        formGroup: {
+          classes: "city-!-margin-bottom-0"
+        },
+        idPrefix: "sort",
+        name: "sort",
+        classes: "city-radios--small city-radios--inline",
+        items: [
+          {
+            value: "relevance",
+            text: "Relevance"
+          },
+          {
+            value: "created",
+            text: "Created"
+          },
+          {
+            value: "title",
+            text: "Title"
+          }
+        ]
+      }) }}
+
+      {{ cityCheckboxes({
+        name: "grobulate",
+        classes: "city-checkboxes--small",
+        formGroup: {
+          classes: "city-!-margin-bottom-0"
+        },
+        items: [
+          {
+            value: "grobulate",
+            text: "Grobulate results"
+          }
+        ]
+      }) }}
+
+    <hr class="city-section-break city-section-break--m city-section-break--visible" style="clear: both;">
+
+    <h2 class="city-heading-m">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</h2>
+
+    <p class="city-body">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>
+
+    <hr class="city-section-break city-section-break--m city-section-break--visible">
+
+    <h2 class="city-heading-m">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh</h2>
+
+    <p class="city-body">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+
+    <hr class="city-section-break city-section-break--m city-section-break--visible">
+
+    <h2 class="city-heading-m">Bibendum Commodo Ullamcorper Vulputate</h2>
+
+    <p class="city-body">Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>
+  </div>
+</div>
+{% endblock %}

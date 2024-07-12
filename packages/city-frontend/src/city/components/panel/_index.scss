@@ -1,0 +1,56 @@
+@include city-exports("city/component/panel") {
+  .city-panel {
+    @include city-font($size: 36);
+
+    box-sizing: border-box;
+
+    margin-bottom: city-spacing(3);
+    padding: city-spacing(7) - $city-border-width;
+
+    border: $city-border-width solid transparent;
+
+    text-align: center;
+
+    @include city-media-query($until: tablet) {
+      padding: city-spacing(if($city-new-typography-scale, 4, 3)) - $city-border-width;
+
+      // This is an if-all-else-fails attempt to stop long words from
+      // overflowing the container on very narrow viewports by forcing them to
+      // break and wrap instead. This overflowing is more likely to happen when
+      // user increases text size on a mobile eg. using iOS Safari text resize
+      // controls.
+      //
+      // The overflowing is a particular problem with the panel component since
+      // it uses white text: when the text overflows the container, it is
+      // invisible on the white (page) background. When the text in our other
+      // components overflow, the user might have to scroll horizontally to view
+      // it but the the text remains legible.
+      overflow-wrap: break-word;
+
+      // Support IE (autoprefixer doesn't add this as it's not a prefix)
+      word-wrap: break-word;
+    }
+  }
+
+  .city-panel--confirmation {
+    color: city-colour("white");
+    background: city-colour("green");
+
+    @include city-media-query($media-type: print) {
+      border-color: currentcolor;
+      color: $city-print-text-colour;
+      background: none;
+    }
+  }
+
+  .city-panel__title {
+    @include city-font-size($size: 48);
+    @include city-typography-weight-bold;
+    margin-top: 0;
+    margin-bottom: city-spacing(6);
+  }
+
+  .city-panel__title:last-child {
+    margin-bottom: 0;
+  }
+}

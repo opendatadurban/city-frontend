@@ -1,0 +1,67 @@
+@include city-exports("city/component/fieldset") {
+  .city-fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    @include city-clearfix;
+  }
+
+  // Fix for Firefox < 53 (https://bugzil.la/504622)
+  // stylelint-disable selector-type-no-unknown -- Ignore 'x:-moz-any-link'
+  @supports not (caret-color: auto) {
+    .city-fieldset,
+    x:-moz-any-link {
+      display: table-cell;
+    }
+  }
+  // stylelint-enable selector-type-no-unknown
+
+  .city-fieldset__legend {
+    @include city-font($size: 19);
+    @include city-text-colour;
+
+    // Fix legend text wrapping in Edge and IE
+    // 1. IE9-11 & Edge 12-13
+    // 2. IE8-11
+    box-sizing: border-box; // 1
+    display: table; // 2
+    max-width: 100%; // 1
+    margin-bottom: city-spacing(2);
+    padding: 0;
+
+    white-space: normal; // 1
+  }
+
+  // Modifiers that make legends look more like their equivalent headings
+  .city-fieldset__legend--xl,
+  .city-fieldset__legend--l,
+  .city-fieldset__legend--m {
+    @include city-typography-weight-bold;
+    margin-bottom: city-spacing(3);
+  }
+
+  .city-fieldset__legend--xl {
+    @include city-font-size($size: 48);
+  }
+
+  .city-fieldset__legend--l {
+    @include city-font-size($size: 36);
+  }
+
+  .city-fieldset__legend--m {
+    @include city-font-size($size: 24);
+  }
+
+  .city-fieldset__legend--s {
+    @include city-typography-weight-bold;
+  }
+
+  // When the legend contains an H1, we want the H1 to inherit all styles from
+  // the legend. Effectively treat the heading as if it is not there.
+  .city-fieldset__heading {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}

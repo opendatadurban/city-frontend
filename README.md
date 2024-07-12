@@ -1,5 +1,5 @@
 GOV.UK Frontend ·
-[![Build Status](https://github.com/alphagov/govuk-frontend/workflows/Tests/badge.svg)](https://github.com/alphagov/govuk-frontend/actions?query=workflow%3ATests+branch%3Amain)
+[![Build Status](https://github.com/alphagov/city-frontend/workflows/Tests/badge.svg)](https://github.com/alphagov/city-frontend/actions?query=workflow%3ATests+branch%3Amain)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 =====================
 
@@ -13,7 +13,7 @@ System](https://design-system.service.gov.uk/).
 ## Contact the team
 
 GOV.UK Frontend is maintained by a team at Government Digital Service. If you want to know more about GOV.UK Frontend, please email the [Design System
-team](mailto:govuk-design-system-support@digital.cabinet-office.gov.uk) or get in touch with them on [Slack](https://ukgovernmentdigital.slack.com/messages/govuk-design-system).
+team](mailto:city-design-system-support@digital.cabinet-office.gov.uk) or get in touch with them on [Slack](https://ukgovernmentdigital.slack.com/messages/city-design-system).
 
 ## Quick start
 
@@ -64,7 +64,7 @@ Check our [list of known issues that may be reported by HTML Validators or autom
 
 GDS is an advocate of responsible vulnerability disclosure. If you’ve found a vulnerability, we would like to know so we can fix it.
 
-For full details on how to tell us about vulnerabilities, [see our security policy](https://github.com/alphagov/govuk-frontend/security/policy).
+For full details on how to tell us about vulnerabilities, [see our security policy](https://github.com/alphagov/city-frontend/security/policy).
 
 ## Licence
 
@@ -77,7 +77,7 @@ Open Government 3.0 licence.
 
 [To learn how to help us build GOV.UK Frontend, see our contribution guidelines.](CONTRIBUTING.md)
 
-The govuk-frontend repository is public and we welcome contributions from anyone.
+The city-frontend repository is public and we welcome contributions from anyone.
 
 Contributors to alphagov repositories are expected to follow the [Contributor Covenant Code of Conduct](https://github.com/alphagov/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct). Contributors working within government are also expected to follow the [Civil Service code](https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code).
 

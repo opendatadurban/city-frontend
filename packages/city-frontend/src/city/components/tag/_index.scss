@@ -1,0 +1,95 @@
+@include city-exports("city/component/tag") {
+  $city-tag-max-width: if(map-has-key($city-breakpoints, "mobile"), map-get($city-breakpoints, "mobile") / 2, 160px);
+
+  .city-tag {
+    @include city-font($size: 19);
+
+    display: inline-block;
+
+    // set a max-width along with overflow-wrap: break-word below for instances
+    // where a tag has a single long word and could overflow its boundaries.
+    // The max-width is necessary as break-word requires a bounding box to base
+    // where to break off of.
+    max-width: $city-tag-max-width;
+
+    // These negative margins make sure that the tag component doesn’t increase
+    // the size of its container. Otherwise, for example, a table row containing
+    // a tag will be taller than one containing plain text.
+    //
+    // The negative margin added to the top and bottom matches the extra padding
+    // added.
+    margin-top: -2px;
+    margin-bottom: -3px;
+
+    padding-top: 2px;
+    padding-right: 8px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    color: city-shade(city-colour("blue"), 60%);
+    background-color: city-tint(city-colour("blue"), 70%);
+    text-decoration: none;
+    overflow-wrap: break-word;
+
+    // When forced colour mode is active, for example to provide high contrast,
+    // the background colour of the tag is the same as the rest of the page. To
+    // ensure that the tag is perceived as separate from any surround text, it
+    // is made bold.
+    //
+    // Transparent outlines are no longer added, as they make the Tag look
+    // indistinguishable from a button – but the tag is not interactive in the
+    // same way.
+    @media screen and (forced-colors: active) {
+      font-weight: bold;
+    }
+  }
+
+  .city-tag--grey {
+    color: city-shade(city-colour("dark-grey"), 50%);
+    background-color: city-tint(city-colour("dark-grey"), 85%);
+  }
+
+  .city-tag--purple {
+    color: city-shade(city-colour("bright-purple"), 50%);
+    background-color: city-tint(city-colour("bright-purple"), 85%);
+  }
+
+  .city-tag--turquoise {
+    color: city-shade(city-colour("turquoise"), 60%);
+    background-color: city-tint(city-colour("turquoise"), 80%);
+  }
+
+  .city-tag--blue {
+    color: city-shade(city-colour("blue"), 60%);
+    background-color: city-tint(city-colour("blue"), 70%);
+  }
+
+  .city-tag--light-blue {
+    color: city-shade(city-colour("blue"), 60%);
+    background-color: city-tint(city-colour("blue"), 90%);
+  }
+
+  .city-tag--yellow {
+    color: city-shade(city-colour("yellow"), 65%);
+    background-color: city-tint(city-colour("yellow"), 75%);
+  }
+
+  .city-tag--orange {
+    color: city-shade(city-colour("orange"), 55%);
+    background-color: city-tint(city-colour("orange"), 70%);
+  }
+
+  .city-tag--red {
+    color: city-shade(city-colour("red"), 80%);
+    background-color: city-tint(city-colour("red"), 75%);
+  }
+
+  .city-tag--pink {
+    color: city-shade(city-colour("pink"), 50%);
+    background-color: city-tint(city-colour("pink"), 85%);
+  }
+
+  .city-tag--green {
+    color: city-shade(city-colour("green"), 20%);
+    background-color: city-tint(city-colour("green"), 80%);
+  }
+}

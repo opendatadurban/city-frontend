@@ -279,20 +279,20 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: node --eval "console.log(require.resolve('govuk-frontend'))"${{ env.FLAGS }}
-        working-directory: packages/govuk-frontend
+      - run: node --eval "console.log(require.resolve('city-frontend'))"${{ env.FLAGS }}
+        working-directory: packages/city-frontend
 
-      - run: node --eval "console.log(require.resolve('govuk-frontend/package.json'))"${{ env.FLAGS }}
-        working-directory: packages/govuk-frontend
+      - run: node --eval "console.log(require.resolve('city-frontend/package.json'))"${{ env.FLAGS }}
+        working-directory: packages/city-frontend
 
-      - run: node --eval "console.log(require.resolve('govuk-frontend/dist/govuk/components/accordion/accordion.bundle.js'))"${{ env.FLAGS }}
-        working-directory: packages/govuk-frontend
+      - run: node --eval "console.log(require.resolve('city-frontend/dist/city/components/accordion/accordion.bundle.js'))"${{ env.FLAGS }}
+        working-directory: packages/city-frontend
 
-      - run: node --eval "console.log(require.resolve('govuk-frontend/dist/govuk/components/accordion/accordion.bundle.mjs'))"${{ env.FLAGS }}
-        working-directory: packages/govuk-frontend
+      - run: node --eval "console.log(require.resolve('city-frontend/dist/city/components/accordion/accordion.bundle.mjs'))"${{ env.FLAGS }}
+        working-directory: packages/city-frontend
 
-      - run: node --eval "console.log(require.resolve('govuk-frontend/dist/govuk/i18n.mjs'))"${{ env.FLAGS }}
-        working-directory: packages/govuk-frontend
+      - run: node --eval "console.log(require.resolve('city-frontend/dist/city/i18n.mjs'))"${{ env.FLAGS }}
+        working-directory: packages/city-frontend
 
   regression:
     name: Percy

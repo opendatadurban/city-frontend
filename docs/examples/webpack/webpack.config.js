@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 // Module resolution
-const frontendPath = dirname(require.resolve('govuk-frontend/package.json'))
+const frontendPath = dirname(require.resolve('city-frontend/package.json'))
 
 // Build paths
 const srcPath = join(__dirname, 'src')
@@ -118,7 +118,7 @@ module.exports = ({ WEBPACK_SERVE }, { mode }) => ({
 
   resolve: {
     alias: {
-      '/assets/': join(frontendPath, './src/govuk/assets/')
+      '/assets/': join(frontendPath, './src/city/assets/')
     }
   },
 

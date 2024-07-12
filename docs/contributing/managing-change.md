@@ -24,16 +24,16 @@ You can mention the warnings in the release notes to help users understand if th
 
 For example:
 
-> If you import specific files from the core or overrides layers, you’ll now see a deprecation warning when compiling Sass if you do not import `node_modules/govuk-frontend/dist/govuk/base` first.
+> If you import specific files from the core or overrides layers, you’ll now see a deprecation warning when compiling Sass if you do not import `node_modules/city-frontend/dist/city/base` first.
 >
-> To fix the warning, import `node_modules/govuk-frontend/dist/govuk/base` first. For example:
+> To fix the warning, import `node_modules/city-frontend/dist/city/base` first. For example:
 >
 > ```scss
-> @import "node_modules/govuk-frontend/dist/govuk/base";
-> @import "node_modules/govuk-frontend/dist/core/typography";
+> @import "node_modules/city-frontend/dist/city/base";
+> @import "node_modules/city-frontend/dist/core/typography";
 > ```
 >
-> If you do not import `node_modules/govuk-frontend/dist/govuk/base` first, your service will no longer work from GOV.UK Frontend v5.0.0.
+> If you do not import `node_modules/city-frontend/dist/city/base` first, your service will no longer work from GOV.UK Frontend v5.0.0.
 
 ### Make sure we remember to remove the deprecated feature
 
@@ -62,11 +62,11 @@ Use the `_warning` mixin when deprecating a mixin:
 ```scss
 /// XL headings
 ///
-/// @deprecated Use govuk-font-size($size: 80) instead.
-///   See https://github.com/alphagov/govuk-frontend/issues/1234
-@mixin govuk-heading-xl {
-  @include _warning("heading-xl", "govuk-heading-xl is deprecated. Use govuk-font-size(80) instead.");
-  @include govuk-font-size($size: 80);
+/// @deprecated Use city-font-size($size: 80) instead.
+///   See https://github.com/alphagov/city-frontend/issues/1234
+@mixin city-heading-xl {
+  @include _warning("heading-xl", "city-heading-xl is deprecated. Use city-font-size(80) instead.");
+  @include city-font-size($size: 80);
 }
 ```
 
@@ -77,14 +77,14 @@ Mixins cannot be invoked within functions, so we use the `_should-warn` and `_wa
 ///
 /// A contrived example function that takes a number and multiplies it by 2.
 ///
-/// @deprecated Use govuk-multiply(number, 2) instead.
-///   See https://github.com/alphagov/govuk-frontend/issues/1234
-@function govuk-double($number) {
+/// @deprecated Use city-multiply(number, 2) instead.
+///   See https://github.com/alphagov/city-frontend/issues/1234
+@function city-double($number) {
   @if _should-warn("double") {
-    @warn _warning-message("double", "govuk-double($number) is deprecated. Use govuk-multiply($number, 2) instead.");
+    @warn _warning-message("double", "city-double($number) is deprecated. Use city-multiply($number, 2) instead.");
   }
 
-  @return govuk-multiply($number, 2);
+  @return city-multiply($number, 2);
 }
 ```
 
@@ -102,9 +102,9 @@ If possible, update the mixin or function to maintain the existing functionality
 /// @param {String} $spline Spline to reticulate
 /// @param {Number} $angle Angle to reticulate by
 /// @param {Boolean} $rightAngle Deprecated. Use $angle: 90 instead.
-@mixin govuk-reticulate-splines($spline, $angle: 180, $rightAngle: false) {
+@mixin city-reticulate-splines($spline, $angle: 180, $rightAngle: false) {
   @if $rightAngle != false {
-    @include _warning("right-angle", "Passing $rightAngle to govuk-reticulate-splines is deprecated. Pass $angle: 90 instead.");
+    @include _warning("right-angle", "Passing $rightAngle to city-reticulate-splines is deprecated. Pass $angle: 90 instead.");
 
     $angle: 90;
   }
@@ -117,7 +117,7 @@ If possible, update the mixin or function to maintain the existing functionality
 
 ```scss
 // @deprecated
-.govuk-foo-old-class-name {
+.city-foo-old-class-name {
   content: "foo";
 }
 ```
@@ -167,9 +167,9 @@ Add 'Deprecated.' to the description for the parameter.
 ///
 /// @param {String} $spline Spline to reticulate
 /// @param {String} $spilne Deprecated. Use $spline instead.
-@function govuk-reticulate-splines($spline, $spilne: false) {
+@function city-reticulate-splines($spline, $spilne: false) {
   @if $spilne != false {
-    @include _warning("spilne", "Passing $spilne to govuk-reticulate-splines is deprecated. Pass $spline instead.");
+    @include _warning("spilne", "Passing $spilne to city-reticulate-splines is deprecated. Pass $spline instead.");
 
     $spline: $spilne;
   }
@@ -183,17 +183,17 @@ Add 'Deprecated.' to the description for the parameter.
 Keep the old name in the selector list, and mark it as deprecated.
 
 ```scss
-// govuk-old-class-name is deprecated. Use govuk-new-class-name instead.
-.govuk-old-class-name,
-.govuk-new-class-name {
+// city-old-class-name is deprecated. Use city-new-class-name instead.
+.city-old-class-name,
+.city-new-class-name {
   content: "foo";
 }
 ```
 
 ### The `_warning` mixin and allowing users to suppress warnings
 
-In the above examples we've used `@include _warning(...)` instead of the native sass `@warn` at-rule. We use this instead of `@warn` because it gives users the option to suppress deprecation warnings by interacting with the `$govuk-suppressed-warnings` map.
+In the above examples we've used `@include _warning(...)` instead of the native sass `@warn` at-rule. We use this instead of `@warn` because it gives users the option to suppress deprecation warnings by interacting with the `$city-suppressed-warnings` map.
 
-You can read more about how `$govuk-suppressed-warnings` and `_warning` work by reading their respective sassdocs in [`packages/govuk-frontend/src/govuk/settings/_warnings.scss`](/packages/govuk-frontend/src/govuk/settings/_warnings.scss).
+You can read more about how `$city-suppressed-warnings` and `_warning` work by reading their respective sassdocs in [`packages/city-frontend/src/city/settings/_warnings.scss`](/packages/city-frontend/src/city/settings/_warnings.scss).
 
 We make this option available for users because they can not always action deprecation warnings or upgrade their codebase beyond a specific version of GOV.UK Frontend. For example, a legacy codebase that does not have the resource to upgrade to the latest breaking change where a deprecated feature will be removed. This feature allows those users to continue to operate their codebase without having to repeatedly see non-actionable deprecation warnings in their testing.

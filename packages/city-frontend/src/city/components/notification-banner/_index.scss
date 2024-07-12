@@ -1,0 +1,91 @@
+@include city-exports("city/component/notification-banner") {
+  .city-notification-banner {
+    @include city-font($size: 19);
+    @include city-responsive-margin(8, "bottom");
+
+    border: $city-border-width solid $city-brand-colour;
+
+    background-color: $city-brand-colour;
+
+    &:focus {
+      outline: $city-focus-width solid $city-focus-colour;
+    }
+  }
+
+  .city-notification-banner__header {
+    padding: 2px city-spacing(3) city-spacing(1);
+
+    // Ensures the notification header appears separate to the notification body
+    // text in high contrast mode
+    border-bottom: 1px solid transparent;
+
+    @include city-media-query($from: tablet) {
+      padding: 2px city-spacing(4) city-spacing(1);
+    }
+  }
+
+  .city-notification-banner__title {
+    // Set the size again because this element is a heading and the user agent
+    // font size overrides the inherited font size
+    @include city-font-size($size: 19);
+    @include city-typography-weight-bold;
+    margin: 0;
+    padding: 0;
+    color: city-colour("white");
+  }
+
+  .city-notification-banner__content {
+    $padding-tablet: city-spacing(4);
+    @include city-text-colour;
+    padding: city-spacing(3);
+
+    background-color: $city-body-background-colour;
+
+    @include city-media-query($from: tablet) {
+      padding: $padding-tablet;
+    }
+
+    // Wrap content at the same place that a 2/3 grid column ends, to maintain
+    // shorter line-lengths when the notification banner is full width
+    > * {
+      // When elements have their own padding (like lists), include the padding
+      // in the max-width calculation
+      box-sizing: border-box;
+
+      // Calculate the internal width of a two-thirds column...
+      $two-col-width: ($city-page-width * 2 / 3) - ($city-gutter * 1 / 3);
+
+      // ...and then factor in the left border and padding
+      $banner-exterior: ($padding-tablet + $city-border-width);
+      max-width: $two-col-width - $banner-exterior;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .city-notification-banner__heading {
+    @include city-font-size($size: 24);
+    @include city-typography-weight-bold;
+
+    margin: 0 0 city-spacing(3);
+
+    padding: 0;
+  }
+
+  .city-notification-banner__link {
+    @include city-link-common;
+    @include city-link-style-no-visited-state;
+  }
+
+  .city-notification-banner--success {
+    border-color: $city-success-colour;
+
+    background-color: $city-success-colour;
+
+    .city-notification-banner__link {
+      @include city-link-style-success;
+    }
+  }
+}

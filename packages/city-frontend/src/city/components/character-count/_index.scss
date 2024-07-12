@@ -1,0 +1,34 @@
+@import "../error-message/index";
+@import "../hint/index";
+@import "../label/index";
+@import "../textarea/index";
+
+@include city-exports("city/component/character-count") {
+  .city-character-count {
+    @include city-responsive-margin(6, "bottom");
+
+    .city-form-group,
+    .city-textarea {
+      margin-bottom: city-spacing(1);
+    }
+  }
+
+  .city-character-count__message {
+    @include city-font-tabular-numbers;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &::after {
+      // Zero-width space that will reserve vertical space when no hint is
+      // provided as:
+      // - setting a min-height is not possible without a magic number because
+      //   the line-height is set by the `city-font` call above
+      // - using `:empty` is not possible as the hint macro outputs line breaks
+      content: "\200B";
+    }
+  }
+
+  .city-character-count__message--disabled {
+    visibility: hidden;
+  }
+}

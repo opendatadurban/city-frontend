@@ -14,9 +14,9 @@ Use previews when you:
 
 ## What happens when you preview GOV.UK Frontend
 
-When you preview GOV.UK Frontend, this creates a GitHub branch. This branch contains the GOV.UK Frontend [`/packages/govuk-frontend`](/packages/govuk-frontend) directory with your trial changes.
+When you preview GOV.UK Frontend, this creates a GitHub branch. This branch contains the GOV.UK Frontend [`/packages/city-frontend`](/packages/city-frontend) directory with your trial changes.
 
-Projects can point to this branch in their package.json, instead of to the published [GOV.UK Frontend npm package](https://www.npmjs.com/package/govuk-frontend). No changes are published to the GOV.UK Frontend npm package as part of this process.
+Projects can point to this branch in their package.json, instead of to the published [GOV.UK Frontend npm package](https://www.npmjs.com/package/city-frontend). No changes are published to the GOV.UK Frontend npm package as part of this process.
 
 ## Publish a preview
 
@@ -37,7 +37,7 @@ Projects can point to this branch in their package.json, instead of to the publi
 
 1. If you need to update an existing project to use the preview, copy the command that displays after the `Success!` message.
 
-2. Navigate to the project in the command line and run the success notification command. Running this command makes the project point to the preview branch, instead of to the published [GOV.UK Frontend npm package](https://www.npmjs.com/package/govuk-frontend). You can now preview your trial changes to GOV.UK Frontend.
+2. Navigate to the project in the command line and run the success notification command. Running this command makes the project point to the preview branch, instead of to the published [GOV.UK Frontend npm package](https://www.npmjs.com/package/city-frontend). You can now preview your trial changes to GOV.UK Frontend.
 
 ## Update a preview
 

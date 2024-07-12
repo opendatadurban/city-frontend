@@ -1,4 +1,4 @@
-const pkg = require('govuk-frontend/package.json')
+const pkg = require('city-frontend/package.json')
 
 // Node.js environment with default
 // https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production

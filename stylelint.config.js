@@ -8,8 +8,8 @@ module.exports = {
     '**/?(.)*.{cjs,js,mjs}',
 
     // Legacy source symlinks
-    'src/govuk/**',
-    'src/govuk-prototype-kit/**',
+    'src/city/**',
+    'src/city-prototype-kit/**',
 
     // Prevent CHANGELOG history changes
     'CHANGELOG.md'

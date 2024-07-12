@@ -2,9 +2,9 @@
 
 ## Class naming convention
 
-## `govuk` namespacing
+## `city` namespacing
 
-All class names start with a `.govuk-` namespace to reduce the likelihood of
+All class names start with a `.city-` namespace to reduce the likelihood of
 conflicting with existing classes in your application. It also helps to identify
 where the styling for a particular element is coming from.
 
@@ -24,9 +24,9 @@ The naming convention follows this pattern:
 .block__element {}
 .block--modifier {}
 
-.govuk-card {}            // Block - the root of a component
-.govuk-card__body {}      // Element - a part of the block
-.govuk-card--active {}    // Modifier - a variant of the block
+.city-card {}            // Block - the root of a component
+.city-card__body {}      // Element - a part of the block
+.city-card--active {}    // Modifier - a variant of the block
 ```
 
 It uses double hyphens (`--`) and underscores (`__`) so that the block, element
@@ -35,9 +35,9 @@ or modifiers themselves can be hyphen delimited without causing ambiguity.
 For example:
 
 ```scss
-.govuk-phase-banner {}
-.govuk-phase-banner__phase-tag {}
-.govuk-phase-banner__phase-tag--light-blue {}
+.city-phase-banner {}
+.city-phase-banner__phase-tag {}
+.city-phase-banner__phase-tag--light-blue {}
 ```
 
 ### Further reading:
@@ -57,7 +57,7 @@ given class name. It also discourages excessive nesting.
 Bad:
 
 ```scss
-.govuk-breadcrumb {
+.city-breadcrumb {
   // ...
   &__item {
     // ...
@@ -68,11 +68,11 @@ Bad:
 Good:
 
 ```scss
-.govuk-breadcrumb {
+.city-breadcrumb {
   // ...
 }
 
-.govuk-breadcrumb__item {
+.city-breadcrumb__item {
   // ...
 }
 ```
@@ -98,11 +98,11 @@ other components.
 
 Keep all of the variants of a component in the same place.
 
-`.govuk-error-summary` modifies the `.govuk-list` component.
+`.city-error-summary` modifies the `.city-list` component.
 
 Component modifiers use an extra class, scoped to the component:
 
-`.govuk-error-summary__list`
+`.city-error-summary__list`
 
 This class is part of the component, rather than a parent of a component.
 
@@ -174,7 +174,7 @@ Good:
 
 ```scss
 .selector {
-  color: $govuk-blue;
+  color: $city-blue;
 }
 ```
 
@@ -205,7 +205,7 @@ Bad:
 Good:
 
 ```scss
-.govuk-wrapper {
+.city-wrapper {
   // ...
 }
 ```
@@ -247,7 +247,7 @@ a {
 Bad:
 
 ```scss
-.govuk-breadcrumb {
+.city-breadcrumb {
   // ...
   &__item {
     // ...
@@ -258,11 +258,11 @@ Bad:
 Good:
 
 ```scss
-.govuk-breadcrumb {
+.city-breadcrumb {
   // ...
 }
 
-.govuk-breadcrumb__item {
+.city-breadcrumb__item {
   // ...
 }
 ```
@@ -302,7 +302,7 @@ Bad:
 ```scss
 @import 'foo';
 
-$govuk-font-family-gds-transport: 'GDS Transport', arial, sans-serif;
+$city-font-family-gds-transport: 'GDS Transport', arial, sans-serif;
 
 .bar {
   content: 'baz';
@@ -314,7 +314,7 @@ Good:
 ```scss
 @import "foo";
 
-$govuk-font-family-gds-transport: "GDS Transport", arial, sans-serif;
+$city-font-family-gds-transport: "GDS Transport", arial, sans-serif;
 
 .bar {
   content: "baz";
@@ -328,8 +328,8 @@ $govuk-font-family-gds-transport: "GDS Transport", arial, sans-serif;
 Bad:
 
 ```scss
-@import "_foo.scss";
-@import "_bar/foo.scss";
+@import "_foo";
+@import "_bar/foo";
 ```
 
 Good:
@@ -453,7 +453,7 @@ Bad:
 
 ```scss
 @mixin FONT_STACK() {
-  font-family: $govuk-font-stack;
+  font-family: $city-font-stack;
 }
 ```
 
@@ -461,7 +461,7 @@ Good:
 
 ```scss
 @mixin font-stack() {
-  font-family: $govuk-font-stack;
+  font-family: $city-font-stack;
 }
 ```
 
@@ -543,4 +543,4 @@ The SassDoc comments are used to generate the [Sass API reference in the GOV.UK 
 
 For SassDoc comments, use 3 slashes (`///`) at the start of the line.
 
-See [`_colour.scss`](/packages/govuk-frontend/src/govuk/helpers/_colour.scss) for an example of SassDoc syntax.
+See [`_colour.scss`](/packages/city-frontend/src/city/helpers/_colour.scss) for an example of SassDoc syntax.

@@ -1,0 +1,14 @@
+{% if shouldShowAppBanner %}
+<div class="app-banner app-banner--warning" data-module="app-banner">
+  <div class="city-width-container">
+    <p class="city-body">
+      This is an internal development app.
+      <br>
+      To learn how to use the GOV.UK Design System in your project, see <a class="city-link city-link--inverse" href="https://design-system.service.gov.uk/get-started/">Get started</a>.
+    </p>
+    <form method="post" action="/hide-banner">
+      <button class="city-button city-button--secondary city-!-margin-bottom-0">Hide this banner</button>
+    </form>
+  </div>
+</div>
+{% endif %}

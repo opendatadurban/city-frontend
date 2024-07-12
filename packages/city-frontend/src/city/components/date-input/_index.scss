@@ -1,0 +1,25 @@
+@import "../error-message/index";
+@import "../input/index";
+@import "../hint/index";
+@import "../label/index";
+
+@include city-exports("city/component/date-input") {
+  .city-date-input {
+    @include city-clearfix;
+    font-size: 0; // removes whitespace caused by inline-block
+  }
+
+  .city-date-input__item {
+    display: inline-block;
+    margin-right: city-spacing(4);
+    margin-bottom: 0;
+  }
+
+  .city-date-input__label {
+    display: block;
+  }
+
+  .city-date-input__input {
+    margin-bottom: 0;
+  }
+}

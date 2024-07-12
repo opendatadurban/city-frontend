@@ -1,0 +1,148 @@
+---
+title: Send your feedback - Verify
+scenario: |
+  You have used a service called GOV.UK Verify and wish to report an issue.
+
+  Things to try:
+
+  1. Intentionally put too much content in the feedback box.
+
+    “What were you trying to do” question has a limit of 100 characters.
+
+    “Please provide details of your question, problem or feedback” has a limit
+    of 300 characters.
+
+  2. Say that you want a reply, but avoid filling in the details of how you
+      would like to be contacted.
+
+  3. Avoid answering the question “Do you want a reply?”
+
+notes: Based on https://www.signin.service.gov.uk/feedback
+---
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/warning-text/macro.njk" import cityWarningText %}
+{% from "city/components/radios/macro.njk" import cityRadios %}
+{% from "city/components/input/macro.njk" import cityInput %}
+{% from "city/components/character-count/macro.njk" import cityCharacterCount %}
+{% from "city/components/button/macro.njk" import cityButton %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ "Error: " if errorSummary | length }}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block header %}
+  {{ cityHeader({
+    productName: "Verify"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+        <form method="post" novalidate>
+            {% if errorSummary | length %}
+              {{ cityErrorSummary({
+                titleText: "There is a problem",
+                errorList: errorSummary
+              }) }}
+            {% endif %}
+
+            <h1 class="city-heading-xl">{{ pageTitle }}</h1>
+
+            <p class="city-body">
+                Use this form to ask a question, report a problem or suggest an improvement GOV.UK Verify can make.
+            </p>
+
+            {{ cityWarningText({
+                text: "Don't include any personal or financial information like your National Insurance number or credit card details."
+            }) }}
+
+            {{ cityCharacterCount({
+                name: "what-were-you-trying-to-do",
+                id: "what-were-you-trying-to-do",
+                maxlength: 100,
+                threshold: 50,
+                rows: 5,
+                label: {
+                    text: "What were you trying to do?"
+                },
+                value: values["what-were-you-trying-to-do"],
+                errorMessage: errors["what-were-you-trying-to-do"]
+            }) }}
+
+            {{ cityCharacterCount({
+                name: "detail",
+                id: "detail",
+                maxlength: 300,
+                rows: 10,
+                label: {
+                    text: "Please provide details of your question, problem or feedback"
+                },
+                value: values["detail"],
+                errorMessage: errors["detail"]
+            }) }}
+
+            {% set yesHTML %}
+                <p class="city-body">Leave your details below if you'd like a response from GOV.UK Verify.</p>
+
+                {{ cityInput({
+                    id: "name",
+                    name: "name",
+                    label: {
+                        text: "Name"
+                    },
+                    value: values["name"],
+                    errorMessage: errors["name"]
+                }) }}
+
+                {{ cityInput({
+                    id: "email",
+                    name: "email",
+                    type: "email",
+                    label: {
+                        text: "Email address"
+                    },
+                    hint: {
+                        text: "We’ll only use this to reply to your message."
+                    },
+                    value: values["email"],
+                    errorMessage: errors["email"]
+                }) }}
+
+                <p class="city-body city-!-margin-top-6">By sending this message, you consent to us using your information as detailed in the privacy notice.</p>
+            {% endset -%}
+
+            {{ cityRadios({
+                idPrefix: "do-you-want-a-reply",
+                name: "do-you-want-a-reply",
+                fieldset: {
+                    legend: {
+                        text: "Do you want a reply?"
+                    }
+                },
+                items: [
+                    {
+                        id: "do-you-want-a-reply",
+                        value: "yes",
+                        text: "Yes",
+                        conditional: {
+                            html: yesHTML
+                        }
+                    },
+                    {
+                        value: "no",
+                        text: "No"
+                    }
+                ],
+                value: values["do-you-want-a-reply"],
+                errorMessage: errors["do-you-want-a-reply"]
+            }) }}
+
+            {{ cityButton({
+                text: "Send message"
+            }) }}
+        </form>
+    </div>
+  </div>
+{% endblock %}

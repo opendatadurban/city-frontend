@@ -83,10 +83,10 @@ module.exports = {
           }
         ],
 
-        // Ignore `govuk-frontend` exports as they require auto-generated files
-        'import/no-unresolved': ['error', { ignore: ['govuk-frontend'] }],
-        'n/no-missing-import': ['error', { allowModules: ['govuk-frontend'] }],
-        'n/no-missing-require': ['error', { allowModules: ['govuk-frontend'] }],
+        // Ignore `city-frontend` exports as they require auto-generated files
+        'import/no-unresolved': ['error', { ignore: ['city-frontend'] }],
+        'n/no-missing-import': ['error', { allowModules: ['city-frontend'] }],
+        'n/no-missing-require': ['error', { allowModules: ['city-frontend'] }],
 
         // Automatically use template strings
         'no-useless-concat': 'error',

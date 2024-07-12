@@ -1,6 +1,6 @@
 import { join } from 'path'
 
-import { paths } from '@govuk-frontend/config'
+import { paths } from '@city-frontend/config'
 
 import {
   componentNameToClassName,
@@ -71,19 +71,19 @@ describe('componentNameToMacroName', () => {
   const components = [
     {
       name: 'button',
-      macroName: 'govukButton'
+      macroName: 'cityButton'
     },
     {
       name: 'radios',
-      macroName: 'govukRadios'
+      macroName: 'cityRadios'
     },
     {
       name: 'skip-link',
-      macroName: 'govukSkipLink'
+      macroName: 'citySkipLink'
     },
     {
       name: 'character-count',
-      macroName: 'govukCharacterCount'
+      macroName: 'cityCharacterCount'
     }
   ]
 
@@ -98,24 +98,24 @@ describe('componentNameToMacroName', () => {
 describe('packageResolveToPath', () => {
   const packages = [
     {
-      packageEntry: 'govuk-frontend/package.json',
+      packageEntry: 'city-frontend/package.json',
       resolvedPath: join(paths.package, 'package.json')
     },
     {
-      packageEntry: 'govuk-frontend/src/govuk/all.mjs',
-      resolvedPath: join(paths.package, 'src/govuk/all.mjs')
+      packageEntry: 'city-frontend/src/city/all.mjs',
+      resolvedPath: join(paths.package, 'src/city/all.mjs')
     },
     {
-      packageEntry: 'govuk-frontend/src/govuk/all.mjs',
+      packageEntry: 'city-frontend/src/city/all.mjs',
       options: { modulePath: 'i18n.mjs' },
-      resolvedPath: join(paths.package, 'src/govuk/i18n.mjs')
+      resolvedPath: join(paths.package, 'src/city/i18n.mjs')
     },
     {
-      packageEntry: 'govuk-frontend/src/govuk/all.mjs',
+      packageEntry: 'city-frontend/src/city/all.mjs',
       options: { modulePath: 'components/accordion/accordion.mjs' },
       resolvedPath: join(
         paths.package,
-        'src/govuk/components/accordion/accordion.mjs'
+        'src/city/components/accordion/accordion.mjs'
       )
     }
   ]
@@ -131,36 +131,36 @@ describe('packageResolveToPath', () => {
 describe('packageTypeToPath', () => {
   const packages = [
     {
-      packageName: 'govuk-frontend',
-      resolvedPath: join(paths.package, 'dist/govuk/all.bundle.js')
+      packageName: 'city-frontend',
+      resolvedPath: join(paths.package, 'dist/city/all.bundle.js')
     },
     {
-      packageName: 'govuk-frontend',
+      packageName: 'city-frontend',
       options: { type: 'module' },
-      resolvedPath: join(paths.package, 'dist/govuk/all.mjs')
+      resolvedPath: join(paths.package, 'dist/city/all.mjs')
     },
     {
-      packageName: 'govuk-frontend',
+      packageName: 'city-frontend',
       options: { modulePath: 'i18n.mjs', type: 'module' },
-      resolvedPath: join(paths.package, 'dist/govuk/i18n.mjs')
+      resolvedPath: join(paths.package, 'dist/city/i18n.mjs')
     },
     {
-      packageName: 'govuk-frontend',
+      packageName: 'city-frontend',
       options: { modulePath: 'components/accordion/accordion.bundle.js' },
       resolvedPath: join(
         paths.package,
-        'dist/govuk/components/accordion/accordion.bundle.js'
+        'dist/city/components/accordion/accordion.bundle.js'
       )
     },
     {
-      packageName: 'govuk-frontend',
+      packageName: 'city-frontend',
       options: {
         modulePath: 'components/accordion/accordion.bundle.mjs',
         type: 'module'
       },
       resolvedPath: join(
         paths.package,
-        'dist/govuk/components/accordion/accordion.bundle.mjs'
+        'dist/city/components/accordion/accordion.bundle.mjs'
       )
     }
   ]
@@ -176,11 +176,11 @@ describe('packageTypeToPath', () => {
 describe('packageNameToPath', () => {
   const packages = [
     {
-      packageName: 'govuk-frontend',
+      packageName: 'city-frontend',
       resolvedPath: paths.package
     },
     {
-      packageName: '@govuk-frontend/review',
+      packageName: '@city-frontend/review',
       resolvedPath: paths.app
     }
   ]
@@ -196,12 +196,12 @@ describe('packageNameToPath', () => {
 describe("packageNameToPath (with custom 'node_module' paths)", () => {
   const packages = [
     {
-      packageName: 'govuk-frontend',
+      packageName: 'city-frontend',
       options: { moduleRoot: paths.root },
       resolvedPath: paths.package
     },
     {
-      packageName: '@govuk-frontend/review',
+      packageName: '@city-frontend/review',
       options: { moduleRoot: paths.root },
       resolvedPath: paths.app
     },

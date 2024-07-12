@@ -1,0 +1,16 @@
+.app-banner {
+  padding-top: city-spacing(6);
+  padding-bottom: city-spacing(6);
+  overflow: hidden;
+  @include city-font($size: 36, $line-height: 1.5);
+
+  .city-body {
+    color: inherit;
+    font-size: inherit;
+  }
+}
+
+.app-banner--warning {
+  color: city-colour("white");
+  background: city-colour("red");
+}

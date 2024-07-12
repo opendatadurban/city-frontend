@@ -1,0 +1,14 @@
+{% from "../../macros/attributes.njk" import cityAttributes -%}
+
+<details {%- if params.id %} id="{{ params.id }}"{% endif %} class="city-details {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- cityAttributes(params.attributes) -}}
+  {{- " open" if params.open }}>
+  <summary class="city-details__summary">
+    <span class="city-details__summary-text">
+      {{ params.summaryHtml | safe | trim | indent(6) if params.summaryHtml else params.summaryText }}
+    </span>
+  </summary>
+  <div class="city-details__text">
+    {{ caller() if caller else (params.html | safe if params.html else params.text) }}
+  </div>
+</details>

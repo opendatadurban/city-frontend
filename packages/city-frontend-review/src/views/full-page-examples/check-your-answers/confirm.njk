@@ -1,0 +1,17 @@
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/panel/macro.njk" import cityPanel %}
+
+{% set pageTitle = "Application complete" %}
+{% block pageTitle %}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+      {{ cityPanel({
+        titleText: pageTitle,
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+@include city-exports("city/component/hint") {
+  .city-hint {
+    @include city-font($size: 19);
+
+    margin-bottom: city-spacing(3);
+
+    color: $city-secondary-text-colour;
+  }
+
+  // Reduces margin-bottom of hint when used after the default label (no class)
+  // or city-label--s for better vertical alignment.
+
+  // This adjustment will not work when the label is inside the <h1>, however it
+  // is unlikely that the default or city-label--s class would be used in this
+  // case.
+
+  // This adjustment will not work in browsers that do not support :not().
+  // Users with these browsers will see the default size margin (5px larger).
+
+  .city-label:not(.city-label--m):not(.city-label--l):not(.city-label--xl) + .city-hint {
+    margin-bottom: city-spacing(2);
+  }
+
+  // Reduces margin-bottom of hint when used after the default legend (no class)
+  // or city-fieldset__legend--s for better vertical alignment.
+
+  // This adjustment will not work when the legend is outside the <h1>, however
+  // it is unlikely that the default or city-fieldset__legend--s class would be
+  // used in this case.
+
+  // This adjustment will not work in browsers that do not support :not().
+  // Users with these browsers will see the default size margin (5px larger).
+
+  // prettier-ignore
+  .city-fieldset__legend:not(.city-fieldset__legend--m):not(.city-fieldset__legend--l):not(.city-fieldset__legend--xl) + .city-hint {
+    margin-bottom: city-spacing(2);
+  }
+
+  // Reduces visual spacing of legend when there is a hint
+  .city-fieldset__legend + .city-hint {
+    margin-top: city-spacing(-1);
+  }
+}

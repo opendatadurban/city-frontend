@@ -1,8 +1,8 @@
 import { basename, dirname, join } from 'path'
 
-import { paths } from '@govuk-frontend/config'
-import { nunjucksEnv, render } from '@govuk-frontend/lib/components'
-import { getListing, getYaml } from '@govuk-frontend/lib/files'
+import { paths } from '@city-frontend/config'
+import { nunjucksEnv, render } from '@city-frontend/lib/components'
+import { getListing, getYaml } from '@city-frontend/lib/files'
 import slug from 'slug'
 
 import { files } from './index.mjs'
@@ -114,7 +114,7 @@ async function generateFixture(componentDataPath, options) {
       // Write rendered Nunjucks example for diff
       if (!example.hidden) {
         await files.write(`template-${slug(example.name)}.html`, {
-          destPath: join(paths.package, `dist/govuk/components`, componentName),
+          destPath: join(paths.package, `dist/city/components`, componentName),
           fileContents: async () => html.trimEnd()
         })
       }
@@ -162,9 +162,9 @@ async function generateMacroOption(componentDataPath, options) {
 
 /**
  * @typedef {import('./assets.mjs').AssetEntry} AssetEntry
- * @typedef {import('@govuk-frontend/lib/components').ComponentData} ComponentData
- * @typedef {import('@govuk-frontend/lib/components').ComponentOption} ComponentOption
- * @typedef {import('@govuk-frontend/lib/components').ComponentExample} ComponentExample
- * @typedef {import('@govuk-frontend/lib/components').ComponentFixture} ComponentFixture
- * @typedef {import('@govuk-frontend/lib/components').ComponentFixtures} ComponentFixtures
+ * @typedef {import('@city-frontend/lib/components').ComponentData} ComponentData
+ * @typedef {import('@city-frontend/lib/components').ComponentOption} ComponentOption
+ * @typedef {import('@city-frontend/lib/components').ComponentExample} ComponentExample
+ * @typedef {import('@city-frontend/lib/components').ComponentFixture} ComponentFixture
+ * @typedef {import('@city-frontend/lib/components').ComponentFixtures} ComponentFixtures
  */

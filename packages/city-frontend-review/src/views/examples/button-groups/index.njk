@@ -1,0 +1,111 @@
+{% extends "layouts/examples.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/button/macro.njk" import cityButton %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="city-grid-row">
+  <div class="city-grid-column-two-thirds">
+
+  <div class="city-button-group">
+    {{ cityButton({
+      "text": "Accept analytics cookies"
+    }) }}
+
+    {{ cityButton({
+      "text": "Reject analytics cookies"
+    }) }}
+
+    <a href="#" class="city-link">View cookies</a>
+  </div>
+
+  <div class="city-button-group">
+    {{ cityButton({
+      "text": "Derbyn cwcis dadansoddeg"
+    }) }}
+
+    {{ cityButton({
+      "text": "Gwrthod cwcis dadansoddeg"
+    }) }}
+
+    <a href="#" class="city-link">Gweld cwcis</a>
+  </div>
+
+  <div class="city-button-group">
+    {{ cityButton({
+      "text": "Accept really important analytics cookies"
+    }) }}
+
+    {{ cityButton({
+      "text": "Reject really important analytics cookies but not essential cookies"
+    }) }}
+
+    <a href="#" class="city-link">View cookies and set preferences to do with whether we can set cookies</a>
+  </div>
+
+  <div class="city-button-group">
+    {{ cityButton({
+      "text": "Delete account",
+      "classes": "city-button--warning"
+    }) }}
+
+    <a href="#" class="city-link city-link--muted">Cancel</a>
+    <a href="#" class="city-link city-link--muted">Cancel and go back</a>
+  </div>
+
+  <div class="city-button-group">
+    <a href="#" class="city-link">Buy it</a>
+
+    {{ cityButton({
+      "text": "Use it"
+    }) }}
+
+    {{ cityButton({
+      "text": "Break it"
+    }) }}
+
+    <a href="#" class="city-link">Fix it</a>
+    <a href="#" class="city-link">Trash it</a>
+    <a href="#" class="city-link">Change it</a>
+
+    {{ cityButton({
+      "text": "Mail it"
+    }) }}
+
+    <a href="#" class="city-link">Upgrade it</a>
+
+    <a href="#" class="city-link">Charge it</a>
+
+    {{ cityButton({
+      "text": "Point it"
+    }) }}
+
+    {{ cityButton({
+      "text": "Zoom it"
+    }) }}
+
+    {{ cityButton({
+      "text": "Press it"
+    }) }}
+  </div>
+
+  <div class="city-button-group">
+    {{ cityButton({
+      text: "Start now",
+      href: "#",
+      isStartButton: true
+    }) }}
+
+    <a href="#" class="city-link">Back</a>
+  </div>
+
+  </div>
+</div>
+{% endblock %}

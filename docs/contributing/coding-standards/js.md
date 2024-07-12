@@ -25,7 +25,7 @@ export class Example {
   constructor($module) {
     if (
       !($module instanceof HTMLElement) ||
-      !document.body.classList.contains('govuk-frontend-supported')
+      !document.body.classList.contains('city-frontend-supported')
     ) {
       return this
     }
@@ -45,15 +45,15 @@ export class Example {
 Use `data-module` attributes in HTML to initialise a component in JavaScript. For example:
 
 ```html
-data-module="govuk-accordion"
+data-module="city-accordion"
 ```
 
 ## Use classes to target DOM elements
 
-After you initialise a component, use `govuk-js-*` classes to target DOM elements. For example:
+After you initialise a component, use `city-js-*` classes to target DOM elements. For example:
 
 ```html
-class="govuk-js-header-toggle"
+class="city-js-header-toggle"
 ```
 
 ## Comments
@@ -136,7 +136,7 @@ You must specify the file extension when using the import keyword.
 
 Avoid using namespace imports (`import * as namespace`) in code bundled for CommonJS and other formats as this can prevent "tree shaking" optimisations.
 
-Prefer named exports over default exports to avoid compatibility issues with transpiler "synthetic default" as discussed in: https://github.com/alphagov/govuk-frontend/issues/2829
+Prefer named exports over default exports to avoid compatibility issues with transpiler "synthetic default" as discussed in: https://github.com/alphagov/city-frontend/issues/2829
 
 ## Throwing errors
 
@@ -147,11 +147,11 @@ First, check if one of the [native errors provides](https://developer.mozilla.or
 If none of the native errors have the right semantics, create a new class for this error. This class should:
 
 - have a name ending in `Error` to match the native conventions
-- extend `GOVUKFrontendError`, so users can separate our custom errors from native ones using `instanceof`
+- extend `cityFrontendError`, so users can separate our custom errors from native ones using `instanceof`
 - have a `name` property set to its class name, as extending classes doesn't set this automatically and grabbing the constructor's name risks being affected by mangling during minification
 
 ```js
-class CustomError extends GOVUKFrontendError {
+class CustomError extends cityFrontendError {
   name = 'CustomError'
 }
 ```
@@ -163,7 +163,7 @@ Keep the message to the point, but provide the users the information they need t
 If the message is the same whatever the situation, you may use the constructor of our custom error to centralise that message, rather than passing it each time an error is thrown.
 
 ```js
-class SupportError extends GOVUKFrontendError {
+class SupportError extends cityFrontendError {
   name = 'SupportError'
 
   constructor () {

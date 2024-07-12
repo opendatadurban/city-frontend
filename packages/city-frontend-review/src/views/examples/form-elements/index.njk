@@ -1,0 +1,178 @@
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/fieldset/macro.njk" import cityFieldset %}
+{% from "city/components/input/macro.njk" import cityInput %}
+{% from "city/components/button/macro.njk" import cityButton %}
+{% from "city/components/radios/macro.njk" import cityRadios %}
+{% from "city/components/checkboxes/macro.njk" import cityCheckboxes %}
+{% from "city/components/date-input/macro.njk" import cityDateInput %}
+{% from "city/components/select/macro.njk" import citySelect %}
+{% from "city/components/file-upload/macro.njk" import cityFileUpload %}
+
+{% extends "layouts/examples.njk" %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="city-heading-xl">Form elements</h1>
+
+  <ul class="city-list city-list--bullet">
+    <li><a href="#input" class="city-link">Label and text input</a></li>
+    <li><a href="#textarea" class="city-link">Label and textarea</a></li>
+    <li><a href="#radio-stacked" class="city-link">Fieldset, legend and radio buttons (stacked)</a></li>
+    <li><a href="#radio-inline" class="city-link">Fieldset, legend and radio buttons (inline - yes or no)</a></li>
+    <li><a href="#checkboxes-stacked" class="city-link">Fieldset, legend and checkboxes (stacked)</a></li>
+    <li><a href="#date" class="city-link">Date pattern</a></li>
+    <li><a href="#select" class="city-link">Select box</a></li>
+    <li><a href="#file" class="city-link">File upload</a></li>
+  </ul>
+
+  <form action="/" method="post">
+    {% call cityFieldset() %}
+      <span id="input"></span>
+      {{ cityInput({
+        id: "city-input-a",
+        label: {
+          text: "National Insurance number"
+        }
+      }) }}
+      {{ cityButton({
+        "text": "Save and continue"
+      }) }}
+    {% endcall %}
+
+    {% call cityFieldset() %}
+      <span id="textarea"></span>
+      {% from "city/components/textarea/macro.njk" import cityTextarea %}
+      {{ cityTextarea({
+        id: "city-textarea-a",
+        name: "city-textarea-a",
+        rows: "5",
+        label: {
+          text: "Why can't you provide a National Insurance number?"
+        }
+      }) }}
+    {% endcall %}
+
+    <span id="radio-stacked"></span>
+    {{ cityRadios({
+      "fieldset": {
+        "legend": {
+          text: "How do you want to be contacted?",
+          classes: "city-fieldset__legend--m"
+        }
+      },
+      "idPrefix": "radio-stacked",
+      "name": "radio-stacked",
+      "items": [
+        {
+          "value": "email",
+          "text": "Email"
+        },
+        {
+          "value": "phone",
+          "text": "Phone"
+        },
+        {
+          "value": "text",
+          "text": "Text message"
+        }
+      ]
+    }) }}
+
+    <span id="radio-inline"></span>
+    {{ cityRadios({
+      "fieldset": {},
+      "classes": "city-radios--inline",
+      "idPrefix": "radio-inline",
+      "name": "radio-inline",
+      "items": [
+        {
+          "value": "yes",
+          "text": "Yes"
+        },
+        {
+          "value": "no",
+          "text": "No"
+        }
+      ]
+    }) }}
+
+    <span id="checkboxes-stacked"></span>
+    {{ cityCheckboxes({
+      "fieldset": {},
+      "idPrefix": "checkboxes-stacked",
+      "name": "checkboxes-stacked",
+      "items": [
+        {
+          "value": "waste-animal",
+          "text": "Waste from animal carcasses"
+        },
+        {
+          "value": "waste-mines",
+          "text": "Waste from mines or quarries"
+        },
+        {
+          "value": "waste-other",
+          "text": "Waste from other"
+        }
+      ]
+    }) }}
+
+    <span id="date"></span>
+    {{- cityDateInput({
+      "fieldset": {
+        "legend": {
+          "text": "What is your date of birth?",
+          "classes": "city-fieldset__legend--m"
+        }
+      },
+      "hint": {
+        "text": "For example, 31 3 1980"
+      },
+      "id": "dob",
+      "name": "dob"
+    }) -}}
+
+    {% call cityFieldset() %}
+      <span id="select"></span>
+      {{ citySelect({
+        "id": "select-1",
+        "name": "select-1",
+        "label": {
+          "html": "Label text goes here"
+        },
+        "items": [
+          {
+            "value": 1,
+            "text": "GOV.UK frontend option 1"
+          },
+          {
+            "value": 2,
+            "text": "GOV.UK frontend option 2",
+            "selected": true
+          },
+          {
+            "value": 3,
+            "text": "GOV.UK frontend option 3"
+          }
+        ]
+      }) }}
+    {% endcall %}
+
+    {% call cityFieldset() %}
+      <span id="file"></span>
+      {{- cityFileUpload({
+        id: 'file-upload-1',
+        name: 'file-upload-1',
+        label: {
+          text: 'Upload a file'
+        }
+      }) -}}
+    {% endcall %}
+
+  </form>
+{% endblock %}

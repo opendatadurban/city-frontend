@@ -4,8 +4,8 @@ set -e
 # Get highest tag published on Github
 HIGHEST_PUBLISHED_VERSION=$(git tag --list 2>/dev/null | sort -V | tail -n1 2>/dev/null | sed 's/v//g')
 
-# Extract tag version from ./packages/govuk-frontend/package.json
-CURRENT_VERSION=$(npm run version --silent --workspace govuk-frontend)
+# Extract tag version from ./packages/city-frontend/package.json
+CURRENT_VERSION=$(npm run version --silent --workspace city-frontend)
 
 function version() { echo "$@" | awk -F. '{ printf("%d%03d%03d\n", $1,$2,$3); }'; }
 

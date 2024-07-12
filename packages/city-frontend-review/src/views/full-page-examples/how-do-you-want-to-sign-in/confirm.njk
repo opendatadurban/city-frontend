@@ -1,0 +1,16 @@
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/panel/macro.njk" import cityPanel %}
+
+{% set pageTitle = "Thank you for selecting your identity provider" %}
+{% block pageTitle %}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+      {{ cityPanel({
+        titleText: pageTitle
+      }) }}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% from "../../macros/attributes.njk" import cityAttributes -%}
+
+<a href="{{ params.href | default('#') }}" class="city-back-link {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- cityAttributes(params.attributes) }}>
+  {{- params.html | safe if params.html else (params.text | default("Back")) -}}
+</a>

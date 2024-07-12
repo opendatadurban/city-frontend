@@ -1,6 +1,6 @@
 # Test components using accessibility acceptance criteria
 
-We're still developing this page. To suggest changes, comment on the [GitHub issue for improving this page's content](https://github.com/alphagov/govuk-design-system/issues/1850). Alternatively, you can [contact us directly](https://design-system.service.gov.uk/#support).
+We're still developing this page. To suggest changes, comment on the [GitHub issue for improving this page's content](https://github.com/alphagov/city-design-system/issues/1850). Alternatively, you can [contact us directly](https://design-system.service.gov.uk/#support).
 
 This page will help you if you are:
 
@@ -9,7 +9,7 @@ This page will help you if you are:
 
 Your component or iteration should meet:
 
-- [the GOV.UK Design System’s accessibility acceptance criteria](#govuk-design-system---accessibility-acceptance-criteria)
+- [the GOV.UK Design System’s accessibility acceptance criteria](#city-design-system---accessibility-acceptance-criteria)
 - [custom accessibility acceptance criteria that you need to write specifically for your component or iteration](#writing-custom-accessibility-acceptance-criteria-for-your-component)
 
 If your component cannot meet some of these criteria, or if you cannot check them, let us know in your pull request or [contact us](https://design-system.service.gov.uk/#support).
@@ -133,7 +133,7 @@ A non-exhaustive list of points to consider when writing your own criteria:
 
 Here are some useful resources to help you write your own accessibility acceptance criteria:
 
-- GOV.UK blog - [Improving accessibility with accessibility acceptance criteria](https://insidegovuk.blog.gov.uk/2018/01/24/improving-accessibility-with-accessibility-acceptance-criteria/)
+- GOV.UK blog - [Improving accessibility with accessibility acceptance criteria](https://insidecity.blog.gov.uk/2018/01/24/improving-accessibility-with-accessibility-acceptance-criteria/)
 - BBC guide - [How to write accessibility acceptance criteria](https://bbc.github.io/accessibility-news-and-you/guides/accessibility-acceptance-criteria.html)
 
 ## Include your own criteria in your pull request

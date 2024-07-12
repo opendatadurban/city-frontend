@@ -6,7 +6,7 @@
 
 - `dist/` **contains auto-generated files**
 
-  Standalone builds of govuk-frontend. Provides a way to consume govuk-frontend without using npm.
+  Standalone builds of city-frontend. Provides a way to consume city-frontend without using npm.
 
 - `docs/`
 
@@ -14,13 +14,13 @@
 
 - `packages/`
 
-  - `govuk-frontend-review/`
+  - `city-frontend-review/`
 
-    [Express.js](https://github.com/expressjs/express) review app [deployed to Heroku](https://govuk-frontend-review.herokuapp.com) with configuration in [app.json](/app.json) and [Procfile](/Procfile).
+    [Express.js](https://github.com/expressjs/express) review app [deployed to Heroku](https://city-frontend-review.herokuapp.com) with configuration in [app.json](/app.json) and [Procfile](/Procfile).
 
     - `dist/` **contains auto-generated files**
 
-      Builds of govuk-frontend-review served by [Express.js](https://github.com/expressjs/express).
+      Builds of city-frontend-review served by [Express.js](https://github.com/expressjs/express).
 
     - `src/`
 
@@ -31,33 +31,33 @@
       Read about [npm and Gulp tasks](tasks.md) or list workspace specific Gulp tasks using:
 
       ```shell
-      npx --workspace @govuk-frontend/review -- gulp --tasks
+      npx --workspace @city-frontend/review -- gulp --tasks
       ```
 
-  - `govuk-frontend/`
+  - `city-frontend/`
 
     Package published on npm.
-    Consume all of govuk-frontend through a single package.
+    Consume all of city-frontend through a single package.
 
     - `dist/` **contains auto-generated files**
 
-      Builds of govuk-frontend published and exported from the npm package.
+      Builds of city-frontend published and exported from the npm package.
 
     - `src/`
 
-      Source files. See [README.md](/packages/govuk-frontend/src/README.md) in the src directory for details.
+      Source files. See [README.md](/packages/city-frontend/src/README.md) in the src directory for details.
 
     - `tasks/`
 
       Read about [npm and Gulp tasks](tasks.md) or list workspace specific Gulp tasks using:
 
       ```shell
-      npx --workspace govuk-frontend -- gulp --tasks
+      npx --workspace city-frontend -- gulp --tasks
       ```
 
 - `shared/`
 
-  Shared packages used by tests, build tools and the [review app](/packages/govuk-frontend-review).
+  Shared packages used by tests, build tools and the [review app](/packages/city-frontend-review).
 
   - `config/`
 

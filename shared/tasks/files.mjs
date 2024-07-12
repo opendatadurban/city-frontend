@@ -1,10 +1,10 @@
 import { mkdir, writeFile } from 'fs/promises'
 import { dirname, join, parse } from 'path'
 
-import config from '@govuk-frontend/config'
+import config from '@city-frontend/config'
 
 /**
- * Write `packages/govuk-frontend/package.json` version to file
+ * Write `packages/city-frontend/package.json` version to file
  *
  * @param {AssetEntry[0]} assetPath - File path to asset
  * @param {Pick<AssetEntry[1], "destPath">} options - Asset options

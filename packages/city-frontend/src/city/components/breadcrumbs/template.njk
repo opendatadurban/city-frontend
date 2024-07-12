@@ -1,0 +1,30 @@
+{% from "../../macros/attributes.njk" import cityAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "city-breadcrumbs" -%}
+
+{% if params.classes %}
+  {% set classNames = classNames + " " + params.classes %}
+{% endif -%}
+
+{% if params.collapseOnMobile %}
+  {% set classNames = classNames + " city-breadcrumbs--collapse-on-mobile" %}
+{% endif -%}
+
+<nav class="{{ classNames }}" {{- cityAttributes(params.attributes) }} aria-label="{{ params.labelText | default("Breadcrumb") }}">
+  <ol class="city-breadcrumbs__list">
+{% for item in params.items %}
+  {% if item.href %}
+    <li class="city-breadcrumbs__list-item">
+      <a class="city-breadcrumbs__link" href="{{ item.href }}" {{- cityAttributes(item.attributes) }}>
+        {{- item.html | safe if item.html else item.text -}}
+      </a>
+    </li>
+  {% else %}
+    <li class="city-breadcrumbs__list-item" aria-current="page">
+      {{- item.html | safe if item.html else item.text -}}
+    </li>
+  {% endif %}
+{% endfor %}
+  </ol>
+</nav>

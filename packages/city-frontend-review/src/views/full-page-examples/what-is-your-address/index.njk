@@ -1,0 +1,112 @@
+---
+title: What is your home address?
+scenario: |
+  As part of an online service, you are asked to provide your address.
+
+  Things to try:
+
+  1. Intentionally avoid answering the questions before continuing to the next
+      page.
+---
+
+{# This example is based of the  "What is your home address?" example: https://design-system.service.gov.uk/patterns/addresses/multiple/index.html #}
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/back-link/macro.njk" import cityBackLink %}
+{% from "city/components/error-summary/macro.njk" import cityErrorSummary %}
+{% from "city/components/fieldset/macro.njk" import cityFieldset %}
+{% from "city/components/input/macro.njk" import cityInput %}
+{% from "city/components/button/macro.njk" import cityButton %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ "Error: " if errorSummary | length }}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBackLink({
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+      <form method="post" novalidate>
+        {% if errorSummary | length %}
+          {{ cityErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorSummary
+          }) }}
+        {% endif %}
+
+        {% call cityFieldset({
+          legend: {
+            text: "What is your address?",
+            classes: "city-fieldset__legend--xl",
+            isPageHeading: true
+          }
+        }) %}
+
+          {{ cityInput({
+            label: {
+              html: 'Building and street <span class="city-visually-hidden">line 1 of 2</span>'
+            },
+            id: "address-line-1",
+            name: "address-line-1",
+            value: values["address-line-1"],
+            errorMessage: errors["address-line-1"],
+            autocomplete: "address-line1"
+          }) }}
+
+          {{ cityInput({
+            label: {
+              html: '<span class="city-visually-hidden">Building and street line 2 of 2</span>'
+            },
+            id: "address-line-2",
+            name: "address-line-2",
+            value: values["address-line-2"],
+            autocomplete: "address-line2"
+          }) }}
+
+          {{ cityInput({
+            label: {
+              text: "Town or city"
+            },
+            classes: "city-!-width-two-thirds",
+            id: "address-town",
+            name: "address-town",
+            value: values["address-town"],
+            errorMessage: errors["address-town"]
+          }) }}
+
+          {{ cityInput({
+            label: {
+              text: "County"
+            },
+            classes: "city-!-width-two-thirds",
+            id: "address-county",
+            name: "address-county",
+            value: values["address-county"],
+            errorMessage: errors["address-county"]
+          }) }}
+
+          {{ cityInput({
+            label: {
+              text: "Postcode"
+            },
+            classes: "city-input--width-10",
+            id: "address-postcode",
+            name: "address-postcode",
+            value: values["address-postcode"],
+            errorMessage: errors["address-postcode"],
+            autocomplete: "postal-code"
+          }) }}
+
+        {% endcall %}
+
+        {{ cityButton({
+            text: "Continue"
+          }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+.app-prose-scope {
+  h1 {
+    @extend %city-heading-xl;
+  }
+
+  h2 {
+    @extend %city-heading-l;
+  }
+
+  h3 {
+    @extend %city-heading-m;
+  }
+
+  h4 {
+    @extend %city-heading-s;
+  }
+
+  p {
+    @extend %city-body-m;
+  }
+
+  strong,
+  b {
+    @include city-typography-weight-bold;
+  }
+
+  ul,
+  ol {
+    @extend %city-list;
+  }
+
+  ol {
+    @extend %city-list--number;
+  }
+
+  ul {
+    @extend %city-list--bullet;
+  }
+
+  a {
+    @extend %city-link;
+  }
+
+  hr {
+    @extend %city-section-break;
+    @extend %city-section-break--visible;
+    @extend %city-section-break--xl;
+  }
+
+  pre + h2 {
+    padding-top: city-spacing(4);
+  }
+
+  pre + h3,
+  pre + h4 {
+    padding-top: city-spacing(2);
+  }
+}

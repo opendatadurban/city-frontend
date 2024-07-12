@@ -1,4 +1,4 @@
-import { packageResolveToPath } from '@govuk-frontend/lib/names'
+import { packageResolveToPath } from '@city-frontend/lib/names'
 import { replacePathSepForRegex } from 'jest-regex-util'
 
 import jestPuppeteerConfig from './jest-puppeteer.config.js'
@@ -23,7 +23,7 @@ const config = {
 
   modulePathIgnorePatterns: [
     '<rootDir>/dist/',
-    '<rootDir>/packages/govuk-frontend/dist/'
+    '<rootDir>/packages/city-frontend/dist/'
   ],
 
   /**
@@ -78,7 +78,7 @@ const config = {
  * ```
  */
 export default {
-  collectCoverageFrom: ['./packages/govuk-frontend/src/**/*.{js,mjs}'],
+  collectCoverageFrom: ['./packages/city-frontend/src/**/*.{js,mjs}'],
   coverageProvider: 'v8',
 
   // Reduce CPU usage during project test runs
@@ -111,14 +111,14 @@ export default {
     {
       ...config,
       displayName: 'JavaScript behaviour tests',
-      testEnvironment: '@govuk-frontend/helpers/jest/environment/jsdom.mjs',
+      testEnvironment: '@city-frontend/helpers/jest/environment/jsdom.mjs',
       testMatch: ['**/*.jsdom.test.{js,mjs}'],
       setupFilesAfterEnv: ['@testing-library/jest-dom']
     },
     {
       ...config,
       displayName: 'JavaScript component tests',
-      testEnvironment: '@govuk-frontend/helpers/jest/environment/puppeteer.mjs',
+      testEnvironment: '@city-frontend/helpers/jest/environment/puppeteer.mjs',
       testMatch: [
         '**/*.puppeteer.test.{js,mjs}',
 
@@ -127,19 +127,19 @@ export default {
       ],
 
       // Web server and browser required
-      globalSetup: '@govuk-frontend/helpers/jest/browser/open.mjs',
-      globalTeardown: '@govuk-frontend/helpers/jest/browser/close.mjs'
+      globalSetup: '@city-frontend/helpers/jest/browser/open.mjs',
+      globalTeardown: '@city-frontend/helpers/jest/browser/close.mjs'
     },
     {
       ...config,
       displayName: 'Accessibility tests',
-      setupFilesAfterEnv: ['@govuk-frontend/helpers/jest/matchers.js'],
-      testEnvironment: '@govuk-frontend/helpers/jest/environment/puppeteer.mjs',
+      setupFilesAfterEnv: ['@city-frontend/helpers/jest/matchers.js'],
+      testEnvironment: '@city-frontend/helpers/jest/environment/puppeteer.mjs',
       testMatch: ['**/accessibility.puppeteer.test.mjs'],
 
       // Web server and browser required
-      globalSetup: '@govuk-frontend/helpers/jest/browser/open.mjs',
-      globalTeardown: '@govuk-frontend/helpers/jest/browser/close.mjs'
+      globalSetup: '@city-frontend/helpers/jest/browser/open.mjs',
+      globalTeardown: '@city-frontend/helpers/jest/browser/close.mjs'
     }
   ],
 

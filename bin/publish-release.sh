@@ -40,22 +40,22 @@ fi
 # ! npm team ls developers | grep -q $NPM_USER
 
 NPM_USER=$(npm whoami)
-if ! [ "govuk-patterns-and-tools" == "$NPM_USER" ]; then
+if ! [ "city-patterns-and-tools" == "$NPM_USER" ]; then
     echo "⚠️ FAILURE: You are not logged in with the correct user."
     exit 1
 fi
 
 echo "📦  Publishing package..."
 
-NPM_ARGS=( --workspace govuk-frontend )
+NPM_ARGS=( --workspace city-frontend )
 [ $NPM_TAG = "latest" ] || NPM_ARGS+=( --tag $NPM_TAG )
 
 # Try publishing
 npm publish "${NPM_ARGS[@]}"
 echo "🗒 Package published!"
 
-# Extract tag version from ./packages/govuk-frontend/package.json
-ALL_PACKAGE_VERSION=$(npm run version --silent --workspace govuk-frontend)
+# Extract tag version from ./packages/city-frontend/package.json
+ALL_PACKAGE_VERSION=$(npm run version --silent --workspace city-frontend)
 TAG="v$ALL_PACKAGE_VERSION"
 
 if [ $(git tag -l "$TAG") ]; then

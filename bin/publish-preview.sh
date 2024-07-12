@@ -2,7 +2,7 @@
 set -e
 
 CURRENT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-CURRENT_VERSION=$(npm run version --silent --workspace govuk-frontend)
+CURRENT_VERSION=$(npm run version --silent --workspace city-frontend)
 
 BRANCH_NAME="preview-$CURRENT_BRANCH_NAME"
 VERSION="$CURRENT_VERSION-$CURRENT_BRANCH_NAME"
@@ -27,24 +27,24 @@ npm run build:package
 
 # npm will try to install dev, optional and peer dependencies
 # when installing from a Git repository, which will error
-# when looking for our `@govuk-frontend/xyz@*` packages
+# when looking for our `@city-frontend/xyz@*` packages
 # pointing to the npm workspaces in our source
 echo "✍️ Remove dev dependencies"
-npm pkg delete devDependencies --workspace govuk-frontend
+npm pkg delete devDependencies --workspace city-frontend
 
 echo "✍️ Update package version"
-npm version $VERSION --allow-same-version --no-git-tag-version --workspace govuk-frontend
-git add packages/govuk-frontend/package.json
+npm version $VERSION --allow-same-version --no-git-tag-version --workspace city-frontend
+git add packages/city-frontend/package.json
 git add package-lock.json
 
 echo "✍️ Force commit package"
-git add --force packages/govuk-frontend/dist/
-git add --force packages/govuk-frontend/govuk-prototype-kit.config.json
+git add --force packages/city-frontend/dist/
+git add --force packages/city-frontend/city-prototype-kit.config.json
 git commit --allow-empty -m "Release GOV.UK Frontend 'v$VERSION' to '$BRANCH_NAME' for testing"
 
-# Create a local branch containing the packages/govuk-frontend directory
-echo "✨ Filter the branch to only the packages/govuk-frontend/ directory..."
-git filter-branch --force --subdirectory-filter packages/govuk-frontend
+# Create a local branch containing the packages/city-frontend directory
+echo "✨ Filter the branch to only the packages/city-frontend/ directory..."
+git filter-branch --force --subdirectory-filter packages/city-frontend
 
 # Force the push of the branch to the remote Github origin
 git push origin $BRANCH_NAME:$BRANCH_NAME --force
@@ -56,4 +56,4 @@ git checkout -
 BRANCH_COMMIT_SHA=$(git rev-parse --short $BRANCH_NAME)
 
 echo
-echo "✅ Success! To install the pushed branch release, run 'npm install --save \"alphagov/govuk-frontend#$BRANCH_COMMIT_SHA\"'"
+echo "✅ Success! To install the pushed branch release, run 'npm install --save \"alphagov/city-frontend#$BRANCH_COMMIT_SHA\"'"

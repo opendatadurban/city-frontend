@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "@govuk-frontend/config",
-  "description": "GOV.UK Frontend shared config",
+  "name": "@city-frontend/config",
+  "description": "City Frontend shared config",
   "main": "index.js",
   "engines": {
     "node": "^20.9.0",
@@ -9,6 +9,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "govuk-frontend": "*"
+    "city-frontend": "*"
   }
 }

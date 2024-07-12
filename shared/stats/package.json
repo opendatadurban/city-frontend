@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "@govuk-frontend/stats",
-  "description": "GOV.UK Frontend build stats",
+  "name": "@city-frontend/stats",
+  "description": "City Frontend build stats",
   "main": "src/index.mjs",
   "engines": {
     "node": "^20.9.0",
@@ -14,14 +14,14 @@
     "stats": "rollup --config rollup.config.mjs"
   },
   "dependencies": {
-    "@govuk-frontend/config": "*",
-    "@govuk-frontend/lib": "*",
+    "@city-frontend/config": "*",
+    "@city-frontend/lib": "*",
     "filesize": "^10.1.2"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "govuk-frontend": "*",
+    "city-frontend": "*",
     "rollup": "^4.18.0",
     "rollup-plugin-visualizer": "^5.12.0"
   }

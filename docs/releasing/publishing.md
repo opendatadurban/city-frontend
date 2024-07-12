@@ -30,29 +30,29 @@ Developers should pair on releases. When remote working, it can be useful to be 
 4. Pick a new version number according to the [versioning documentation](/docs/contributing/versioning.md) and apply it by running:
 
    ```shell
-   npm version --no-git-tag-version --workspace govuk-frontend <NEW VERSION NUMBER>
+   npm version --no-git-tag-version --workspace city-frontend <NEW VERSION NUMBER>
    ```
 
-   ...where `<NEW VERSION NUMBER>` is the literal number without a 'v' in front of it. This step will update [`govuk-frontend`'s `package.json`](/packages/govuk-frontend/package.json) and project [`package-lock.json`](/package-lock.json) files.
+   ...where `<NEW VERSION NUMBER>` is the literal number without a 'v' in front of it. This step will update [`city-frontend`'s `package.json`](/packages/city-frontend/package.json) and project [`package-lock.json`](/package-lock.json) files.
 
    Do not commit the changes.
 
 5. Create and check out a new branch (`release-[version]`)
 
    ```shell
-   git switch -c "release-$(npm run version --silent --workspace govuk-frontend)"
+   git switch -c "release-$(npm run version --silent --workspace city-frontend)"
    ```
 
 6. Update the [`CHANGELOG.md`](/CHANGELOG.md) by:
 
    - changing the 'Unreleased' heading to the new version number and release type. For example, '3.11.0 (Feature release)'
    - adding a new 'Unreleased' heading above the new version number and release type, so users will know where to add PRs to the changelog
-   - if the changelog has headings from [pre-releases](/docs/releasing/publishing-a-pre-release.md#publish-a-new-version-of-govuk-frontend), regroup the content under those headings in a single block
+   - if the changelog has headings from [pre-releases](/docs/releasing/publishing-a-pre-release.md#publish-a-new-version-of-city-frontend), regroup the content under those headings in a single block
    - saving your changes
 
 7. Run `npm run build-release` to:
 
-   - build GOV.UK Frontend into [the package's `/dist`](/packages/govuk-frontend/dist) and [root `/dist`](/dist) directories
+   - build GOV.UK Frontend into [the package's `/dist`](/packages/city-frontend/dist) and [root `/dist`](/dist) directories
    - commit the changes
    - push a branch to GitHub
 
@@ -74,7 +74,7 @@ Developers should pair on releases. When remote working, it can be useful to be 
    npm run build:package
    ```
 
-2. Sign in to npm (`npm login`), using the credentials for the **govuk-patterns-and-tools** npm user from Bitwarden.
+2. Sign in to npm (`npm login`), using the credentials for the **city-patterns-and-tools** npm user from Bitwarden.
 
 3. Run `npm run publish-release`, which will prompt you to check whether the npm tag looks as expected.
 
@@ -85,11 +85,11 @@ Developers should pair on releases. When remote working, it can be useful to be 
 
 5. You will now be prompted to continue or cancel the release. Check the details and enter `y` to continue. If something does not look right, press `N` to cancel the release.
 
-   This step will create a ZIP file containing the release in the root of your govuk-frontend git directory. You will need this file when creating the GitHub release.
+   This step will create a ZIP file containing the release in the root of your city-frontend git directory. You will need this file when creating the GitHub release.
 
    This step will also automatically create a tag in Github which you can use to create a Github release in the following section.
 
-6. Verify the presence of the release and its tag on [npm](https://www.npmjs.com/package/govuk-frontend?activeTab=versions)
+6. Verify the presence of the release and its tag on [npm](https://www.npmjs.com/package/city-frontend?activeTab=versions)
 
    If the release has been assigned the wrong tag (mistakes happen),
    you can use [`npm dist-tag`](https://docs.npmjs.com/cli/v8/commands/npm-dist-tag) to quickly correct.
@@ -97,7 +97,7 @@ Developers should pair on releases. When remote working, it can be useful to be 
 7. Have a quick look at the diff of the new package with the previous one at:
 
    ```txt
-   https://diff.intrinsic.com/govuk-frontend/<PREVIOUS_VERSION_NUMBER>/<RELEASED_VERSION_NUMBER>
+   https://diff.intrinsic.com/city-frontend/<PREVIOUS_VERSION_NUMBER>/<RELEASED_VERSION_NUMBER>
    ```
 
 8. Run `npm logout` to log out from npm in the command line. If you've logged in through your browser, remember to log out from <https://npmjs.com> there as well.
@@ -106,7 +106,7 @@ Developers should pair on releases. When remote working, it can be useful to be 
 
 To create a new GitHub release, do the following:
 
-1. Select the tag corresponding to the release in [the list of tags on GitHub](https://github.com/alphagov/govuk-frontend/tags)
+1. Select the tag corresponding to the release in [the list of tags on GitHub](https://github.com/alphagov/city-frontend/tags)
 2. Press **Create release from tag**
 3. Set 'GOV.UK Frontend v[version]' as the title
 4. Add release notes from [`CHANGELOG.md`](/CHANGELOG.md)

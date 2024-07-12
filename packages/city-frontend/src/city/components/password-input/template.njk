@@ -1,0 +1,91 @@
+{% from "../../macros/attributes.njk" import cityAttributes -%}
+{% from "../../macros/i18n.njk" import cityI18nAttributes -%}
+
+{% from "../button/macro.njk" import cityButton -%}
+{% from "../input/macro.njk" import cityInput -%}
+
+{% set attributesHtml -%}
+  {{- ' data-module="city-password-input"' | safe }}
+
+  {{- cityI18nAttributes({
+    key: 'show-password',
+    message: params.showPasswordText
+  }) -}}
+
+  {{- cityI18nAttributes({
+    key: 'hide-password',
+    message: params.hidePasswordText
+  }) -}}
+
+  {{- cityI18nAttributes({
+    key: 'show-password-aria-label',
+    message: params.showPasswordAriaLabelText
+  }) -}}
+
+  {{- cityI18nAttributes({
+    key: 'hide-password-aria-label',
+    message: params.hidePasswordAriaLabelText
+  }) -}}
+
+  {{- cityI18nAttributes({
+    key: 'password-shown-announcement',
+    message: params.passwordShownAnnouncementText
+  }) -}}
+
+  {{- cityI18nAttributes({
+    key: 'password-hidden-announcement',
+    message: params.passwordHiddenAnnouncementText
+  }) -}}
+{%- endset -%}
+
+{#- Append form group attributes onto attributes set above #}
+{%- for name, value in params.formGroup.attributes %}
+  {% set attributesHtml = attributesHtml + " " + name | escape + '="' + value | escape + '"' %}
+{% endfor -%}
+
+{%- set buttonHtml %}
+{{ cityButton({
+  type: "button",
+  classes: "city-button--secondary city-password-input__toggle city-js-password-input-toggle" + (" " + params.button.classes if params.button.classes),
+  text: params.showPasswordText | default("Show"),
+  attributes: {
+    "aria-controls": params.id,
+    "aria-label": params.showPasswordAriaLabelText | default("Show password"),
+    "hidden": {
+      value: true,
+      optional: true
+    }
+  }
+}) | trim }}
+{% if params.formGroup.afterInput %}
+  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif -%}
+{% endset -%}
+
+{{ cityInput({
+  formGroup: {
+    classes: "city-password-input" + (" " + params.formGroup.classes if params.formGroup.classes),
+    attributes: attributesHtml,
+    beforeInput: params.formGroup.beforeInput,
+    afterInput: {
+      html: buttonHtml
+    }
+  },
+  inputWrapper: {
+    "classes": "city-password-input__wrapper"
+  },
+  label: params.label,
+  hint: params.hint,
+  classes: "city-password-input__input city-js-password-input-input" + (" " + params.classes if params.classes),
+  errorMessage: params.errorMessage,
+  id: params.id,
+  name: params.name,
+  type: "password",
+  spellcheck: false,
+  autocapitalize: "none",
+  autocomplete: params.autocomplete if params.autocomplete else "current-password",
+  value: params.value,
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  attributes: params.attributes
+}) | trim }}

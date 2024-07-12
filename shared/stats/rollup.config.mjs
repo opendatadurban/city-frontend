@@ -1,7 +1,7 @@
 import { dirname, join, parse } from 'path'
 
-import { paths } from '@govuk-frontend/config'
-import { packageTypeToPath } from '@govuk-frontend/lib/names'
+import { paths } from '@city-frontend/config'
+import { packageTypeToPath } from '@city-frontend/lib/names'
 import resolve from '@rollup/plugin-node-resolve'
 import terser from '@rollup/plugin-terser'
 import { defineConfig } from 'rollup'
@@ -10,7 +10,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import { modulePaths, packageOptions } from './src/index.mjs'
 
 // Locate GOV.UK Frontend
-const packagePath = packageTypeToPath('govuk-frontend', packageOptions)
+const packagePath = packageTypeToPath('city-frontend', packageOptions)
 
 /**
  * Rollup config with stats output
@@ -19,7 +19,7 @@ export default defineConfig(
   modulePaths.map(
     (modulePath) =>
       /** @satisfies {import('rollup').RollupOptions} */ ({
-        input: packageTypeToPath('govuk-frontend', {
+        input: packageTypeToPath('city-frontend', {
           ...packageOptions,
           modulePath
         }),
@@ -39,7 +39,7 @@ export default defineConfig(
            * smaller than GOV.UK Frontend GitHub releases because classes,
            * functions and export names are mangled by Terser defaults
            *
-           * {@link file://./../../packages/govuk-frontend/rollup.release.config.mjs}
+           * {@link file://./../../packages/city-frontend/rollup.release.config.mjs}
            */
           plugins: [
             terser({

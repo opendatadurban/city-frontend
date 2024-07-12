@@ -1,0 +1,10 @@
+:root {
+  // This variable is automatically overwritten during builds and releases.
+  // It doesn't need to be updated manually.
+  --city-frontend-version: "development";
+
+  // CSS custom property for each breakpoint
+  @each $name, $value in $city-breakpoints {
+    --city-frontend-breakpoint-#{$name}: #{city-px-to-rem($value)};
+  }
+}

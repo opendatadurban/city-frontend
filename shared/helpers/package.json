@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "@govuk-frontend/helpers",
-  "description": "GOV.UK Frontend shared helpers",
+  "name": "@city-frontend/helpers",
+  "description": "City Frontend shared helpers",
   "main": "index.js",
   "exports": {
     ".": "./index.js",
@@ -15,10 +15,10 @@
   "license": "MIT",
   "devDependencies": {
     "@axe-core/puppeteer": "^4.9.1",
-    "@govuk-frontend/config": "*",
-    "@govuk-frontend/lib": "*",
+    "@city-frontend/config": "*",
+    "@city-frontend/lib": "*",
     "cheerio": "^1.0.0-rc.12",
-    "govuk-frontend": "*",
+    "city-frontend": "*",
     "jest-axe": "^9.0.0",
     "jest-dev-server": "^10.0.0",
     "jest-environment-jsdom": "^29.7.0",

@@ -1,0 +1,11 @@
+$city-prototype-kit-major-version: 0 !default;
+
+$city-assets-path: if(
+  $city-prototype-kit-major-version > 12,
+  $city-extensions-url-context + "/city-frontend/dist/city/assets/",
+  "/city/assets/"
+) !default;
+
+$city-global-styles: true !default;
+
+@import "../city/all";

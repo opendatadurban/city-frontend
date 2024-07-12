@@ -1,0 +1,187 @@
+@include city-exports("city/core/typography") {
+  // Headings
+
+  %city-heading-xl {
+    @include city-text-colour;
+    @include city-font($size: 48, $weight: bold);
+
+    display: block;
+
+    margin-top: 0;
+    @include city-responsive-margin(8, "bottom");
+  }
+
+  .city-heading-xl {
+    @extend %city-heading-xl;
+  }
+
+  %city-heading-l {
+    @include city-text-colour;
+    @include city-font($size: 36, $weight: bold);
+
+    display: block;
+
+    margin-top: 0;
+    @include city-responsive-margin(6, "bottom");
+  }
+
+  .city-heading-l {
+    @extend %city-heading-l;
+  }
+
+  %city-heading-m {
+    @include city-text-colour;
+    @include city-font($size: 24, $weight: bold);
+
+    display: block;
+
+    margin-top: 0;
+    @include city-responsive-margin(4, "bottom");
+  }
+
+  .city-heading-m {
+    @extend %city-heading-m;
+  }
+
+  %city-heading-s {
+    @include city-text-colour;
+    @include city-font($size: 19, $weight: bold);
+
+    display: block;
+
+    margin-top: 0;
+    @include city-responsive-margin(4, "bottom");
+  }
+
+  .city-heading-s {
+    @extend %city-heading-s;
+  }
+
+  // Captions to be used inside headings
+
+  .city-caption-xl {
+    @include city-font($size: 27);
+
+    display: block;
+
+    margin-bottom: city-spacing(1);
+
+    color: $city-secondary-text-colour;
+  }
+
+  .city-caption-l {
+    @include city-font($size: 24);
+
+    display: block;
+
+    margin-bottom: city-spacing(1);
+    color: $city-secondary-text-colour;
+
+    @include city-media-query($from: tablet) {
+      margin-bottom: 0;
+    }
+  }
+
+  .city-caption-m {
+    @include city-font($size: 19);
+
+    display: block;
+
+    color: $city-secondary-text-colour;
+  }
+
+  // Body (paragraphs)
+
+  %city-body-l {
+    @include city-text-colour;
+    @include city-font($size: 24);
+
+    margin-top: 0;
+    @include city-responsive-margin(6, "bottom");
+  }
+
+  .city-body-l {
+    @extend %city-body-l;
+  }
+
+  %city-body-m {
+    @include city-text-colour;
+    @include city-font($size: 19);
+
+    margin-top: 0;
+    @include city-responsive-margin(4, "bottom");
+  }
+
+  .city-body-m {
+    @extend %city-body-m;
+  }
+
+  %city-body-s {
+    @include city-text-colour;
+    @include city-font($size: 16);
+
+    margin-top: 0;
+    @include city-responsive-margin(4, "bottom");
+  }
+
+  .city-body-s {
+    @extend %city-body-s;
+  }
+
+  // @deprecated
+  %city-body-xs {
+    @include city-text-colour;
+    @include city-font($size: _14);
+
+    margin-top: 0;
+    @include city-responsive-margin(4, "bottom");
+  }
+
+  // @deprecated
+  .city-body-xs {
+    @extend %city-body-xs;
+  }
+
+  // Usage aliases
+
+  // Using extend to alias means we also inherit any contextual adjustments that
+  // refer to the 'original' class name
+
+  .city-body-lead {
+    @extend %city-body-l;
+  }
+
+  .city-body {
+    @extend %city-body-m;
+  }
+
+  // Contextual adjustments
+  // Add top padding to headings that appear directly after paragraphs.
+
+  %city-body-l + %city-heading-l {
+    padding-top: city-spacing(1);
+
+    @include city-media-query($from: tablet) {
+      padding-top: city-spacing(2);
+    }
+  }
+
+  %city-body-m + %city-heading-l,
+  %city-body-s + %city-heading-l,
+  %city-list + %city-heading-l {
+    @include city-responsive-padding(4, "top");
+  }
+
+  %city-body-m + %city-heading-m,
+  %city-body-s + %city-heading-m,
+  %city-list + %city-heading-m,
+  %city-body-m + %city-heading-s,
+  %city-body-s + %city-heading-s,
+  %city-list + %city-heading-s {
+    padding-top: city-spacing(1);
+
+    @include city-media-query($from: tablet) {
+      padding-top: city-spacing(2);
+    }
+  }
+}

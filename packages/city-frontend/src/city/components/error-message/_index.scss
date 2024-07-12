@@ -1,0 +1,12 @@
+@include city-exports("city/component/error-message") {
+  .city-error-message {
+    @include city-font($size: 19, $weight: bold);
+
+    display: block;
+    margin-top: 0; // Reset any default browser margins for paragraphs
+    margin-bottom: city-spacing(3);
+    clear: both;
+
+    color: $city-error-colour;
+  }
+}

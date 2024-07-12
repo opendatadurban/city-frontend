@@ -35,7 +35,7 @@ Whenever we decide to make a breaking change we must ensure we do our best to [m
 
 ## Proposal
 
-Some breaking changes that need discussion may first be proposed in the [GOV.UK Design System architecture repository](https://github.com/alphagov/govuk-design-system-architecture/blob/main/proposals/README.md).
+Some breaking changes that need discussion may first be proposed in the [GOV.UK Design System architecture repository](https://github.com/alphagov/city-design-system-architecture/blob/main/proposals/README.md).
 
 This is to ensure the community can get involved with the decision.
 
@@ -59,7 +59,7 @@ This includes:
 
 ### npm package
 
-The other primary way is through what is [published to npm](/packages/govuk-frontend).
+The other primary way is through what is [published to npm](/packages/city-frontend).
 
 This includes:
 

@@ -1,0 +1,80 @@
+@import "city/base";
+@import "city/core";
+
+.app-header--campaign {
+  padding-bottom: city-spacing(2);
+  border-bottom: $city-border-width-wide solid #fff500;
+}
+
+.app-header--campaign .city-header__container {
+  border-bottom: none;
+}
+
+.app-covid-banner-top {
+  padding-bottom: city-spacing(4);
+  background-color: city-colour("black");
+}
+
+.app-covid-banner-top .city-heading-xl {
+  padding-top: city-spacing(2);
+  color: city-colour("white");
+}
+
+.app-covid-banner-bottom {
+  margin-bottom: city-spacing(6);
+  padding: city-spacing(3) 0 city-spacing(1);
+  background-color: #272828;
+}
+
+.app-covid-banner-bottom .city-body,
+.app-covid-banner-bottom .city-heading-m {
+  color: city-colour("white");
+}
+
+.app-covid-banner-top .city-breadcrumbs__link {
+  @include city-link-style-inverse;
+}
+
+.app-cta-link {
+  @include city-font($size: 19, $weight: bold);
+}
+
+.app-section {
+  padding: city-spacing(3) 0;
+  border-top: 2px solid city-colour("black");
+}
+
+.app-updates {
+  margin-bottom: city-spacing(8);
+  padding: city-spacing(4) city-spacing(4) city-spacing(2);
+  border: 1px solid $city-border-colour;
+  background-color: city-colour("light-grey");
+}
+
+.app-nhs-box {
+  margin-bottom: city-spacing(4);
+  padding: city-spacing(4);
+  border: $city-border-width solid city-colour("black");
+}
+
+.app-danger-box {
+  padding: city-spacing(6) city-spacing(5);
+  border-left: solid #fff500;
+  border-width: 0 0 0 10px;
+  border-image: repeating-linear-gradient(
+      25deg,
+      transparent 0,
+      #fff500 1px,
+      #fff500 10px,
+      transparent 11px,
+      transparent 20px
+    )
+    25;
+  color: city-colour("white");
+  background-color: #272828;
+}
+
+.app-danger-box .city-body,
+.app-danger-box .city-heading-m {
+  color: city-colour("white");
+}

@@ -1,15 +1,15 @@
 {
   "private": true,
-  "name": "@govuk-frontend/workflow-scripts",
-  "description": "GOV.UK Frontend GitHub Actions workflow scripts",
+  "name": "@city-frontend/workflow-scripts",
+  "description": "City Frontend GitHub Actions workflow scripts",
   "engines": {
     "node": "^20.9.0",
     "npm": "^10.1.0"
   },
   "license": "MIT",
   "devDependencies": {
-    "@govuk-frontend/lib": "*",
-    "@govuk-frontend/stats": "*",
+    "@city-frontend/lib": "*",
+    "@city-frontend/stats": "*",
     "outdent": "^0.8.0"
   }
 }

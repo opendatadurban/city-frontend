@@ -1,0 +1,38 @@
+{% from "city/components/exit-this-page/macro.njk" import cityExitThisPage %}
+{% from "city/components/skip-link/macro.njk" import citySkipLink %}
+
+{% extends "layouts/examples.njk" %}
+
+{% block skipLink %}
+  {{ super() }}
+  {{ citySkipLink({
+    href: "https://www.gov.uk/",
+    text: "Exit this page",
+    classes: "city-js-exit-this-page-skiplink",
+    attributes: {
+      rel: "nofollow noreferrer"
+    }
+  }) }}
+{% endblock %}
+
+{% block content %}
+  {{ cityExitThisPage({
+    redirectUrl: "https://www.gov.uk/"
+  }) }}
+{% endblock %}
+
+{% block bodyEnd %}
+  <script type="module" src="/javascripts/city-frontend.min.js"></script>
+  <script type="module">
+    import { ExitThisPage, SkipLink } from '/javascripts/city-frontend.min.js'
+
+    const $skipLinks = document.querySelectorAll('[data-module="city-skip-link"]')
+    const $exitThisPage = document.querySelector('[data-module="city-exit-this-page"]')
+
+    $skipLinks.forEach(($skipLink) => {
+      new SkipLink($skipLink)
+    })
+
+    new ExitThisPage($exitThisPage)
+  </script>
+{% endblock %}

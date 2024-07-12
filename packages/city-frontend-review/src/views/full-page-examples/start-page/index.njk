@@ -1,0 +1,123 @@
+---
+title: Apply online for a UK passport
+scenario: |
+  You want to apply for a passport.
+
+  Things to try:
+
+  1. Find out other ways to apply
+
+notes: The buttons and links on this page are not functional.
+---
+
+{# This example is based of the live "Apply online for a UK passport" start page: https://www.gov.uk/apply-renew-passport #}
+{% extends "layouts/full-page-example.njk" %}
+
+{% from "city/components/breadcrumbs/macro.njk" import cityBreadcrumbs %}
+{% from "city/components/button/macro.njk" import cityButton %}
+{% from "city/components/tabs/macro.njk" import cityTabs %}
+
+{% set pageTitle = example.title %}
+{% block pageTitle %}{{ pageTitle }} - GOV.UK{% endblock %}
+
+{% block beforeContent %}
+  {{ cityBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "Passports, travel and living abroad",
+        href: "#/browse/abroad"
+      },
+      {
+        text: "Passports",
+        href: "#/browse/abroad/passports"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="city-grid-row">
+    <div class="city-grid-column-two-thirds">
+      <h1 class="city-heading-xl">{{ pageTitle }}</h1>
+
+      <p class="city-body">You can apply for, renew, replace or update your passport and pay for it online.</p>
+
+      {{ cityButton({
+        text: "Start now",
+        href: "#",
+        classes: "city-!-margin-top-2 city-!-margin-bottom-8",
+        isStartButton: true
+      }) }}
+
+      {% set moreInformationHTML %}
+        <p class="city-body">You’ll need a debit or credit card to use this service.</p>
+
+        <p class="city-body"><a class="city-link" href="#">It’s £9.50 cheaper</a> to apply for a passport online than by post.</p>
+
+        <p class="city-body">It should take around 6 weeks to get your first UK adult passport, but it can take longer.</p>
+
+        <p class="city-body">All other application types (for example, renewing a passport or getting a child passport) should take 3 weeks. It can take longer if more information is needed or your application hasn’t been filled out correctly.</p>
+
+        <p class="city-body">You should use a different service if you <a class="city-link" href="#">need your passport urgently</a>.</p>
+      {% endset %}
+
+      {% set otherWaysToApplyHTML %}
+        <p class="city-body">You can pick up passport application forms from your <a class="city-link" rel="external" href="http://www.postoffice.co.uk/branch-finder">local Post Office</a> and apply by post, or use the <a class="city-link" href="#">Post Office Check and Send service</a>.</p>
+      {% endset %}
+
+      {{ cityTabs({
+        items: [
+          {
+            label: "More information",
+            id: "more-information",
+            panel: {
+              html: moreInformationHTML
+            }
+          },
+          {
+            label: "Other ways to apply",
+            id: "other-ways-to-apply",
+            panel: {
+              html: otherWaysToApplyHTML
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    <div class="city-grid-column-one-third">
+
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+      <aside class="app-related-items">
+        <h2 class="city-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav aria-labelledby="subsection-title">
+          <ul class="city-list city-!-font-size-16">
+            <li class="gem-c-related-navigation__link">
+              <a class="city-link" href="#/get-a-passport-urgently">Get a passport urgently</a>
+            </li>
+            <li class="gem-c-related-navigation__link">
+              <a class="city-link" href="#/renew-adult-passport">Renew or replace your adult passport</a>
+            </li>
+            <li class="gem-c-related-navigation__link">
+              <a class="city-link" href="#/passport-fees">Passport fees</a>
+            </li>
+            <li class="gem-c-related-navigation__link">
+              <a class="city-link" href="#/government/news/need-to-renew-your-british-passport-go-online">Need to renew your British passport? Go online</a>
+            </li>
+            <li class="gem-c-related-navigation__link">
+              <a class="city-link" href="#/government/news/changes-to-passport-applications-for-british-nationals-living-abroad">Changes to passport applications for British nationals living abroad</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

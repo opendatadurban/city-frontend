@@ -1,0 +1,132 @@
+@include city-exports("city/component/tabs") {
+  .city-tabs {
+    @include city-responsive-margin(1, "top");
+    @include city-responsive-margin(6, "bottom");
+    @include city-font($size: 19);
+  }
+
+  .city-tabs__title {
+    // Set the size and weight again because this element is a heading and the
+    // user agent font size overrides the inherited font size
+    @include city-font-size($size: 19);
+    @include city-typography-weight-regular;
+    @include city-text-colour;
+    margin-bottom: city-spacing(2);
+  }
+
+  .city-tabs__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include city-responsive-margin(6, "bottom");
+  }
+
+  .city-tabs__list-item {
+    margin-left: city-spacing(5);
+
+    &::before {
+      @include city-text-colour;
+      content: "\2014 "; // "— "
+      margin-left: city-spacing(-5);
+      padding-right: city-spacing(1);
+    }
+  }
+
+  .city-tabs__tab {
+    @include city-link-common;
+    @include city-link-style-default;
+
+    display: inline-block;
+    margin-bottom: city-spacing(2);
+  }
+
+  .city-tabs__panel {
+    @include city-responsive-margin(8, "bottom");
+  }
+
+  // GOV.UK Frontend JavaScript enabled
+  .city-frontend-supported {
+    @include city-media-query($from: tablet) {
+      .city-tabs__list {
+        @include city-clearfix;
+        margin-bottom: 0;
+        border-bottom: 1px solid $city-border-colour;
+      }
+
+      .city-tabs__title {
+        display: none;
+      }
+
+      .city-tabs__list-item {
+        position: relative;
+
+        margin-right: city-spacing(1);
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: city-spacing(2) city-spacing(4);
+
+        float: left;
+        background-color: city-colour("light-grey");
+        text-align: center;
+
+        &::before {
+          content: none;
+        }
+      }
+
+      .city-tabs__list-item--selected {
+        $border-width: 1px;
+
+        position: relative;
+
+        margin-top: city-spacing(-1);
+
+        // Compensation for border (otherwise we get a shift)
+        margin-bottom: -$border-width;
+        padding-top: city-spacing(3) - $border-width;
+        padding-right: city-spacing(4) - $border-width;
+        padding-bottom: city-spacing(3) + $border-width;
+        padding-left: city-spacing(4) - $border-width;
+
+        border: $border-width solid $city-border-colour;
+        border-bottom: 0;
+
+        background-color: $city-body-background-colour;
+
+        .city-tabs__tab {
+          text-decoration: none;
+        }
+      }
+
+      .city-tabs__tab {
+        @include city-link-style-text;
+
+        margin-bottom: 0;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .city-tabs__panel {
+        @include city-responsive-margin(0, "bottom");
+        padding: city-spacing(6) city-spacing(4);
+        border: 1px solid $city-border-colour;
+        border-top: 0;
+
+        & > :last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .city-tabs__panel--hidden {
+        display: none;
+      }
+    }
+  }
+}
