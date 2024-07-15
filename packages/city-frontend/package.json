@@ -1,7 +1,7 @@
 {
   "name": "city-frontend",
   "description": "GOV.UK Frontend contains the code you need to start building a user interface for government platforms and services.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/city/all.bundle.js",
   "module": "dist/city/all.mjs",
   "sass": "dist/city/all.scss",
