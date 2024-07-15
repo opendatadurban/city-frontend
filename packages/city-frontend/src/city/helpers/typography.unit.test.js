@@ -78,7 +78,7 @@ describe('@mixin city-typography-common', () => {
     })
 
     await expect(results).resolves.toMatchObject({
-      css: expect.stringContaining('font-family: "GDS Transport"')
+      css: expect.stringContaining('font-family: "Montserrat"')
     })
   })
 
